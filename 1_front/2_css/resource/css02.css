@@ -1,0 +1,115 @@
+/* 타입(태그) 선택자 */
+
+h1
+{
+    text-align: right;
+    color: blue;
+}
+
+pre {text-align: center;}
+
+
+/* ID 선택자 */
+#sid01
+{
+    color: green;
+}
+
+#sid02
+{
+    color: skyblue;
+}
+
+#sid03
+{
+    color: rebeccapurple;
+}
+
+#sclsid
+{
+    color: black;
+}
+
+/* class 선택자 */
+.scls
+{
+    color: pink;
+}
+
+.scls01
+{
+    background-color: black;
+}
+
+/* 전체 선택자 */
+/* *
+{
+    text-align: right;
+    margin: 0;
+    padding: 0;
+} */
+
+/* 자식 선택자 */
+/* 선택자 > 선택자 */
+#at > p {color: orange;}
+
+/* 인접 선택자(동위 선택자) */
+/* 선택자 + 선택자 */
+h3 + b
+{
+    background-color: black;
+    color: white;
+}
+span + b
+{
+    background-color: yellow;
+    color: magenta;
+}
+
+/* 속성 선택자 */
+/* [] */
+p[name]
+{
+    color: skyblue;
+}
+p[name="b"]
+{
+    background: black;
+}
+
+/* 가상클래스 선택자 */
+a:link{
+    color: pink;
+    font-size: 20pt;
+}
+a:hover{
+    background-color: purple;
+}
+a:active{
+    color: brown;
+}
+input:checked{
+    width: 200px;
+    height: 200px;
+}
+
+/* 종속 선택자 */
+li.acls01{
+    background-color: greenyellow;
+}
+li.acls02#sidli{
+    font-size: 30px;
+}
+
+/* 하위 선택자 */
+/* 한칸 띄어쓰기 */
+/* 자손 선택자와 혼동하지 않을 것!! */
+div span{
+    background-color: brown;
+}
+
+/* 그룹 선택자 */
+/* , */
+p, pre, strong{
+    color: lime;
+}

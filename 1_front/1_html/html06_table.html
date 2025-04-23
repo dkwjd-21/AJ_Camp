@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- table 태그 <table><tr><th><td> 
+        <table> : 기본적인 표를 생성해주는 태그 / 표 전체를 감싸는 태그
+        <tr> : 표의 행(row)을 나타내는 태그 / table row
+        <th> : 표의 제목 셀을 나타내는 태그 / table header 
+        <td> : 표의 일반 셀을 나타내는 태그 / table data
+    -->
+    <h2>기본 테이블 생성</h2>
+    
+    <table border="1" style="width: 300px;">
+        <tr>
+            <th>제목1</th>
+            <th>제목2</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
+
+    <!-- horizontal rule (수평선) -->
+    <hr> 
+
+    <table border="1">
+        <caption>테이블 제목</caption>
+        <!-- colgroup : 표(<table>)의 열 그룹을 정의. 주로 열의 스타일을 일괄 지정할 때 사용 -->
+        <colgroup>
+            <!-- col : 각 열의 속성을 정의. 폭(width), 배경색(style) 등을 설정 가능 -->
+            <col width="100px"/>
+            <col width="200px"/>
+            <col width="300px"/>
+        </colgroup>
+        <!-- thead : 표의 헤더 행들을 그룹으로 묶어줌 -->
+        <thead>
+            <tr>
+                <th>컬럼01</th>
+                <th>컬럼02</th>
+                <th>컬럼03</th>
+            </tr>
+        </thead>
+        <!-- tbody : 실제 데이터(내용)를 담는 영역 -->
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+        </tbody>
+        <!-- tfoot : 표의 합계, 요약, 비고 등 마무리 정보를 담는 영역 -->
+        <tfoot>
+            <tr>
+                <td>f1</td>
+                <td>f2</td>
+                <td>f3</td>
+            </tr>
+        </tfoot>        
+    </table>
+
+    <hr>
+    <h2>테이블 병합</h2>
+    <!-- 
+        진짜 병합이라기 보다는 차지하는 면적을 넓혀서 병합된 것처럼 보이게 함
+        colspan : 열을 합치기
+        rowspan : 행을 합치기
+    -->
+    <table border="1">
+        <caption>병합 테이블</caption>
+        <thead>
+            <tr>
+                <th>컬럼1</th>
+                <th>컬럼2</th>
+                <th>컬럼3</th>
+                <th>컬럼4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>   
+                <!-- row를 두줄 차지해버림 -->
+                <td rowspan="2">1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td colspan="2">6</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td colspan="4">9</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

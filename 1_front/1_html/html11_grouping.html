@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            border: 1px dashed red;
+            margin: 10px;
+        }
+
+        #body
+        {
+            height: 400px;
+        }
+
+        #content
+        {
+            height: 90%;
+            width: 60%;
+            float: left;
+        }
+
+        #aside 
+        {
+            height: 90%;
+            width: 30%;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        시맨틱 태그와 화면구조
+        header : 제목, 로고, 아이콘 ...
+        nav : 탐색링크
+        section : 콘텐츠를 주제별로 묶고 싶을 경우 
+        article : 독립적으로 사용할 수 있는 내용 (컨텐츠)
+        aside : 광고나 메인 컨텐츠와 상관없는 내용을 정의
+        footer : 저자, 저작권, 연락처 등을 정의
+    -->
+        
+    <div id="header">
+        <h1>제목</h1>
+        <div>
+            <span><a href="">메뉴 1</a></span>
+            <span><a href="">메뉴 2</a></span>
+            <span><a href="">메뉴 3</a></span>
+            <span><a href="">메뉴 4</a></span>
+            <span><a href="">메뉴 5</a></span>
+        </div>
+    </div>
+    <hr>
+    <div id="body">
+        <div id="content">
+            <div>컨텐츠1</div>
+            <div>컨텐츠2</div>
+            <div>컨텐츠3</div>
+        </div>            
+        <div id="aside">광고</div>
+    </div>
+    <hr>
+    <div id="footer">
+        <p>copyright &copy; all rights reserved...</p>
+    </div>
+
+
+</body>
+</html>

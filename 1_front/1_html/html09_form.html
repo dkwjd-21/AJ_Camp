@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>폼 관련 태그</h1>
+    <!-- 
+        form 태그는 html에서 사용자가 입력할 수 있는 양식을 제공 하는 태그
+
+        form 태그 내의 input이라는 태그를 이용하여 사용자가 입력한 정보를 서버로 전달하는 역할도 한다.
+        * action 속성 : 입력된 값들을 데이터를 어디로 전달할지 설정
+        * mathod 속성 : get/post 등과 같이 어떤 방식으로 데이터를 전달할지 설정
+    -->
+    <form>
+        <!-- 
+            defalut : get 방식으로 데이터 전달 
+            검색 submint시 URL에 ?가 붙음 
+        -->
+        검색할 내용 : <input type="text" name="search"> &nbsp; 
+        <input type="submit" value="검색">
+    </form>
+    <!-- submit 버튼을 클릭했을 때 form의 action이라는 속성에 지정한 경로로
+         method라는 속성에 설정한 방식으로 input 태그의 값을 전달한다. -->
+    <hr>
+    <form>
+        <fieldset>
+            <legend>필드셋의 제목을 작성하는 부분</legend>
+            <label>입력 1 : </label><input type="text"><br>
+            <label>입력 2 : </label><input type="text"><br>
+            <label>입력 3 : </label><input type="text"><br>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>필드셋으로 묶은 영역별로 구분</legend>
+            <label>입력 1 : </label><input type="text"><br>
+            <label>입력 2 : </label><input type="text"><br>
+            <label>입력 3 : </label><input type="text"><br>
+        </fieldset>
+    </form>
+
+    <hr>
+    <form>
+        <h2>text와 관련된 input 태그</h2>
+        <p>type="text"</p>
+        <p>- 한 줄 짜리 텍스트 입력 할 수 있는 텍스트 박스</p>
+        I D : <input type="text" name="userid" placeholder="아이디를 입력하세요" 
+                maxlength="5" value="Yuri", size="5" autofocus>
+        <p>type="password</p>
+        <p>- 비밀번호를 입력할 수 있는 텍스트 박스</p>
+        P W : <input type="password" name="userpw" placeholder="비밀번호를 입력하세요"
+                maxlength="15" size="15">
+        <br>
+        <!-- form 내부에 있어야 해당하는 input을 submit하게 됨 -->
+        <p>"search", "email" ...</p>
+        <p>- 겉모습은 type="text"와 유사. 각각의 정보에 맞게 분화된 기능을 제공하는 텍스트 상자</p>
+        검색 : <input type="search" name="searchtxt" placeholder="검색할 내용 입력"><br> 
+        이메일 : <input type="email" name="email"><br>
+        전화번호 : <input type="tel" name="tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br>
+        <input type="submit" value="확인">
+    </form>
+    
+    <br><hr><br>
+    <form>
+        <h2>숫자와 관련된 input 태그</h2>
+        <h3>"number", "range"</h3>
+        <p>number - 입력창에 숫자 입력</p>
+        수량 : <input type="number" min="0" max="100" step="5" value="0"><br>
+        
+        <p>range - 슬라이드 바를 통해 숫자 지정</p>
+        점수 : <input type="range" min="0" max="100" value="50" name="score"><br>
+
+        <input type="submit" value="ok">
+    </form>
+
+    <br><hr><br>
+    <form>
+        <h2>날짜/시간과 관련된 input</h2>
+        <h3>"date"</h3>
+        date : <input type="date" name="date"><br>
+        month : <input type="month" name="month"><br>
+        week : <input type="week" name="week"><br>
+        time : <input type="time" name="time"><br>
+        datetime-local : <input type="datetime-local" name="datetime-local"><br>
+        <input type="submit" value="ok">        
+    </form>
+
+    <br><br><br>
+    <form>
+        <h2>라디오버튼, 체크박스</h2>
+        <h3>"radio"</h3>
+        사이즈 : <input type="radio" name="size" value="S">Small &nbsp; &nbsp;
+                <input type="radio" name="size" value="M" checked>Medium &nbsp; &nbsp;
+                <input type="radio" name="size" value="L">Large
+        <h3>"checkbox"</h3>
+        추가토핑 : <input type="checkbox" name="topping" value="d" id="ddeok"><label for="ddeok">떡</label> &nbsp;
+                  <input type="checkbox" name="topping" value="o" id="odeng" checked><label for="odeng">오뎅</label> &nbsp;
+                  <input type="checkbox" name="topping" value="c" id="cheese"><label for="cheese">치즈</label> &nbsp;
+                  <input type="checkbox" name="topping" value="b" id="boonmoza"><label for="boonmoza">분모자</label> 
+        <br>
+        <input type="submit" value="Ok">  
+    </form>
+    
+    <br><hr><br>
+    <form>
+        <h2>그 밖에 input 태그들 ...</h2>
+        <h3>"color"</h3>
+        색상선택 : <input type="color" name="color"><br>
+        파일선택 : <input type="file" name="file"><br>
+        안보임 : <input type="hidden" name="hiddenval" value="1">
+        <h3>"button"</h3>
+        <input type="button" value="button">
+        <br>
+        <input type="submit" value="Ok"> &nbsp; <input type="reset" value="취소">
+    </form>
+    <button>버튼</button>
+
+    <br><hr><br>
+
+    <!-- 
+        select태그와 option태그 
+        사용자가 내용을 입력하는 것이 아닌 여러 항목 중에서 선택하게 하고 싶을 때
+        dropdown 형식
+    -->
+    <form>
+        <h3>기본 select & option 태그</h3>
+        나라 :
+        <select name="nation">
+            <option value="korea">한국</option>
+            <option value="japan">일본</option>
+            <option value="china">중국</option>
+            <option value="USA">미국</option>
+            <option value="UK">영국</option>
+        </select>
+        <h3>select 태그의 속성</h3>
+        <select size="3" multiple>
+            <option value="korea">한국</option>
+            <option value="japan">일본</option>
+            <option value="china">중국</option>
+            <option value="USA">미국</option>
+            <option value="UK">영국</option>
+        </select>
+        <br>
+        <input type="submit" value="Ok">
+    </form>
+
+    <br><hr><br>
+    <!-- textarea 태그 -->
+    <h2>textarea 태그</h2>
+    <p>input의 type="text"와 비슷하지만 여러 줄의 텍스트를 입력할 수 있다.</p>
+    <form>
+        <textarea name="content" cols="30" rows="5" style="resize: none;"></textarea>
+    </form>
+</body>
+</html>
