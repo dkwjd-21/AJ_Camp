@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { width: 1000px; }
+        header { height: 100px; background-color: palegoldenrod; }
+
+        img { width: 100px; height: 50px; margin-left: 10px;
+            float: left; position: relative; top: 25px;}
+        h1 { position: relative; left: 30%; top: 25px;}
+
+        #rogin { float: right; width: 230px; padding: 5px; margin: 0px;
+                height: 80px; position: relative; top: -63px; background-color: aqua;}
+        #id { float: left; margin: 0px;}
+        #pw { float: left; margin: 0px;}
+        .rogin { float: right; margin-top: 3px;}
+        .submit { margin-top: 5px; }
+
+
+        ul { list-style: none; height: 50px; background-color: rebeccapurple;}
+        li { float: left; margin-left: 80px;
+                padding-top: 12px; font-weight: bold;}
+
+        #content
+        {
+            background-color: gray;
+            height: 400px;
+            margin-bottom: 0px;
+        }
+
+        footer
+        {
+            background-color: skyblue;
+            height: 100px;
+            margin-top: 0px;
+        }
+        footer p 
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./resource/IMG_1.png">
+        <h1>MYMain</h1>
+        <div id="rogin">
+            <p id="id">아이디</p>
+            <input type="text" name="id" class="rogin" size="20">
+            <br>
+            <p id="pw">패스워드</p>
+            <input type="text" name="pw" class="rogin" size="20">
+            <br>
+            <input type="submit" value="로그인" class="submit">
+            <input type="submit" value="취소" class="submit">
+        </div>
+    </header>
+    
+    <div>
+        <ul>
+            <li>메인</li>
+            <li>공지사항</li>
+            <li>자유게시판</li>
+            <li>갤러리</li>
+            <li>회원관리</li>
+            <li>채팅하기</li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <p>content내용</p>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 
+            1998-2019 multi information Educational Institute All Right Reserved</p>
+    </footer>
+</body>
+</html>
