@@ -4,8 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        form
+        {
+            width: 400px;
+            background-color: pink;
+            border-radius: 15px;
+            padding: 10px 30px;
+        }
+        .step
+        {
+            font-weight: bold;
+            font-size: large;
+            margin-bottom: 10px;
+        }
+
+        #step1 div, #step2 div, #step3 div
+        {
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px white solid;
+            margin: 3px 0px;
+            border-radius: 10px;
+            height: 40px;
+        }
+
+        .text
+        {
+            float: left; 
+            margin-left: 20px; 
+            font-weight: bold;
+            margin: 10px 20px;
+        }
+        .input
+        {
+            float: right;
+            margin: 10px 25px;
+        }
+        input[type="range"]
+        {
+            margin: 10px 10px;
+        }
+
+        input[type="submit"]
+        {
+            border-radius: 30px;
+            margin: 15px 0px;
+            width: 80px;
+            height: 30px;
+            border: none;
+            color: white;
+            background-color: palevioletred;
+        }
+        input[type="submit"]:hover
+        {
+            background-color: brown;
+            cursor: pointer;
+        }
+
+    </style>
 </head>
 <body>
-    
+    <h1>CSS3</h1>
+    <form id="main">
+        <div id="step1">
+            <p class="step">Step 1: 로그인 정보</p>
+            <div id="id">
+                <p class="text">아이디</p>
+                <input type="text" name="id" class="input">
+            </div>
+            <div id="pw1">
+                <p class="text">비밀번호</p>
+                <input type="password" name="pw1" class="input">
+            </div>
+            <div id="pw2">
+                <p class="text">비밀번호 확인</p>
+                <input type="password" name="pw2" class="input">
+            </div>
+            <div id="grade">
+                <p class="text">회원 등급</p>
+                <input type="text" name="grade" value="준회원" class="input">
+            </div>
+        </div>
+        <div id="step2">
+            <p class="step">Step 2: 개인정보</p>
+            <div id="name">
+                <p class="text">이름</p>
+                <input type="text" name="name" 
+                       placeholder="5자미만 공백없이" maxlength="5" class="input">
+            </div>
+            <div id="mail">
+                <p class="text">메일 주소</p>
+                <input type="email" name="email" 
+                       placeholder="abcd@domain.com" class="input">
+            </div>
+            <div id="tel">
+                <p class="text">연락처</p>
+                <input type="tel" name="tel" class="input">
+            </div>
+        </div>
+        <div id="step3">
+            <p class="step">Step 3: 코딩 숙련도(상, 중, 하)</p>
+            <div>
+                <input type="range" min="0" max="2" value="1" name="score">
+            </div>
+            
+        </div> 
+        <input type="submit" value="제출">       
+    </form>
 </body>
 </html>
