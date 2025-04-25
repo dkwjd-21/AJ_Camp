@@ -5,33 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body { width: 1100px; }
+        body { width: 1024px; }
+
         header { height: 120px; }
+        .logo { float: left; margin: 35px 10px;}
+        .logo > img { width: 100px; height: 50px;}
+        header > h1 { float: left; margin: 35px 0px 35px 25%;}
+        .login { float: right; margin: 17px 10px;}
 
-        img { width: 100px; height: 50px; margin-left: 10px;
-            float: left; position: relative; top: 25px;}
-        h1 { position: relative; left: 30%; top: 25px; width: 500px;}
+        .menu { clear: both;}
+        .menu > ul { list-style: none; }
+        .menu li { display: inline-block; margin-left: 8%;}
 
-        #rogin { float: right; width: 250px; padding: 5px; margin: 0px;
-                height: 80px; position: relative; top: -60px; }
-        #rogin p { float: left; margin: 0px; margin-bottom: 10px;}
-        .rogin { margin: 0px; float: right; margin-bottom: 10px;}
-        .submit { float: left; margin-top: 5px; margin-right: 5px;}
-
-        ul { list-style: none; height: 50px; margin-bottom: 0px; margin-top: 0px;
-            text-align: center; position: relative;}
-        li { float: left; margin: 0px 35px;
-                padding-top: 12px; font-weight: bold;}
-
-        #content
+        .content
         {
             background-color: gray;
             height: 400px;
-            margin-bottom: 0px;
-        }
-        #content p
-        {
-            margin-top: 0px;            
+            margin-top: 50px;
         }
 
         footer
@@ -50,32 +40,45 @@
 </head>
 <body>
     <header>
-        <img src="./resource/IMG_1.png">
+        <div class="logo">
+            <img src="./resource/IMG_1.png">
+        </div>
         <h1>MYMain</h1>
-        <form id="rogin">
-            <p>아이디</p>
-            <input type="text" name="id" class="rogin" size="20">
-            <br>
-            <p>패스워드</p>
-            <input type="text" name="pw" class="rogin" size="20">         
-            <br>
-            <input type="submit" value="로그인" class="submit">
-            <input type="submit" value="취소" class="submit">
-        </form>
-    </header>
+        <div class="login">
+            <form>
+                <table>
+                    <tr>
+                        <td>아이디</td>
+                        <td><input type="text" name="id"></td>
+                    </tr>
+                    <tr>
+                        <td>패스워드</td>
+                        <td><input type="text" name="pw"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="로그인">
+                            <input type="submit" value="취소">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            
+        </div>
     
-    <div id="menu">
-        <ul>
-            <li>메인</li>
-            <li>공지사항</li>
-            <li>자유게시판</li>
-            <li>갤러리</li>
-            <li>회원관리</li>
-            <li>채팅하기</li>
-        </ul>
-    </div>
-
-    <div id="content">
+        <div class="menu">
+            <ul>
+                <li>메인</li>
+                <li>공지사항</li>
+                <li>자유게시판</li>
+                <li>갤러리</li>
+                <li>회원관리</li>
+                <li>채팅하기</li>
+            </ul>
+        </div>
+    </header> 
+   
+    <div class="content">
         <p>content내용</p>
     </div>
 

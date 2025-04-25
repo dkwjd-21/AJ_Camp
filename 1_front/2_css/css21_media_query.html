@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img
+        {
+            width: 200px;
+        }
+
+        @media screen and (min-width:840px) and (max-width:1199px)
+        {
+            img
+            {
+                width: 400px;
+            }
+        }
+
+        /* 화면의 너비가 1200px 이상일 때는 이미지의 width 600px, opacity: 0.5 */
+        @media screen and (min-width:1200px)
+        {
+            img
+            {
+                width : 600px;
+                opacity: 0.5;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./resource/css02.css" media="screen and (max-width:840px)">
+</head>
+<body>
+    <!-- 
+        미디어 쿼리 : 미디어 타입 + 조건에 대한 물음 (쿼리)
+        @media 미디어타입 and (조건에 대한 물음){조건을 만족할 때 추가로 적용할 스타일}
+    -->
+    <img src="../1_html/sample/images/img02.PNG">
+    <hr>
+    <div>
+        div div div div
+    </div>
+</body>
+</html>

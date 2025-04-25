@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // undefined 로 출력됨 :) 
+        // var 호이스팅
+        // 변수가 선언되기 전에 접근했는데, 자바스크립트가 아래에 있는 선언을 끌어와서 처리
+        console.log(test);
+        // 이름(변수명)이 test인 변수에다 숫자 1을 대입
+        // '=' : 대입연산자
+        var test = 1;
+        console.log(test);
+
+        test = 10;
+        console.log(test+2);
+
+        // 변수 선언!
+        // 키워드 (var, let, const) 변수명;
+
+        // 변수 선언과 동시에 초기화
+        // 키워드 변수명 = 값;
+        let test2 = 2;
+        console.log(test2);
+        test2 = 20;
+
+        const test3 = 3;
+        console.log(test3);
+        // test3 = 30; // 에러! 변경 불가! immutable 변수 
+
+        {
+            // 블록 {} 바깥에서도 접근 가능
+            var no=10;
+            // 선언된 블록 내부에서만 접근 가능
+            let no2=20;
+            // 선언된 블록 내부에서만 접근 가능
+            const no3=30;
+        }
+
+        console.log(no);
+        // console.log(no2);
+        // console.log(no3);
+
+        // 실행결과
+        // 10         ✅
+        // ReferenceError: no2 is not defined ❌
+        // ReferenceError: no3 is not defined ❌
+
+        let variable = 10; // 전역변수
+        // test01()과 test01_1() 모두 전역변수 variable에 접근 가능하다! 
+        function test01()
+        {
+            variable = variable+5;
+            console.log(variable);
+        }
+        function test01_1()
+        {
+            variable = variable+5;
+            console.log(variable);
+        }
+
+        function test02()
+        {
+            let variable2 = variable + 100;     // 지역변수
+
+            // 변수 variable2 값을 <b> 태그로 감싸서 id="res01"인 요소에 굵게 출력
+            document.getElementById("res01").innerHTML = "<b style='color: blue; background:red;'>"+variable2+"</b>";
+        }
+
+        function test03()
+        {
+            // 문자 (String)
+            let variable3 = "문자3";
+            console.log(variable3 + " : " + typeof variable3);
+
+            // 숫자 (Number)
+            variable3 = 5;
+            console.log(variable3 + " : " + typeof variable3);
+            variable3 = 5.1;
+            // variable3 값과 variable3의 타입을 "숫자 : 타입" 형식으로 출력하는 코드
+            console.log(`${variable3} : ${typeof variable3}`);
+
+            // 논리 (boolean)
+            variable3 = true;
+            console.log(`${variable3} : ${typeof variable3}`);
+
+            // Null (object) : 진짜 아무고토 없음. 
+            variable3 = null;
+            console.log(`${variable3} : ${typeof variable3}`);
+
+            // 객체 (object)            
+            variable3 = [1, 2, 3, 4];   // 배열
+            console.log(`${variable3} : ${typeof variable3}`);
+            variable3 = {name:'송아정', age:24};    // 객체
+            console.log(`${variable3} : ${typeof variable3}`);
+
+            // 함수 (fucntion)
+            variable3 = function(){alert("변수의 타입");};
+            console.log(`${variable3} : ${typeof variable3}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>변수 사용</h1>
+    <h3>변수 선언 규칙</h3>
+    <ol>
+        <li>대소문자 구분한다. aA aa</li>
+        <li>영문, $, _로 시작해야 한다. (숫자는 안됨)</li>
+        <li>영문, $, _, 숫자를 포함하여 생성 가능하다.</li>
+        <li>키워드나 예약어를 사용할 수 없다. 
+            <br> (ex.function 등 자바스크립트 내부에서 문법적으로 사용되는 단어들)</li>
+    </ol>
+    <h3>변수의 범위</h3>
+    <ol>
+        <li>전역 변수 : 다른 함수들에서 공용으로 사용할 수 있다. (값 유지)
+            <button onclick="test01_1();">확인</button>
+        </li>
+        <li>지역 변수 : 함수나 객체 내부에 선언되고 실행이 종료되면 사라진다.
+            <button onclick="test02();">확인</button>
+        </li>
+        <div id="res01"></div>
+        <h3>변수 선언과 저장</h3>
+        <li>let, var, const 키워드를 사용하여 변수를 선언한다.</li>
+        <li>
+            변수의 타입은 저장되는 데이터의 타입에 따라 결정된다.
+            <button onclick="test03();">확인</button>
+        </li>
+    </ol>
+
+    <!-- 특수값 -->
+    <h3>Infinity, NaN</h3>
+    <ol>
+        <li>Infinity : 양의 무한대 / 아주 큰 수의 결과나, 0으로 나누기 했을 때</li>
+        <li>NaN(Not a Number) : 숫자가 아닌 값. 수학적으로 말이 안 되는 연산</li>
+        <button onclick="test04();">확인</button>
+    </ol>
+    <script>
+        function test04()
+        {
+            // 둘 다 타입은 number라고 출력됨 
+            const infi = 1/0;
+            console.log(`${infi} : ${typeof infi}`);
+
+            const nan = 'hello' / 2;
+            console.log(`${nan} : ${typeof nan}`);
+        }
+    </script>
+
+</body>
+</html>

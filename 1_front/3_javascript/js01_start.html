@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 3. externer -->
+    <script type="text/javascript" src="./js/test.js"></script>
+</head>
+<body>
+    <h2>자바스크립트 사용법</h2>
+    <ol>
+        <li>inline : 태그에 직접 간단 소스코드를 작성해서 실행되게 하는 방법</li>
+        <li>interner : script 태그 영역에 작성해서 실행되게 하는 방법</li>
+        <li>externer : 별도의 js파일로 작성해서 가져다 실행하는 방법</li>
+    </ol>
+    <hr>
+    
+    <h3>inline</h3>
+    <ol>
+       <!-- 1. inline -->
+       <!-- " 여기 안의 문자열(string)은 ' ' 요렇게 ㅎㅎ " -->
+       <li onclick="window.alert('inline');">inline 방식</li>
+       <li onclick="a=function(){
+            alert('1234');
+       }();">inline 방식</li>
+       <!-- 2. interner -->
+       <li onclick="internerTest();">interner</li>
+       <script type="text/javascript">
+            function internerTest()
+            {
+                // document.getElementsByTagName("li") : <li> 태그들을 모두 가져옴
+                // [1] 그 중 두번째 요소 선택
+                // let은 거기에 담는 값에 따라 타입이 달라짐 
+                let doc = document.getElementsByTagName("li")[1];
+                console.log(doc);
+                doc.style.color = "red";
+            }
+       </script>
+       
+       <!-- 3. externer -->
+       <li onclick="test();">externer</li>
+    </ol>
+</body>
+</html>

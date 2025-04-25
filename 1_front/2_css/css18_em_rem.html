@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inner
+        {
+            display: inline-block;
+            width: 1em;
+            height: 200px;
+            background-color: hotpink;
+
+            font-size: 0.5rem;
+
+            /* margin & padding은 자신의 폰트사이즈를 기준으로 사이즈 변경 */
+            padding: 1em;
+            margin: 1em;
+        }
+        .outer
+        {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        상대적인 길이 단위 
+        % : 부모 요소의 크기에 대한 상대적 비율
+        em : 부모의 폰트사이즈에 따라 
+        rem : 루트(최상위) 폰트 사이즈에 따라
+
+        20pt -> 1em = 1rem = 20pt
+        20pt -> 0.5em = 0.5rem = 10pt
+    -->
+    <div class="outer">
+        <div class="inner">텍스트</div>
+    </div>
+</body>
+</html>

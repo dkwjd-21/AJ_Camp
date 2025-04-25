@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        form
+        #main
         {
             width: 400px;
             background-color: pink;
@@ -18,7 +18,6 @@
             font-size: large;
             margin-bottom: 10px;
         }
-
         #step1 div, #step2 div, #step3 div
         {
             background-color: rgba(255, 255, 255, 0.6);
@@ -27,7 +26,6 @@
             border-radius: 10px;
             height: 40px;
         }
-
         .text
         {
             float: left; 
@@ -40,12 +38,11 @@
             float: right;
             margin: 10px 25px;
         }
-        input[type="range"]
+        #main input[type="range"]
         {
             margin: 10px 10px;
         }
-
-        input[type="submit"]
+        #main input[type="submit"]
         {
             border-radius: 30px;
             margin: 15px 0px;
@@ -55,10 +52,50 @@
             color: white;
             background-color: palevioletred;
         }
-        input[type="submit"]:hover
+        #main input[type="submit"]:hover
         {
             background-color: brown;
             cursor: pointer;
+        }
+
+        /* ----------------------------------------------------------------- */
+        #sub
+        {
+            background-color: skyblue;
+            border-radius: 15px;
+            padding: 15px;
+            width: 400px;
+        }
+        fieldset
+        {
+            border: 0;
+        }
+        ol
+        {
+            list-style: none;
+            margin: 0; padding: 0;
+        }
+        ol > li 
+        {
+            background-color: rgba(255, 255, 255, 0.6);
+            margin: 1px;
+            padding: 8px;
+            border: solid white 1px;
+            border-radius: 15px;
+        }
+        label { width: 150px; margin-left: 10px; float: left;}
+        #_submit
+        {
+            width: 80px;
+            height: 30px;
+            border: 0;
+            background-color: rgb(60, 99, 182);
+            color: white;
+            border-radius: 15px;
+        }
+        #_submit:hover
+        {
+            background-color: navy;
         }
 
     </style>
@@ -110,6 +147,38 @@
             
         </div> 
         <input type="submit" value="제출">       
+    </form>
+
+    <br>
+
+    <h1>CSS3</h1>
+    <form id="sub">
+        <fieldset>
+            <legend>Step 1: 로그인 정보</legend>
+            <ol>
+                <li><label>아이디</label><input type="text" name="_id"></li>
+                <li><label>비밀번호</label><input type="password" name="_pw"></li>
+                <li><label>비밀번호 확인</label><input type="password" name="_pwchk"></li>
+                <li><label>회원 등급</label><input type="text" name="_grade" value="준회원"></li>
+            </ol>
+        </fieldset>
+        <fieldset>
+            <legend>Step 2: 개인 정보</legend>
+            <ol>
+                <li><label>이름</label><input type="text" name="_name" placeholder="5자미만 공백없이"></li>
+                <li><label>메일 주소</label><input type="email" name="_mail" placeholder="abcd@domain.com"/></li>
+                <li><label>연락처</label><input type="tel" name="_tel"></li>
+            </ol>
+        </fieldset>
+        <fieldset>
+            <legend>Step 3: 코딩 숙련도(상, 중, 하)</legend>
+            <ol>
+                <li><input type="range"></li>
+            </ol>
+        </fieldset>
+        <fieldset>
+            <input type="submit" value="제출" id="_submit">
+        </fieldset>
     </form>
 </body>
 </html>

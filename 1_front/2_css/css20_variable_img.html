@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img
+        {
+            /* width: 200px; */
+            /* width: 100%; */
+            width: 100%;
+            max-width: 800px;
+        }
+        div
+        {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <img src="../1_html/sample/images/img03.PNG">
+    <div>
+        <img src="../1_html/sample/images/img03.PNG">
+    </div>
+    <!-- 다중 이미지 리소스 처리 -->
+    <picture>
+        <!-- 조건에 맞을 때 보여줄 이미지 -->
+        <source srcset="../1_html/sample/images/img03.PNG" media="(min-width:800px)">
+        <!-- 기본 이미지 -->
+        <img src="../1_html/sample/images/img03.PNG"> 
+    </picture>
+</body>
+</html>
