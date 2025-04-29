@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function casting()
+        {
+            // [묵시적 형변환]
+            // 문자열과 숫자의 + 연산
+            // 문자열 + 숫자 => 문자열
+            // 문자열 + 숫자 + 숫자 => 문자열 
+            // 숫자 + 숫자 + 문자열 => 문자열  
+
+            // 숫자 + 숫자
+            let val = 7+7;
+            console.log("숫자+숫자 val: " + val);
+
+            // 숫자 + 문자 
+            val = 7 + "7";
+            console.log("숫자+문자 val: " + val);
+
+            // 문자 + 숫자
+            val = "7" + 7;
+            console.log("문자+숫자 val: " + val);
+
+            // 문자 + 숫자 + 숫자
+            val = "7" + 7 + 7;
+            console.log("문자+숫자+숫자 val: " + val);
+
+            // 숫자 + 숫자 + 문자
+            val =  7 + 7 + "7";
+            console.log("숫자+숫자+문자 val: " + val);
+
+            val = "7" + (7+7);
+            console.log("문자+(숫자+숫자) val: " + val);
+
+
+            // [명시적 형변환]
+            let str = "10";
+            console.log(str+10);
+
+            str = Number(str);
+            console.log(str+10);
+
+            str = "10개";
+            // parseInt : 문자열을 '정수'로 변환하는 함수
+            // 문자열에서 앞쪽부터 숫자를 읽어서 정수로 변환
+            // 숫자가 아예 없으면 NaN을 반환
+            str = parseInt(str);
+            console.log(str);
+
+            let num = 20;
+            // -> String 타입으로 변경
+            // 1 String()
+            num = String(num);
+            console.log(num);
+            // 2 toString()
+            num = num.toString();
+            console.log(num);
+            // 3 + ""
+            num = num + "";
+            console.log(num);
+
+        }
+    </script>
+</head>
+<body>
+    <h2>형변환</h2>
+    <h3 onclick="casting()">묵시적 형변환(자동형변환) and 명시적 형변환</h3>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div
+        {
+            width: 400px;
+            height: 200px;
+            background-color: rgb(255, 220, 230);
+            border: 2px solid rgb(122, 121, 214);
+        }
+    </style>
+    <script>
+        function prinVal()
+        {
+            let name = document.getElementsByTagName("input")[0].value;
+            let goods = document.getElementById("pname").value;
+            // 요소가 1개 뿐이더라도 배열의 형태로 요소를 불러온다. 
+            let price = document.getElementsByName("price")[0].value;
+
+            console.log(name, goods, price);
+
+            let div = document.getElementById("print");
+            let text = "구매자 : " + name + "<br>" + 
+                       "상품명 : " + goods + "<br>" +
+                       "가 격 : " + price + "<br>"; 
+
+            div.innerHTML = text;
+        }
+    </script>
+</head>
+<body>
+    <h1>HTML 태그에 접근</h1>
+    구매자는 태그 이름으로, 상품명은 ID로, 구매 가격은 Name으로 접근 
+    <br><br>
+    <label>구매자 : </label>
+    <input type="text" placeholder="구매자 이름을 입력하세요."> 
+    <br><br>
+    <label>상품명 : </label>
+    <input type="text" id="pname" placeholder="구매 상품명을 입력하세요.">
+    <br><br>
+    <label>가 격 : </label>
+    <input type="text" name="price" placeholder="구매 가격을 입력하세요"></input>
+    <br><br>
+    <button onclick="prinVal()">입력값 출력하기</button>
+
+    <br><br>
+    <div id="print"></div>
+</body>
+</html>

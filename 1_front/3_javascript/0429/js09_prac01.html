@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div
+        {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        var div;
+        var div2;
+        window.onload= () =>
+        {
+            div = document.getElementById("div1");
+            div2 = document.getElementById("div2");
+        }        
+
+        console.log(div);
+
+        function changeColor()
+        {
+            let color = document.getElementById("selectColor").value;
+            console.log(color + "가 선택됨");
+
+            div.style.backgroundColor = color;
+            // document.getElementById("div1").style.backgroundColor = document.getElementById("selectColor").value;
+        }
+
+        function setHalfSize()
+        {
+            // div.style.width = "50px";
+            // div.style.height = "50px";
+            
+            setSize(50, 50);
+            console.log("HalfSize 선택됨")
+        }
+        function setDefaultSize()
+        {
+            // div.style.width = "100px";
+            // div.style.height = "100px";
+
+            setSize(100, 100);
+            console.log("DefaultSize 선택됨")
+        }
+        function setDoubleSize()
+        {
+            // div.style.width = "200px";
+            // div.style.height = "200px";
+
+            setSize(200, 200);
+            console.log("DoubleSize 선택됨")
+        }
+
+        function setSize(width, height)
+        {
+            div2.style.width = width + "px";
+            div2.style.height = height + "px";
+            console.log("setSize 불러옴")
+        }
+
+        function setSize2(btntype)
+        {
+            div2.style.width = btntype + "px";
+            div2.style.height = btntype + "px";
+
+            console.log("setSize2 불러옴")
+        }
+
+    </script>
+</head>
+<body>
+    <h3>1. 색상 선택 후 변경 버튼을 클릭하면 색상이 변경되도록 작성</h3>
+    <div id="div1"></div>
+    <input type="color" id="selectColor"><button onclick="changeColor()">변경</button>
+
+    <hr>
+    <h3>2. 버튼에 따라 크기 조절 가능하게 작성</h3>
+    <div id="div2"></div>
+    <span>default</span>
+    <button onclick="setHalfSize()">50x50</button>
+    <button onclick="setDefaultSize()">원본(100x100)</button>
+    <button onclick="setDoubleSize()">200x200</button>
+    <br>
+    <span>setSize2()</span>
+    <button onclick="setSize2(50)">50x50</button>
+    <button onclick="setSize2(100)">원본(100x100)</button>
+    <button onclick="setSize2(200)">200x200</button>
+
+
+    <!-- 3. 텍스트박스 두개 가로입력받고 세로입력받고  -->
+</body>
+</html>

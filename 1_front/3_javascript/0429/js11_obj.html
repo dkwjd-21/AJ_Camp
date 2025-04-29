@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Test()
+        {
+            let name01 = "가나다";
+            this.name02 = "다라마";
+            this.getName=function(){return name01};
+        }
+
+        function objTest()
+        {
+            // 객체 생성 1
+            // new -> new 연산자 : 객체 생성자 
+            let obj1 = new Object();    
+            
+            let t = new Test();
+            console.log(t);
+            console.log(t.name02);
+            console.log(t.getName());
+
+            // 객체 생성 2
+            // 객체 리터럴
+            let obj2 = {};
+            let person = 
+                { 
+                    name: "송아정",
+                    age: "24",
+                    hobby: ["baseball", "movie"],
+                    job: "student",
+                    etc: {},
+                    100:200,
+                    "like cat" : true,
+                    func: function(){alert("기능!!!");}
+                }
+            console.log("------------------");
+
+
+            // 프로퍼티 다루는 법
+            // 1. 특정 프로퍼티 접근 (점, 괄호)
+            console.log(person.name);
+            console.log(person["age"]);
+
+            let prop = "hobby";
+            console.log(person[prop]);
+
+            console.log(person.nameeee);    // undefined 출력
+
+            // 2. 추가, 수정,삭제
+            person.addr = "고양시";
+            console.log(person);
+
+            person.addr = "경기도 고양시";
+            console.log(person);
+
+            delete person.addr;
+            console.log(person);
+
+            // 3. 존재 유무 확인 (in 연산자)
+            let res = "name" in person;
+            console.log(res);   // true 출력. person 안에 name이라는 속성이 존재한다.    
+            
+            /* ---------------------------------------------------- */
+            let song = new Class5();
+            console.log("------------------");
+            console.log(song.name);
+            console.log(song.addr);
+
+            let park = new Class5();
+            console.log("------------------");
+            console.log(park.name);
+            console.log(park.addr);
+
+            /* ---------------------------------------------------- */   
+            Class5_2.prototype.tel = "010";
+
+            let choi = new Class5_2();
+            let kim = new Class5_2();
+
+            console.log(choi.tel);
+            console.log(kim.tel);
+        }
+
+        function Class5()
+        {
+            this.name = "multi";
+            this.addr = "seoul";
+
+        }
+        function Class5_2()
+        {
+            this.name = "multi";
+        }
+
+    </script>
+</head>
+<body>
+    <h2>객체</h2>
+    <p>
+        객체 : 관련있는 데이터와 함수의 집합이다. <br>
+        - 함수 : 기능 정의 <br>
+        - 속성 : 객체 내부의 데이터 <br>
+        - this : 객체 내부의 메소드나 속성을 정의할 때 사용
+        - 프로토타입 : 객체의 확장 
+        <button onclick="objTest()">객체</button>
+    </p>
+</body>
+</html>

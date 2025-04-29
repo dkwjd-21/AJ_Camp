@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const numberObj = () =>
+        {
+            // 작성방법
+            let num = new Number(7);       // 객체 생성
+            let nom02 = 7;                 // 리터럴
+
+            console.log(num+3);
+            
+            // NaN 속성 
+            console.log(parseInt("A"));
+
+            // 객체의 함수
+            // 1. toString() : 진수 변환해서 문자열로 반환
+            let number01 = 17;
+            console.log(number01.toString());
+                // 17을 2진수로 변환해서 문자열로 반환
+            console.log(number01.toString(2));
+            
+            // 2. toFixed() : 실수형의 소수점 자리수 정하고 문자열 반환
+            let number02 = 333.34567;
+            console.log(number02.toFixed());
+                // 소수점 2번째 자리까지 문자열로 반환
+            console.log(number02.toFixed(2));
+
+            // 3. isNaN() : 숫자인지 아닌지 확인 후 true/false 반환
+                // NaN일 때 = 숫자가 아닐 때 : true
+                // NaN아닐 때 = 숫자일 때 : false
+            console.log(isNaN(number01));
+                // !isNaN을 사용하여 숫자인 경우 true가 리턴되게 사용
+            console.log(!isNaN(number01));
+            
+        }
+    </script>
+</head>
+<body>
+    <pre>
+        Number : js 기본제공하는 객체 중 하나 
+        
+        정수와 실수를 다루는 객체
+
+        <button onclick="numberObj()">number 객체</button>
+    </pre>
+</body>
+</html>

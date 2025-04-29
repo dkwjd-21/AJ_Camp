@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function op01()
+        {
+            let var1 = 22;
+
+            console.log(var1);
+            var1 = "데이터";
+            console.log(var1);
+
+            // 배열
+            const var2 = [1, 2];
+            var1 = var2;
+            console.log(var1[0]);
+
+            var1 = 11>2;
+            console.log(var1);
+
+            var1 = sumVal();
+            console.log(var1);
+        }
+        function sumVal(){ return 11+22; }
+
+        const op02 = () =>
+        {
+            // 산술연산자
+            let num = 11+22;
+            console.log("11+22= " + num);
+            num = 22-11;
+            console.log("22-11= " + num);
+            num = 11*22;
+            console.log("11*22= " + num);
+            num = 8/3;
+            console.log("8/3=" + num);
+            num = 8%3;
+            console.log("8%3=" + num);
+            
+            // 복합대입연산자
+            num = 10;
+            // num : 10
+
+            // num = num + 10;
+            num += 20;
+            console.log(num);
+
+            num -= 5;
+            console.log(num);
+        }
+
+        window.onload= () =>
+        {
+            document.getElementsByTagName("h3")[2].onclick = () =>
+            {
+                // 증감연산자
+                // 1씩 증가 or 1씩 감소 
+                let num = 10;
+                num++;  // 후위연산자
+                ++num;; // 전위연산자
+                console.log("num++ : " + num);
+
+                num = 10;
+                // 연산 후 출력
+                console.log("++num : " + ++num );
+                num = 10;
+                // 해당 라인 종료 후 연산
+                console.log("num++ : " + num++);
+                console.log(num);
+                
+                console.log(--num);
+
+                // 2씩 증가하고 싶은데?
+                num += 2;
+                
+                // 논리연산자 : 논리값을 연산
+                // 논리값 && || 논리값 ==> 논리값
+                // and : %% 
+                // or : ||
+                let or = false || true;
+                console.log(or);
+
+                // if(no%3==0 || no%5==0){console.log("3의 배수 또는 5의 배수이다.")}
+                or = 10>0 || 3>10;
+                // true || true -> true
+                // true || false -> true
+                // false || flase -> false
+
+                // [and]
+                // true && true -> true
+                // true && false -> false
+                // false && false -> false
+                let and = true && true;
+                console.log(and);
+                // if(no%3==0 || no%5==0){console.log("3의 배수 그리고 5의 배수이다.")}
+
+                // 부정 ! 
+                let not = true;
+                console.log(not);
+            }
+        }
+
+        function op04()
+        {
+            // 동등비교 ==, ===
+            // == : 타입과 상관없이 비교하여 같은지 확인
+            // ===(엄격한 비교) : 타입까지 비교하여 같은지 확인
+            let check1 = 1;
+            let check2  = "1";
+            console.log("1 == '1' : " + (check1==check2));
+            console.log("1 === '1' : " + (check1===check2));
+
+            check1 = 1;
+            check2 = 2;
+            console.log('1 != 2 : ' + !(check1 == check2));
+
+            // 대소 비교 >, <, >=, <=
+            console.log("4>3 : " + (4>3));
+            console.log("4>=3 : " + (4>=3));
+            console.log("2<2 : " + (2<2));
+            console.log("2<2 : " + (2<=2));
+        }
+    </script>
+</head>
+<body>
+    <h1>연산자</h1>
+    <h3 onclick="op01()">1. 대입 연산자(=) : 우측의 값을 좌측에 대입</h3>
+    <h3 onclick="op02()">2. 산술 연산자(+, -, *, /, %) / 복합대입연산자(산술+대입, +=)</h3>
+    <h3>3. 증감 연산자(++, --_), 논리 연산자(&&, ||)</h3>
+    <h3 onclick="op04()">4. 비교 연산자</h3>
+    <hr>
+    <h3>연산자를 이용한 짧은 조건문 사용 테스트</h3>
+    <script>
+        document.getElementsByTagName("h3")[4].onclick=()=>
+        {
+            // prompt를 이용하여 숫자 하나를 입력 받는다. 
+            // 입력받은 숫자가 짝수인지 홀수인지 판단하여 alert 창을 띄운다. 
+            let input = window.prompt("숫자를 입력하세요");
+
+            console.log("input의 type : " + typeof input);
+            input = Number(input);
+            console.log("input의 type : " + typeof input);
+
+            if (input%2 == 0)
+            {
+                // 짝수일 때 실행
+                alert("짝수입니다.");
+            }
+            else 
+            {
+                // 홀수일 때 실행
+                alert("홀수입니다.")
+            }
+            
+        }
+    </script>
+</body>
+</html>
