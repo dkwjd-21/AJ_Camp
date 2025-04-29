@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun01()
+        {
+            alert("명시적 함수");
+        }
+        const fun02 = function()
+        {   
+            alert("익명 함수");
+        }
+
+        function fun03()
+        {
+            literalPrn(function(msg){ 
+                alert(msg);    
+            });
+        }
+        function literalPrn(literal)    // literal 이라는 매개변수
+        {   
+            literal("안녕하세요, 리터럴입니다.");
+        }
+
+        function fun04()
+        {   
+            // const tmp = closureTest("유리");
+            // tmp();
+            closureTest("유리")();
+        }
+        function closureTest(val)
+        {
+            const msg="입니다.";
+            function addVal()
+            {
+                alert(val + " "+msg);
+            }
+            return(addVal);
+        }
+
+        // 화살표 함수
+        // [1] 본문 한줄
+        function basic()
+        {
+            console.log("1");
+        }
+        const arrow = () => console.log("1");
+
+        // [2] 매개변수
+        function basic2(no1, no2)
+        {
+            return no1+no2;
+        }
+        // 화살표 함수
+        // const arrow2 = (no1, no2) => { return no1+no2; }  
+        // retrun문 만 있을때는 중괄호 {} 생략이 가능하다 
+        const arrow2 = (no1, no2) => no1+no2;
+
+        // [3] 매개변수 하나
+        function basic3(n01)
+        {
+            return no1*10;
+        }
+        const arrow3 = no1 => no1*10;
+        const arrow4 = () => 10*10;
+        // 매개변수 없을 때는 생략 불가.
+
+        let arrow5 = () =>
+        {
+            console.log("print");
+            return 10;
+        }
+
+        
+    </script>
+</head>
+<body>
+    <h2>함수의 종류</h2>
+    <p onclick="fun01()">1. 명시적 함수</p>
+    <p onclick="fun02()">2. 익명 함수</p>
+    <p onclick="fun03()">3. 리터럴 함수</p>
+
+    <h2>클로저 (Closure)</h2>
+    <p onclick="fun04()">클로저</p>
+</body>
+</html>

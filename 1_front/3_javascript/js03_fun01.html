@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // alert() : 단순 경고나 코드 디버깅용으로 주로 사용 
+        function alertTest()
+        {
+            // window.alert("alert()");
+            // 윈도우 생략가능!! 
+            alert("alert! 내용 출력");
+        }
+
+        // confirn() : 확인/취소 버튼 제공 (true / false 반환)
+        function confirmTest()
+        {
+            let test = window.confirm("confirm - 배경을 핑크로 바꿀까요?");
+            console.log(test);
+
+            // 제어문의 조건식 if문
+            // if(조건식) {true라면 실행}
+            if(test)
+            {
+                // if의 조건이 true일 때 실행되는 블록
+                console.log("test가 true");
+                document.body.style.backgroundColor="pink";
+            }   
+            else
+            {
+                // if의 조건이 false일 때 실행되는 블록
+                console.log("test가 false");
+                alert("기존 색상 유지");
+            }
+        }
+
+        // prompt() :
+        function promptTest()
+        {
+            const txt = prompt("좋아하는 음식 번호를 선택해 주세요.\n [1:한식 2:일식 3:중식 4:양식]");
+            console.log(txt);
+
+            // 제어문 switch
+            /* switch(값)
+                {
+                    case 값1: 
+                    case 값2:
+                    case 값3:
+                }
+
+            */
+            switch(txt)
+            {
+                case "1" : alert("역시 한식!"); break;
+                case "2" : alert("역시 일식!"); break;
+                case "3" : alert("역시 중식!"); break;
+                case "4" : alert("역시 양식!"); break;
+                case null : alert("야 그냥 먹지마라"); break;
+
+                default : alert("1, 2, 3, 4번 중 하나만 선택해 주세요.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- 
+        함수(Function)
+        기능으로서 작업을 수행하게 만들어진 독립적인 블록
+        ex) function  함수이름() {
+            실행할 코드;
+            실행할 코드;
+            ...
+            retrun;
+        }
+
+        ex)
+        fn name1(){ }
+        fn name2(매개변수){}    
+        fn name3(){ retrun; }
+        fn name4(매개변수){ return; }
+        -->
+
+    <h1>Window 객체에서 제공하는 대화형 함수</h1>
+    <p>종류에는 대표적으로 <b>alert(), confirm(), prompt()</b>가 있다.</p>
+    <hr>
+    <p>
+        alert() : <button onclick="alertTest()">클릭!</button>
+    </p>
+    <p>
+        confirm() : <button onclick="confirmTest()">클릭!</button>
+    </p>
+    <p>
+        prompt() : <button onclick="promptTest()">클릭!</button>
+    </p>
+</body>
+</html>

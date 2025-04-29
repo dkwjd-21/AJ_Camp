@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area
+        {
+            width: 300px;
+            height: 100px;
+            border: 2px solid black;
+        }
+    </style>
+    <script>
+        // function accID() {} 와 동일한 구조 
+        const accID = () => 
+        {
+            // document.getElementById("area1").style.backgroundColor="red";
+            // document.getElementById("area1").innerHTML += "아이디로 접근 성공!!!<br>";
+
+            var doc = document.getElementById("area1");
+            doc.style.backgroundColor="pink";
+            doc.innerHTML += "아이디로 접근 성공!!!<br>";
+        }
+
+        function accTagName()
+        {
+            var li1 = document.getElementsByTagName("li")[0];   // 접근한 li태그들 중 첫번째 
+            var li2 = document.getElementsByTagName("li")[1];   // 접근한 li태그들 중 첫번째 
+            var li3 = document.getElementsByTagName("li")[2];   // 접근한 li태그들 중 첫번째 
+
+            console.log(li1);
+            console.log(li2);
+            console.log(li3);
+
+            var list = document.getElementsByTagName("li");
+            console.log(list);
+
+            // 찾은 li태그를 첫번째부터 마지막까지 배경색 변경
+            // list[0].style.backgroundColor="red";
+            // list[1].style.backgroundColor="green";
+            // list[2].style.backgroundColor="blue";
+
+            // 반복문 for문
+            let tmp = 10;
+            for (let i=0;i<list.length; i++)
+            {
+                console.log(i);
+                list[i].style.backgroundColor="rgb(130, 200, "+tmp+")";
+                tmp += 20;
+            }
+        }
+
+        // 네임으로 접근
+        const accName = () => 
+        {
+            let hobby = document.getElementsByName("hobby");
+            console.log("hobby의 길이: " + hobby.length );
+
+            let doc = document.getElementById("area2");
+            let checkItem = "";
+
+            for(let i=0; i<hobby.length; i++)
+            {   
+                // i번째 방에 들어있는 input 태그에 checked 값이 true랑 같은가? 
+                if(hobby[i].checked == true )
+                {   
+                    // 조건이 true일 때. 즉, checked값이 true, 체크된 태그일 때 실행 
+                    checkItem += hobby[i].value + " 선택함 <br>";
+                }
+            }
+            doc.innerHTML = checkItem;
+        }
+
+        function readVal()
+        {
+            var input = document.getElementById("username");
+            console.log(input.value);
+
+            // 입력을 안한 경우
+            if(input.value == "")
+            {
+                alert("이름을 입력하세요");
+                input.focus();
+            }   
+            else
+            {
+                alert(input.value + "님 환영합니다!");
+            }
+        }
+
+        const accQs = () =>
+        {
+            const doc = document.querySelector("#qs");
+            console.log(doc);
+
+            const list = document.querySelectorAll("li");
+            console.log(list);
+        }
+    </script>
+</head>
+<body>
+    <h1>HTML 태그에 접근하기</h1>
+    <h2>아이디로 접근하기</h2>
+    <div id="area1" class="area"></div>
+    <button onclick="accID()">아이디로 접근</button>
+    
+    <h2>태그 이름으로 접근하기</h2>
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+    </ul>
+    <button onclick="accTagName()">태그 명으로 접근</button>
+
+    <h2>name으로 접근</h2>
+    <form>
+        <fieldset>
+            <legend>취미</legend>
+            <table>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="hobby" value="game" id="game">
+                        <label for="game">게임</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="book" id="book">
+                        <label for="game">독서</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="movie" id="movie">
+                        <label for="game">영화보기</label>
+                    </td>                    
+                </tr>                
+            </table>
+        </fieldset>
+    </form>
+    <br>
+    <div id="area2" class="area"></div>
+    <button onclick="accName()">name으로 접근</button>
+
+    <h2>text박스의 value 값 읽어오기</h2>
+    <form>
+        이름 : <input type="text" name="username" id="username"> <br>
+        <input type="button" onclick="readVal()" value="value값 확인">
+    </form>
+    
+    <h2>querySelector로 접근하기</h2>
+    <p id="qs">querySelectorf로 접근</p>
+    <button onclick="accQs()">qs로 접근</button>
+</body>
+</html>
