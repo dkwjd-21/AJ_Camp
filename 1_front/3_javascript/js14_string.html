@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function strTest01()
+        {
+            let str01 = "String";
+            let str02 = new String("test");
+
+            console.log(str01);
+            console.log(str02);
+            
+            // 문자열 더하기
+            let str03 = str01 + str02;
+            console.log(str03);
+
+            // concat() : 여러 문자열을 하나로 합치는 함수
+            let newStr = str01.concat(" Test", " Java", " Script");
+            console.log("concat : " + newStr);
+            
+            let num = 12.5;
+            let bool = true;
+            let res = "String " + num + bool;
+            console.log("res :" + res);
+            console.log(res + ":" + typeof(res));
+            
+            // toUpperCase() : 대문자로 , toLowerCase() : 소문자로
+            let str = "Apple iPhone";
+            console.log("toUpperCase() : " + str.toUpperCase());
+            console.log("toLowerCase() : " + str.toLowerCase());
+
+            // length
+            console.log("length : " + str.length);
+            
+            // indexOf(): 문자열 탐색, 왼쪽 -> 오른쪽 방향으로. 탐색된 첫 번째 인덱스 값을 반환 
+            // lastIndexOf() : 오른쪽 -> 왼쪽 방향으로.
+            console.log("indexOf() : " + (str.indexOf("pl")));
+            console.log("lastIndexOf() : " + (str.lastIndexOf("e")));
+            
+            // substring(startIdx, endIdx) : 문자열을 시작 인덱스와 종료 인덱스를 입력하여 원하는 문자열을 추출
+            // startIdx에서부터 endIdx이전까지 추출한다.
+            str = "문자열 추출하기. 관련 함수 : indexOf, substring.";
+            let startIdx = str.indexOf(":");
+            let endIdx = str.lastIndexOf(".");
+
+            let subStr = str.substring(startIdx+1, endIdx+1);
+            console.log("subStr" + subStr);
+            
+            
+            // split() : 기준이 되는 요소로 나뉘어 배열로 저장
+            let splitVal = subStr.split(",");
+            console.log(splitVal);
+            console.log(splitVal[0]);
+
+            str = "최유리 김유리 송유리 이유리 백유리";
+            console.log(str.split(" "));
+            
+            
+        }
+    </script>
+</head>
+<body>
+    <h1>String (문자열)</h1>
+    <p>"", '' 로 묶여있는 리터럴(값) <br>
+        자바스크립트의 내장객체로 String 객체의 기본적인 메소드가 있다.
+    </p>
+    <h3>문자열 처리 메소드</h3>
+    <button onclick="strTest01()">클릭!</button>
+</body>
+</html>

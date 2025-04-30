@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function()
+        {
+            document.getElementsByTagName("button")[0].onclick=dateTest01;
+            document.getElementsByTagName("button")[1].onclick=dateTest02;
+        }
+
+        function dateTest01()
+        {
+            let toDay = document.getElementById("today");
+
+            // 오늘날짜 Date 객체 생성
+            let date = new Date();
+
+            toDay.innerHTML = date + "<br>";
+            console.log(date);
+            
+            toDay.innerHTML += date.toDateString() + "<br>";
+            toDay.innerHTML += date.toLocaleString() + "<br>";
+            toDay.innerHTML += date.toLocaleDateString() + "<br>";
+            toDay.innerHTML += date.toLocaleTimeString() + "<br>";
+
+            let year = date.getFullYear();
+            let month = date.getMonth();
+            let day = date.getDate();
+            let week = date.getDay();
+            let dayOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+
+            toDay.innerHTML += "----------------------------";
+            toDay.innerHTML += year+"/"+month+"/"+day+"/"+dayOfWeek[week]+"<br>";
+            
+        }
+
+        function dateTest02()
+        {
+            let date = new Date(2022, 2-1, 22);
+            document.getElementById("specific").innerHTML = date.toLocaleString();
+            
+            date.setFullYear(2023);
+            document.getElementById("specific").innerHTML = date.toLocaleString();
+        }
+    </script>
+</head>
+<body>
+    <h1>오늘 날짜 출력</h1>
+    <span id="today"></span> <br>
+    <button>오늘 날짜</button>
+
+    <h2>특정 날짜 출력</h2>
+    <span id="specific"></span>
+    <button>특정 날짜</button>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area
+        {
+            height: 300px;
+            border: 2px solid red;
+        }
+    </style>
+    <script>
+        window.onload= () =>
+        {
+            document.getElementsByTagName('button')[0].onclick = arrTest1;
+            document.getElementsByTagName('button')[1].onclick = arrTest2;
+            document.getElementsByTagName('button')[2].onclick = arrTest3;
+            document.getElementsByTagName('button')[3].onclick = arrTest4;
+            document.getElementsByTagName('button')[4].onclick = arrTest5;
+            document.getElementsByTagName('button')[5].onclick = arrTest6;
+            document.getElementsByTagName('button')[6].onclick = arrTest7;
+            document.getElementsByTagName('button')[7].onclick = arrTest8;
+            document.getElementsByTagName('button')[8].onclick = arrTest9;
+        }
+        function arrTest1()
+        {
+            let arr = ['송아정', 24, true, [1, 2, 3, 4]];
+            document.getElementById("area1").innerHTML = arr;
+            console.log(arr);
+            
+        }
+        function arrTest2()
+        {
+            // 배열 선언
+            var arrObj = new Array();
+            var arrObj01 = ["a1", "a2", 3, 4];
+            console.log(arrObj);
+            console.log(arrObj01);
+
+            let arrObj02 = new Array(5);    // 배열의 길이 정의
+            // console.log(arrObj02);
+            
+            let arrObj03 = new Array(1, 2, 3, 4, 5, 6, 7);     // 초기값 정의
+            // = [1, 2, 3, 4, 5, 6, 7]
+            console.log(arrObj03);
+            
+            // 배열에 값 대입
+            arrObj02[0] = "딸기";
+            arrObj02[1] = "당근";
+            arrObj02[2] = "수박";
+            arrObj02[3] = "참외";
+            arrObj02[4] = "멜론"
+            console.log(arrObj02);
+            
+            // 속성(값)
+            console.log(arrObj02.length);
+            
+        }
+        const arrTest3 =() =>
+        {
+            // indexOf()
+            var arr = ['사과', '딸기', '바나나', '복숭아', '키위', '망고'];
+
+            document.getElementById("area2").innerHTML += "복숭아가 있는 인덱스 : " + arr.indexOf("복숭아") + "<br>";
+        }
+        function arrTest4()
+        {
+            let doc = document.getElementById("area3");
+            // concat()
+            let arr1 = ['사과', '딸기', '바나나'];
+            let arr2 = ['복숭아', '키위', '망고', '파인애플', '참외'];
+            let arr3 = arr1.concat(arr2);
+            
+            doc.innerHTML += "arr1 : " + arr1 + "<br>";
+            doc.innerHTML += "arr2 : " + arr2 + "<br>";
+            doc.innerHTML += "arr1을 기준으로 concat : " + arr3 + "<br>";
+            doc.innerHTML += "arr2을 기준으로 concat : " + arr2.concat(arr1) + "<br>";
+
+            let arr4 = ['수박', '메론'];
+            doc.innerHTML += "arr1을 기준으로 concat " + arr1.concat(arr2, arr4) +  "<br>";
+        }
+        function arrTest5()
+        {
+            // join()
+            let arr = ['모니터', '키보드', '마우스', '커피', '스피커', '핸드크림', '마이크', '향수'];
+            let arrJoin = arr.join();
+
+            let doc = document.getElementById("area4");
+            doc.innerHTML += "arr의 자료형 : " + typeof(arr) + "<br>";
+            doc.innerHTML += "arrJoin : " + arrJoin + "<br>";
+            doc.innerHTML += "arrJoin의 자료형 : " + typeof(arrJoin) + " <br>";
+
+            // join은 배열의 각 요소들을 지정한 문자(구분자)로 연결하여 하나의 문자열로 반환하는 함수
+            arrJoin = arr.join('_');
+            doc.innerHTML += "arrJoing('_') : " + arrJoin + "<br>";
+
+            arrJoin = arr.join('><');
+            doc.innerHTML += "arrJoing('><') : " + arrJoin + "<br>";
+        }
+        function arrTest6()
+        {
+            let arr = [10, 540, 35, 450, 123, 890];
+            let doc = document.getElementById("area5");
+
+            doc.innerHTML += "arr : " + arr + "<br>";
+            // 오름차순 정렬 (맨 앞자리 숫자 기준 ex.10의 1, 35의 3)
+            doc.innerHTML += "arr.sort() : " + arr.sort() + "<br>";
+            doc.innerHTML += "sort 후 arr :" + arr + "<br>";
+
+            // sort(n) : n 기준으로 정렬
+            // 진짜 오름차순
+            doc.innerHTML += "arr.sort(compare1) : " + arr.sort(compare1) + "<br>";
+            // doc.innerHTML += "arr.sort(compare1) : " + arr.sort(function(a, b){return a-b;}) + "<br>";
+            // 내림차순
+            doc.innerHTML += "arr.sort(compare2) : " + arr.sort(compare2) + "<br>";
+
+            arr.sort(compare1);
+            // 내림차순 2
+            doc.innerHTML += "arr.reverse() : " + arr.reverse() + "<br>";
+        }
+        
+        // 정렬의 기준으로서 사용할 함수 - 오름차순
+        function compare1(no1, no2)
+        {
+            return no1-no2;
+            // 음수 리턴 : no2가 더 큼 (제자리)
+            // 양수 리턴 : no1이 더 큼 (위치를 바꿈)
+        }
+        // 정렬의 기준으로서 사용할 함수 - 내림차순
+        function compare2(no1, no2)
+        {
+            return -(no1-no2);
+            // 음수 리턴 : no2가 더 큼 (제자리)
+            // 양수 리턴 : no1이 더 큼 (위치를 바꿈)
+        }
+
+
+        function arrTest7()
+        {
+            let doc = document.getElementById("area6");
+            let arr = ['서초동', '방배동', '역삼동', '대치동', '삼성동'];
+            
+            doc.innerHTML += "arr의 기본 : " + arr + "<br>";
+
+            arr.push("하남시");
+            doc.innerHTML += "arr에 push : " + arr + "<br>";
+            console.log(arr);
+            
+            arr.push("양재동");
+            doc.innerHTML += "arr에 push : " + arr + "<br>";
+
+            arr.sort();
+            doc.innerHTML += "arr에 sort : " + arr + "<br>";
+
+            let tmp = arr.pop();
+            doc.innerHTML += "arr에 pop : " + arr + "<br>";
+            doc.innerHTML += "arr에 pop 진행 후 tmp : " + tmp + "<br>";
+        }
+
+        function arrTest8()
+        {
+            let doc = document.getElementById("area7");
+            let arr = ['야구', '축구', '농구', '배구', '탁구'];
+
+            doc.innerHTML += "arr의 기본값 : " + arr + "<br>";
+
+            doc.innerHTML += "arr에서 shift하면? : " + arr.shift() + "<br>";
+            doc.innerHTML += "shift 후 arr : " + arr + "<br>";
+            
+            doc.innerHTML += "arr에 unshift를 하면? : " + arr.unshift("당구") + "<br>";
+            doc.innerHTML += "unshift 후 arr : " + arr + "<br>";
+        }
+
+        function arrTest9()
+        {
+            var doc = document.getElementById("area8");
+            var arr = ['삼겹살', '항정살', '살치살', '등심', '안심'];
+
+            doc.innerHTML += "arr의 기본값 : " + arr + "<br>";
+            
+            // slice(시작인덱스, 종료인덱스)
+            doc.innerHTML += "slice 실행 : " + arr.slice(0, 3) + "<br>";
+            doc.innerHTML += "slice 실행 후 arr : " + arr + "<br>";
+
+            console.log(arr.slice(0, 3));
+            
+            doc.innerHTML += "<br>";
+            // splice(index-생략가능, 제거수, 추가값)
+            doc.innerHTML += "splice 실행 : " + arr.splice(2, 2, '갈비살') + "<br>";
+            doc.innerHTML += "splice 실행 후 arr : " + arr + "<br>";
+
+            // toString()
+            let str = arr.toString();
+            doc.innerHTML += "arr : " + arr + "<br>";
+            doc.innerHTML += "arr에 toString : " + str + "<br>";
+            doc.innerHTML += "str의 타입 : " + typeof(str) + "<br>";
+            console.log(typeof(str));
+            
+        }
+    </script>
+</head>
+<body>
+    <h1>배열(Array)</h1>
+    <p>배열이란 모든 자료형의 데이터를 저장할 수 있는 변수의 묶음이다.  <br>
+        자바에서는 컬렉션의 List와 거의 흡사하다.</p>
+    <div id="area1" class="area"></div>
+    <button>확인</button>
+
+    <h3>배열의 선언</h3>
+    <p>new를 이용한 배열 선언과 리터럴로 선언</p>
+    <button>확인</button>
+
+    <h3>array 객체의 메소드</h3>
+    <h4>indexOf() : 배열에서 요소가 위치한 인덱스 리턴</h4>
+    <div id="area2" class="area"></div>
+    <button>확인</button>
+
+    <h4>concat() : 두 개 또는 세 개의 배열을 결합</h4>
+    <div id="area3" class="area"></div>
+    <button>확인</button>
+
+    <h4>join() : 배열을 문자열로 반환</h4>
+    <div id="area4" class="area"></div>
+    <button>확인</button>
+
+    <h4>sort() : 배열을 정렬</h4>
+    <div id="area5" class="area"></div>
+    <button>확인</button>
+
+    <h4>push() : 배열의 맨 뒤에 요소 추가 / pop() : 배열의 맨 뒤 요소 제거 & 반환</h4>
+    <div id="area6" class="area"></div>
+    <button>확인</button>
+
+    <h4>shift() : 배열의 맨 앞에 요소 제거 / unshift() : 배열의 맨 앞에 요소 추가</h4>
+    <div id="area7" class="area"></div>
+    <button>확인</button>
+
+    <h4>slice() : 배열의 요소 선택 잘라내기 / splice() : 배열의 index 위치의 요소 제거 및 추가 </h4>
+    <div id="area8" class="area"></div>
+    <button>확인</button>
+</body>
+</html>
