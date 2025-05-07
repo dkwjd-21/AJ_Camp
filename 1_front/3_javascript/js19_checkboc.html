@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #colorbox
+        {
+            width: 320px;
+            height: 320px;
+            position: relative;
+        }
+        .color
+        {
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            position: absolute;
+        }
+        #yellow { left: 160px; } 
+        #blue { top: 160px; } 
+        #black { top: 160px; left: 160px; } 
+    </style>
+    <script>
+        function allSel(isCheck)
+        {
+            let box = document.getElementsByName("chk");
+
+            for(let i=0; i<box.length; i++) 
+            {
+                box[i].checked = isCheck;
+            }            
+        }
+
+        function allCheck()
+        {
+            let chks = document.getElementsByName("chk");
+            let count = checkedCount(chks);
+
+            let all = document.getElementsByName("all");
+            console.log(count);      
+            
+            if(count == chks.length)
+            {
+                all[0].checked = true;
+            }
+            else
+            {
+                all[0].checked = false;
+            }
+        }
+
+        function checkedCount(chks)
+        {
+            let cnt = 0;
+            for (let i=0; i<chks.length; i++)
+            {
+                if(chks[i].checked) { cnt++; }
+            }
+            return cnt;
+        }
+
+
+        function sel()
+        {
+            var chks = document.getElementsByName("chk");
+
+            for(let i=0; i<chks.length; i++)
+            {
+                if(chks[i].checked)
+                {
+                    document.getElementById(chks[i].value).style.backgroundColor = chks[i].value;
+                    document.getElementById(chks[i].value).style.color = "white";
+                }
+                else
+                {
+                    document.getElementById(chks[i].value).style.backgroundColor = "white";
+                    document.getElementById(chks[i].value).style.color = "black";
+                }
+            }
+        }
+
+        function clearDiv()
+        {
+            document.getElementsByName("all")[0].checked =  false;
+            allSel(false);
+            
+
+            // 1. div 태그들을 선택 #colorbox > div 
+            let colorboxes = document.getElementsByClassName("color");
+
+            // 2. 선택된 div 태그들의 배경색을 모두 white로 변경
+            for(let i=0; i<colorboxes.length; i++)
+            {
+                colorboxes[i].style.backgroundColor = "white";
+                colorboxes[i].style.color = "black";
+            }            
+        }
+    </script>
+</head>
+<body>
+    <div id="colorbox">
+        <div id="red" class="color">red</div>
+        <div id="yellow" class="color">yellow</div>
+        <div id="blue" class="color">blue</div>
+        <div id="black" class="color">black</div>
+    </div>
+
+    <div>
+        <form>
+            <input type="checkbox" name="all" onclick="allSel(this.checked)">전체선택 <br> 
+            
+            <input type="checkbox" name="chk" value="red" onclick="allCheck()">빨강 <br>
+            <input type="checkbox" name="chk" value="yellow" onclick="allCheck()">노랑 <br>
+            <input type="checkbox" name="chk" value="blue" onclick="allCheck()">파랑 <br>
+            <input type="checkbox" name="chk" value="black" onclick="allCheck()">검정 <br>
+        
+            <input type="button" value="선택" onclick="sel()">
+            <input type="button" value="초기화" onclick="clearDiv()">
+        </form>
+    </div>
+</body>
+</html>

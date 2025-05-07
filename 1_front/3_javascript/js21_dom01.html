@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const searchPar = () =>
+        {
+            var child02 = document.getElementsByTagName("p")[1];
+
+            var parent01 = child02.parentNode;
+            console.log(parent01);
+
+            parent01.style.backgroundColor = "pink";
+            alert(parent01.nodeName);
+        } 
+
+        function searchChi()
+        {
+            let parent01 = document.getElementsByTagName("div")[0];
+            let divChildren = parent01.childNodes;
+            // let divChildren = parent01.children;
+
+            console.log(divChildren);
+            console.log(divChildren[0]);
+
+            
+            divChildren[5].style.backgroundColor="pink";
+        }
+        
+        function test1()
+        {
+            let Test1child = document.getElementsByTagName("p")[3];
+            let Test1parent = Test1child.parentNode;
+            
+            console.log(Test1parent);
+            Test1parent.style.backgroundColor = "pink";
+        }
+
+        function test2()
+        {
+            let Test2parent = document.getElementsByTagName("div")[2];
+            let Test2child = Test2parent.childNodes;
+
+            console.log(Test2child);
+            Test2child[3].style.fontSize = "20pt";
+            
+        }
+    </script>
+</head>
+<body>
+    <h1>부모 탐색, 자식 탐색</h1>
+    <div>
+        <p>child01</p>
+        <p>child02</p>
+        <p>child03</p>
+    </div>
+    <button onclick="searchPar()">부모 탐색</button>
+    <button onclick="searchChi()">자식 탐색</button>
+
+    <h3 onclick="test1()">1. "test01 태그를 포함한 div 태그"에 배경색 적용 (p태그를 기준으로 부모 선택)</h3>
+    <h3 onclick="test2()">2. "마지막 div 태그에 포함된 test04 태그"의 폰트 크기를 20pt로 적용 (div태그를 기준으로 자식 선택)</h3>
+
+    <div>
+        <p>test01</p>
+        <p>test02</p>
+    </div>
+    <div>
+        <p>test03</p>
+        <p>test04</p>
+    </div>
+</body>
+</html>

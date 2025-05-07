@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function test01()
+        {
+            let food = document.getElementsByName("food")[0];
+
+            // slectedIndex : 선택한 option 태그의 인덱스 반환
+            let idx = food.selectedIndex;
+            console.log(idx);            
+
+            // options : select 태그가 가지고 있는 모든 option 태그들
+            let foodVal = food.options[idx].value;
+            console.log(foodVal);
+            alert("저녁메뉴 : " + foodVal);
+        }
+
+        function test02()
+        {
+            var food = document.getElementsByName("food")[0];
+            // console.log(food.options);
+
+            let str ="";
+            for(let i=0; i<food.options.length; i++)
+            {
+                if(food.options[i].selected)
+                {
+                    str += food.options[i].value + "";
+                }
+            }
+
+            alert("저녁 메뉴 : " + str);
+        }
+    </script>
+</head>
+<body>
+    <h1>저녁 메뉴</h1>
+    <form>
+        <select name="food" multiple="multiple" size="5">
+            <option>----선택----</option>
+            <option value="불고기">불고기</option>
+            <option value="삼겹살">삼겹살</option>
+            <option value="김치말이국수">김치말이국수</option>
+            <option value="육회쫄면">육회쫄면</option>
+            <option value="김치찜">김치찜</option>
+        </select>
+        <input type="button" value="선택" name="food" onclick="test02()">
+    </form>
+</body>
+</html>
