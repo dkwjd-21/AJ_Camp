@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function test01()
+        {
+            // 배열의 구조분해할당
+
+            let arr = [1,2,3,4,5];
+
+            let [no1, no2, no3, no4, no5] = arr;
+
+            // console.log("no1: " + no1);
+            // console.log("no2: " + no2);
+            // console.log("no3: " + no3);
+            // console.log("no4: " + no4);
+            // console.log("no5: " + no5);
+
+            let [num1, num2] = arr;
+            console.log(num1);
+            console.log(num2);
+            
+            let [n1, n2, n3, n4, n5, n6] = arr;
+            console.log(n1);
+            console.log(n2);
+            console.log(n3);
+            console.log(n4);
+            console.log(n5);
+            console.log(n6);    // undefined
+            
+        }
+
+        function test02()
+        {
+            let number = {
+                            one:1,
+                            two:"two",
+                            three:33
+                            }
+            
+            // 객체 이름으로 구분됨 - 구조분해 할당
+            let {one, two, three} = number;
+            console.log(one, two, three);
+            
+            function func1({one, two, three})
+            {
+                // alert(obj);
+                console.log("in func1", one, two, three);
+                
+            }
+
+            func1(number);
+        }
+
+        function test03()
+        {
+            let arr1 = [1, 2, 3];
+            // let arr2 = [4, 5, arr1[0], arr1[1], 6];
+
+            let arr2 = [5, 6, ...arr1,7];
+            console.log(arr2);
+
+            let arr3 = [5, 6, arr1, 7];
+            console.log(arr3);
+            
+            let obj1 = {
+                        no1:1,
+                        no2:2
+                        }
+            
+            let obj2 = {
+                        no3:33,
+                        no4:44,
+                        ...obj1
+                        }
+
+            console.log(obj2);
+
+            function func2(i1, i2, i3)
+            {
+                console.log("func2: ", i1, i2, i3);
+            }
+            func2(...arr1);
+            
+            function func3(i1, ...arg)  // rest 변수
+            {
+                // 여러개의 값을 받은게 알아서 배열이 됨
+                console.log("func3: ", i1, arg);                
+            }
+            func3(1, 2, 3);
+        }
+    </script>
+</head>
+<body>
+    <h1>구조분해할당 Destructuring / 스프레드연산자 Spread</h1>
+
+    <h3>구조분해할당</h3>
+    
+    <h4>배열</h4>
+    <button onclick="test01()">클릭!</button>
+
+    <h4>객체</h4>
+    <button onclick="test02()">클릭~</button>
+
+    <hr>
+    <h3>스프레드연산자 ...</h3>
+    <button onclick="test03()">클릭.</button>
+</body>
+</html>

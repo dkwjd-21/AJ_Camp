@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function tableVal()
+        {
+            let doc = document.forms[0];
+            console.log(doc);
+            
+            let vals = [doc.id.value,
+                        doc.pw.value,
+                        doc.addr.value,
+                        doc.phone.value];
+            console.log(vals);
+            
+            // val이 유효한지 확인 (전부 입력되었는지)
+            for(let i=0; i<vals.length; i++)
+            {
+                if(vals[i] == "" || vals[i] == null)
+                {
+                    // 값이 "" 이거나 null 일 경우 (or 연산)
+                    alert("모두 다 입력해주세요!!");
+                    
+                    // 함수 종료 
+                    return;
+
+                    // 분기문 : 반복문 종료
+                    // break 
+                }
+            }
+
+            let row = createRow(vals);
+            document.getElementById("addtr").appendChild(row);
+        }
+
+        function createRow(vals)
+        {
+            var tr = document.createElement("tr");
+
+            for(let i=0; i<vals.length; i++)
+            {
+                let td = document.createElement("td");
+                td.textContent = vals[i];
+                tr.appendChild(td);
+            }
+
+            let delTd = document.createElement("td");
+            delTd.innerHTML = "<input type='button' value='삭제'"
+                                + "onclick='delRow(this)'>";
+
+            tr.appendChild(delTd);
+
+            return tr;
+        }
+
+        function delRow(ele)
+        {
+            // console.log(ele.parentNode.parentNode);
+
+            document.getElementById("addtr").removeChild(ele.parentNode.parentNode);
+            
+        }
+
+
+        function delVal()
+        {
+            // document.getElementById("addtr").remove();
+            let tbody = document.getElementById("addtr");
+            
+            // console.log(tbody.firstChild);
+            // console.log(tbody.lastChild);
+
+            // 맨위에서부터 하나씩 삭제
+            // if(tbody.firstChild != null)
+            // {
+            //     tbody.firstChild.remove();
+            // }
+
+            // 반복문 - 한번에 삭제
+            while(tbody.firstChild != null)
+            {
+                // tbody.firstChild.remove();
+                
+                // removeChild를 이용해서 삭제
+                tbody.removeChild(tbody.firstChild);
+            }
+
+            // sibling : 형제 요소에 접근
+            // - .previousSibling 
+            // - .nextSibling
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <table id="intable">
+            <tr>
+                <td>아이디 : </td>
+                <td><input type="text" name="id"></td>
+            </tr>
+            <tr>
+                <td>비밀번호 : </td>
+                <td><input type="text" name="pw"></td>
+            </tr>
+            <tr>
+                <td>주소 : </td>
+                <td><input type="text" name="addr"></td>
+            </tr>
+            <tr>
+                <td>전화번호 : </td>
+                <td><input type="text" name="phone"></td>
+            </tr>
+        </table>
+        <input type="button" value="추가" onclick="tableVal()">
+        <input type="button" value="삭제" onclick="delVal()">
+        <hr>
+        <div id="addtable">
+            <table border="1" id="ctb">
+                <col width="100px"><col width="100px">
+                <col width="300px"><col width="100px"><col width="100px">
+                <thead>
+                    <tr>
+                        <th>아이디</th>
+                        <th>비밀번호</th>
+                        <th>주소</th>
+                        <th>전화번호</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                <tbody id="addtr"></tbody>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

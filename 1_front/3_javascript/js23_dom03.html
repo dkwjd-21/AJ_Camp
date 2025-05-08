@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img, #imgView
+        {
+            width: 300px;
+            height: 300px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function createImg()
+        {
+            // 1. 보여줄 이미지 확인 - 어떤 라디오 선택?
+            let radios = document.getElementsByName("rdoBtn");
+
+            var radioVal = "";
+            for(let i=0; i<radios.length; i++)
+            {
+                if(radios[i].checked)
+                {
+                    radioVal = "../1_html/sample/images/" + radios[i].value;
+                    break;
+                }
+            }
+
+            console.log(radioVal);
+            
+
+            // 2. img 엘리먼트 생성 (변경에 가까움)
+            let img = document.createElement("img");
+            img.setAttribute("src", radioVal);
+
+            // 3. 화면에 추가 
+            let div = document.getElementById("imgView");
+            let chd = document.querySelector("#imgView > img");
+
+            div.replaceChild(img, chd);
+        }
+
+        function deleteImg()
+        {
+            // setAttribute
+            let img = document.querySelector("#imgView > img");
+            img.setAttribute("src", "");
+        }
+    </script>
+</head>
+<body>
+    <input type="radio" name="rdoBtn" value="img01.png">그림1<br>
+    <input type="radio" name="rdoBtn" value="img02.png">그림2<br>
+    <input type="radio" name="rdoBtn" value="img03.png">그림3<br>
+
+    <button onclick="createImg()">이미지 생성하기</button>
+    <button onclick="deleteImg()">이미지 삭제하기</button>
+
+    <div id="imgView"><img src=""></div>
+</body>
+</html>

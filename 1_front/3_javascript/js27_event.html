@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function test1()
+        {
+            alert('클릭!');
+        }
+
+        window.onload=()=>
+        {
+            document.getElementById("test2").onclick=()=>
+            {
+                alert('클릭!');
+            }
+
+            function clEv(){ alert('클릭!><'); }
+
+            document.getElementById("test3").addEventListener("click", clEv);
+        
+            document.getElementById("test4").addEventListener("click", function(){
+                alert("클릭!!!!!");
+                document.getElementById("test2").onclick=()=>
+                {
+                    alert("click!!!!!!!!!!");
+                }
+                
+                document.getElementById("test3").addEventListener("click", function(){alert('click!');});
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>이벤트 모델</h1>
+
+    <h3>인라인</h3>
+    <button onclick="alert('클릭!')">클릭!</button>
+    <button onclick="test1()">클릭!!</button>
+
+    <h3>고전</h3>
+    <button id="test2">클릭!!!</button>
+
+    <h3>표준</h3>
+    <button id="test3">클릭!!!!!</button>
+    <button id="test4">클릭!!!!!</button>
+
+    <hr>
+    <h3>기본 이벤트 제거</h3>
+    <form action="js01_start.html" method="get">
+        이름 : <input type="text" name="name" id="name">
+        나이 : <input type="text" name="age" id="age">
+        <br>
+        <input type="submit" value="전송" onclick="return test5()">
+    </form>
+    <script>
+        function test5()
+        {
+            let age = document.getElementById("age").value;
+
+            if(age<20)
+            {
+                alert("청소년 관람 불가");
+                
+                // onclick에 false 리턴 -> form태그 더이상 동작X = 데이터 안넘어가고 페이지 안바뀜
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

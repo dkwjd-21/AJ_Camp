@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function test1()
+        {
+            console.log("실행 1");
+
+            // 일정 시간 후 function 실행 - 브라우저에 대기 시켜둠. 
+            // 대기하는 동안 다른거 동기적으로 실행 
+            setTimeout(()=>{console.log("실행 2");}, 3000);
+            console.log("실행 3");
+
+            sum(22, 23, (val)=>{console.log("sum: " + val);});
+        }
+
+        function sum(no1, no2, call)
+        {
+            setTimeout(()=>{
+                const sum = no1+no2;
+                // console.log(sum);           
+                
+                // 콜백함수 활용 
+                call(sum);
+            }, 2000)
+        }
+
+
+    </script>
+</head>
+<body>
+    <!-- 
+    동기와 비동기
+
+    1. 동기 : 순서대로 하나씩 실행되어 처리되는 방식.
+        test1();
+        test2();
+        test3();
+        ==> 1실행 -> 1종료 -> 2실행 -> 2종료 -> 3실행 -> 3종료 
+
+    2. 비동기 : 순서대로 처리하지 않는 방식. 
+        test1();
+        test2();
+        test3();        
+    -->
+
+    <h1>동기와 비동기</h1>
+    <button onclick="test1()">클릭~</button>
+</body>
+</html>
