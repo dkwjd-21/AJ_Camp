@@ -5,7 +5,176 @@
 <title>화이팅!</title>
 
 <script>
+	// 성공!
+	function answer01()
+	{
+		// 입력된 값
+		let input = document.getElementById("q01").value;
+		alert(Number(input)+10);
+	}
+	// 성공!
+	function answer02()
+	{
+		// 입력 값
+		let input = document.getElementById("inputVal").value;
 
+		// 숫자 리스트
+		let list = document.getElementById("numberArr").textContent.split(" ");
+		// console.log(list);
+
+		// 존재여부
+		let isTrue = false;
+
+		for(let i=0; i<list.length; i++)
+		{
+			if(input == list[i])
+			{
+				isTrue = true;
+			}
+		}
+		
+		if(isTrue){console.log(input);}
+		else{console.log("해당 숫자는 존재하지 않습니다.");}
+	}
+	// 성공!
+	function answer03()
+	{
+		// 라디오 버튼 불러오기
+		let sel = document.getElementsByName("rdo");
+		// 선택된 라디오 value
+		let val = "";
+		
+		// url
+		let url = "";
+
+		// 선택된 라디오에 따라 url 정하기
+		for(let i=0; i<sel.length; i++)
+		{
+			if(sel[i].checked)
+			{
+				val = sel[i].value;
+			}
+		}
+		console.log(val);
+		
+		switch(val)
+		{
+			case "naver":
+			{
+				url = "https://www.naver.com";
+				break;
+			}
+			case "google":
+			{
+				url = "https://www.google.co.kr/";
+				break;
+			}
+			case "w3schools":
+			{
+				url = "https://www.w3schools.com/";
+				break;
+			}
+		}
+		console.log(url);
+		
+		// location.href 이용 
+		location.href = url;
+	}
+	// 성공!
+	function answer04()
+	{
+		// 첫번째 체크박스 가져오기
+		document.getElementsByName("subject")[0].checked = true;
+	}
+	// 성공!
+	function answer05()
+	{
+		// 1~45 사이의 랜덤한 숫자 생성
+		let ran =  Math.floor(Math.random()*45);
+		if(ran==0){ran=1;}
+
+		console.log(ran);
+
+		// input 태그 가져오기
+		let input = document.getElementById("randomVAl");
+		input.value = ran;
+	}
+	// 성공!
+	function answer06()
+	{
+		// 셀렉트 태그 가져오기
+		let select = document.getElementById("selOption");
+		// console.log(select);
+
+		// 선택된 옵션의 index 가져오기
+		let idx = select.selectedIndex;
+		
+		// url
+		let url = "";
+
+		switch(idx)
+		{
+			case 0:
+			{
+				url = "https://www.naver.com";
+				break;
+			}
+			case 1:
+			{
+				url = "https://www.google.co.kr/";
+				break;
+			}
+			case 2:
+			{
+				url = "https://www.w3schools.com/";
+				break;
+			}
+		}
+		
+		window.open(url, "_blank", "width=1000px, height=1000px");
+	}
+	// 성공!
+	function answer07()
+	{
+		// 숫자 리스트 가져오기
+		let list = document.getElementById("numList").textContent;
+		console.log(list);
+
+		// 숫자 배열로 만들기
+		let arr = list.split(",");
+		console.log(arr);		
+
+		// 유니코드 순으로 출력하기! (문자열 순으로)
+		alert(arr.sort());
+	}
+	// 성공!
+	function answer08()
+	{
+		// 입력 받기
+		let num = document.getElementById("dan").value;
+		console.log(num);
+		
+		// 구구단 출력을 해보자! 
+		let text = "";
+		for(let i=1; i<10; i++)
+		{
+			text += num + "*" + i + "=" + num*i + "\n";
+		}
+		console.log(text);
+		
+		alert(text);
+	}
+	// 성공!
+	function answer09()
+	{
+		// 입력받은 값
+		let input = document.getElementById("inputName").value;
+
+		// span의 문자열 
+		let span = document.getElementById("addVal").textContent;
+
+		alert(input+span);
+	}
 </script>
 
 </head>
