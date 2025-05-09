@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $("div>p").eq(0).click(function(){
+                // 첫 번째 b 태그 선택
+                $("pre b").eq(0).toggle();
+            });
+
+            $("div>p").eq(1).click(function(){
+                // 인덱스 a부터(a포함) b이전까지(b미포함) 
+                $("pre b").slice(1, 2).toggle();
+            });
+
+            $("div>p").eq(2).click(function(){
+                $("pre b").first().css("color","red");
+            });
+
+            $("div>p").last().click(function(){
+                $("pre b").toggle();
+            });
+        });
+    </script>
+</head>
+<body>    
+    <pre>
+        <b>eq()    선택한 엘리먼트들 중에서 인덱스로 탐색한다.</b>
+        <b>slice() 선택한 엘리먼트들 중에서 인덱스 '길이'로 탐색</b>
+        <b>fisrt() 선택한 엘리먼트들 중에서 첫 번째 요소 탐색</b>
+        <b>last()  선택한 엘리먼트들 중에서 마지막 요소 탐색</b>
+    </pre>
+    <div>
+        <p>eq()</p>
+        <p>slice()</p>
+        <p>first()</p>
+        <p>last()</p>
+    </div>
+</body>
+</html>

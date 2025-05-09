@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img
+        {
+            width: 200px;
+        }
+    </style>
+
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+        /*
+            jQuery 기본 작성
+            
+            '$' == 'jQuery' 
+            - 엘리먼트 탐색 : css + js 합쳐진 형태 
+                            $("선택자").함수();
+            
+            페이지 로드 후 함수 실행
+            - [js] window.onload() = fn(){};
+            - [jQuery] jQuery(document).ready(fn(){});
+                       $(fn(){});
+        */
+        function h1()
+        {
+            // id가 list01인 태그의 자식인 li를 찾아서
+            // 자식요소 중 첫번째 요소의 배경색을 pink로 바꾸자
+
+            // JavaScript
+            // let li = document.getElementById("list01").children[0];
+            // console.log(li);
+            // li.style.backgroundColor = "pink";
+            
+            // jQuery
+            // let _li = $("#list01 > li").eq(0);
+            // console.log(_li);
+            // _li.css("background-color", "pink");
+            
+            // li 전체 배경색 변경 
+            // js 
+            // let li = document.getElementById("list01").children;
+            // for(let i=0;i<li.length;i++)
+            // {
+            //     li[i].style.backgroundColor = "pink";
+            // }
+            
+            // jQuery - 일괄적으로 css 처리동작
+            $("#list01 > li").css("background-color", "pink");
+        }
+    
+        // 페이지 로드 후 실행
+        $(function()
+        {
+            // alert("Hello jQuery!");
+
+            // 이미지 클릭하면 숨기기
+            $("img").click(function(){
+                alert("이미지 클릭" + "\n"+ this.src); 
+                // 클릭한 이미지 태그만 display=none;
+                $(this).hide();
+            });            
+        });
+
+        function showImg()
+        {
+            $("img").show();
+        }
+
+        function resize()
+        {
+            // $("img").css("width", "100px");
+            // $("img").css("width", "100px").css("height", "100px");
+            $("img").css({"width":"100px", "height":"100px", "opacity":"0.5"});
+        }
+
+        function addImg()
+        {
+            // last() : 마지막 요소 찾기
+            $("img").last().after('<img src="../1_html/sample/images/img03.png">');
+        }
+    </script>
+</head>
+<body>
+    <h1>jQuery</h1>
+    <ul id="list01">
+        <li>셀렉터 표현식</li>
+        <li>DOM 탐색</li>
+        <li>이펙트</li>
+        <li>비동기 통신 (ajax)</li>
+    </ul>
+
+    <button onclick="h1()">li 강조하기!</button>
+
+    <hr>
+    <button onclick="showImg()">이미지 보이기</button>
+    <button onclick="resize()">이미지 축소</button>
+    <button onclick="addImg()">이미지 추가</button>
+
+    <br><br>
+    <div>
+        <img src="../1_html/sample/images/img01.png">
+        <img src="../1_html/sample/images/img02.png">
+    </div>
+
+    
+    
+</body>
+</html>

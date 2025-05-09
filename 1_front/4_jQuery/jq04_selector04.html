@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        function test1()
+        {
+            let val = $("input:text").val();
+            console.log(val);            
+        }
+
+        function test2()
+        {
+            let val = $("input:radio").val();
+            console.log(val);
+
+            document.body.innerHTML += `<h2>${val}</h2>`;            
+        }
+
+        function test3()
+        {
+            let val = $("input:checkbox").val();
+            console.log(val);
+
+            document.body.innerHTML += `<h2>${val}</h2>`;    
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text">
+        <input type="button" value="선택" onclick="test1()">
+        <input type="radio" value="자동차" onclick="test2()">자동차
+        <input type="checkbox" value="우산" onclick="test3()">우산
+    </form>
+</body>
+</html>

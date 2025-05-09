@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../4_jQuery/js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function()
+        {
+            $("#signal").submit(function()
+            {
+                if($(".infobox").val() == "" || $(".infobox").val() == null)
+                {
+                    $(".error").show();
+                    return false;
+                }
+            });
+
+            $("#confirm").click(()=>
+            {
+                if($("input[name=chk]:checked").length == 0)
+                {
+                    // 아무거도 체크되지 않음
+                    alert("1개 이상 선택하세요.");
+                }
+                else
+                {   
+                    // each() : 반복함수. 엘리먼트마다 한번씩(반복) 접근해서 함수 실행
+                    // 매개변수 no으로 인덱스 값을 받아옴
+                    $("input[name=chk]:checked").each(function(no){
+                        // 0부터 1씩 증가하는 값 가져옴
+                        // console.log(no);
+
+                        let chk = $("input[name=chk]:checked").eq(no);
+                        console.log(chk);
+                        
+                        let type = chk.next().text();
+                        let price = chk.val();
+                        console.log(type, price);
+                        
+                        $("#res").append(`${type}의 가격: ${price}원<br>`);
+                    });
+                }
+            });
+        })
+
+        function allchk(checked)
+        {
+            // $("input[name=chk]").prop("checked", checked);
+            // each()를 사용하여 처리
+            $("input[name=chk]").each(function(){
+                // $("input[name=chk]").eq(no).prop("checked", checked);
+                $(this).prop("checked", checked); 
+
+                
+                
+            });
+
+            // prop 속성값을 가지고 있는지 
+            console.log("prop: " + $("input[name=all]").prop("checked"));
+            // attr 속성값 그 자체
+            console.log("attr: " + $("input[name=all]").attr("checked"));
+        }
+    </script>
+</head>
+<body>
+    <form id="signal" action="" method="">
+        <div>
+            <span class="label">User ID</span>
+            <input type="text" class="infobox" name="userId">
+            <span class="error" style="color: red; display: none;">반드시 입력하세요!!!</span>
+        </div>
+        <input type="submit" class="submit" value="입력하기" onclick="">
+    </form>
+
+    <hr>
+
+    <fieldset style="width: 300px;">
+        <legend>체크 여부 확인</legend>
+        <input type="checkbox" name="all" onclick="allchk(this.checked)">전체선택 <br>
+        <input type="checkbox" name="chk" value="1300"><b>시내버스</b><br>
+        <input type="checkbox" name="chk" value="2500"><b>광역버스</b><br>
+        <input type="checkbox" name="chk" value="5000"><b>무궁화호</b><br>
+
+        <input type="button" value="확인" id="confirm"><br>
+        
+        <span>가격</span>
+        <div id="res"></div>
+    </fieldset>
+</body>
+</html>
