@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $("button:eq(0)").click(function(){
+                $("#base").after("<div>새로운 엘리먼트 : after()</div>");
+                // $("<div>새로운 엘리먼트 : inserafter()</div>").insertAfter("#base");
+            });
+
+            $("button:eq(1)").click(function(){
+                $("#base").before("<div>새로운 엘리먼트 : before() </div>");
+                // $("<div>새로운 엘리먼트 : inserafter()</div>").insertBefore("#base");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="base">
+        <p>외부 삽입</p>
+    </div>
+    <br><hr><br>
+    <button>after()</button>
+    <button>before()</button>
+</body>
+</html>

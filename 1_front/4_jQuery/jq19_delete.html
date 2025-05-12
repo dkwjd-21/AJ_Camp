@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $("p:eq(0)").click(function(){
+                // remove() : 태그 자체를 삭제함
+                $(this).remove();
+            });
+            $("p:eq(1)").click(function(){
+                // empty() : 태그 안의 내용물을 비움
+                // innerHTML = "";
+                $(this).empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>엘리먼트 제거</h1>
+    <div>
+        <p>remove</p>
+        <p>empty()</p>
+    </div>
+</body>
+</html>

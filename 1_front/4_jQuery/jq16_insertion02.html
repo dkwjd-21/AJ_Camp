@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 150px;
+            height: 150px;
+            float: left;            
+        }
+        #menubox
+        {
+            position: relative;
+        }
+        #menu
+        {
+            overflow: auto;
+        }
+        .sel
+        {
+            width: 140px;
+            height: 140px;
+            border: 5px dotted yellowgreen;
+            position: absolute;
+            left: 150px;
+        }
+        button
+        {
+            width: 150px;
+            height: 50px;
+            margin-left: 150px;
+            margin-top: 10px;
+        }
+    </style>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+
+            // 특정 시간마다 코드를 실행 - 500ms 마다 function 실행
+            // 비동기화 
+            setInterval(function(){
+                let div = $("#menu");
+                $(".active").first().appendTo(div);
+            }, 100);
+
+            $("button").click(function(){
+                $("img").toggleClass("active");
+
+                if($("button").text() == "start")
+                {
+                    $("button").text("stop");
+                }
+                else
+                {
+                    $("button").text("start");
+                    alert("오늘의 이미지는" + $("img:eq(1)").attr("alt") + "입니다.");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>이미지를 선택해 주세요.</h1>
+    <div id="menubox">
+        <div class="sel"></div>
+        <div id="menu">
+            <img alt="듀가나디1" src="../1_html/sample/images/img01.png">
+            <img alt="듀가나디2" src="../1_html/sample/images/img02.png">
+            <img alt="듀가나디3" src="../1_html/sample/images/img03.png">
+        </div>
+    </div>
+    <button>start</button>
+</body>
+</html>

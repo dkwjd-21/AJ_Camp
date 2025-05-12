@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{border: 1px solid red;}
+        .prepend{border: 1px dotted blue;}
+        .append{border: 1px dotted green;}
+    </style>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $("button:eq(0)").click(function(){
+                // $("div").prepend("123");
+
+                // $("<p>") 추가
+                // -> <p class="prepend">prepend</p>
+                // 특정 엘리먼트 내부 상단에(첫번째) 추가된다.
+                $("div").prepend($("<p>").addClass("prepend").text("prepend"));
+            });
+            $("button:eq(1)").click(function(){
+                // $("div").prepend("123");
+
+                // $("<p>") 추가
+                // -> <p class="prepend">prepend</p>
+                // 특정 엘리먼트 내부 상단에(첫번째) 추가된다.
+                $("div").append($("<p>").addClass("append").text("append"));
+            });
+
+            $("button:eq(2)").click(function(){
+                $("div").html("<b>html 요소를 바꾼다</b>");
+            });
+
+            $("button:eq(3)").click(function(){
+                $("div").text("<b>html 요소를 바꾼다</b>");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <p>태그 삽입 01</p>
+        <p>태그 삽입 02</p>
+    </div>
+    <br><hr><br>
+    <button>prepend()</button>
+    <button>append()</button>
+    <button>html()</button>
+    <button>text()</button>
+</body>
+</html>
