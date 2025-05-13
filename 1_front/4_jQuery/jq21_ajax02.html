@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding: 0px; margin: 0px;}
+        fieldset {width: 400px;}
+        body{width: 1000px;}
+        table{width: 900px;}
+        table tr:nth-child(1) {background-color: pink;}
+    </style>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/create_table.js"></script>
+    <script>
+        $(function(){
+             // id가 emp_search인 버튼을 클릭하면 ajax를 이용하여 emplist.xml 파일에서 데이터 불러오기 
+             $("#emp_search").click(function(){
+                $.ajax
+                ({
+                    url:"./js/emplist.xml",
+                    method:"get",               // 생략 가능. get이 default
+                    dataType:"xml",             // 받는 데이터의 타입
+                    success:function(data)
+                    {
+                        console.log(data);
+                        let rowList = $(data).find("ROW");
+
+                        let tab = makeTable(rowList);
+                        $("body").append(tab);
+                    },
+                    error:function(reqeust, status, error)
+                    {
+                        alert("통신실패\n" 
+                                + "code: " + reqeust.status + "\n"
+                                + "message: " + reqeust.responseText + "\n"
+                                + "error: " + error);
+                    }
+                });
+             });
+        });
+    </script>
+</head>
+<body>
+    <h1>데이터 가져오기</h1>
+    <fieldset>
+        <legend>사원 전체 조회</legend>
+        <input type="button" value="조회" id="emp_search">
+
+    </fieldset>
+</body>
+</html>
