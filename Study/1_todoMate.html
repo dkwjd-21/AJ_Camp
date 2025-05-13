@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* header */
+        #header { height: 60px; }
+        div span
+        {
+            font-size: 20pt;
+            cursor: pointer;
+            margin: 10px;
+            vertical-align: center;
+        }
+        .rightSpan { float: right; }
+        .leftSpan { float: left; }
+
+        /* nav */
+        #nav { height: 100px; }
+        #navProImg 
+        {
+            width: 60px; height: 60px;
+            border-radius: 100px;
+            border: 1px rgb(194, 194, 194) solid;
+        }
+        #nav div
+        {
+            float: left;
+            position: relative;
+        }
+        #nav div p 
+        {
+            font-weight: bold;
+            margin: 0px;
+            text-align: center;
+        }
+        #profileDiv 
+        {
+            width: 60px; height: 60px;
+            border-radius: 100px;
+            border: 1px rgb(194, 194, 194) solid;
+            background-color: rgb(205, 206, 216);
+            color: rgb(81, 83, 104);
+            text-align: center;
+            font-size: 20pt;
+            margin-left: 10px;
+            line-height: 55px;
+        }
+        
+        /* leftBody */
+        #leftBody 
+        {
+            width: 49%;
+            background-color: pink;
+            float: left;
+        }
+        #leftProImg
+        {
+            width: 75px; height: 75px;
+            border-radius: 100px;
+            border: 1px rgb(194, 194, 194) solid;
+            float: left;
+        }
+        #leftPro { height: 75px; }
+        #leftPro p { float: right; font-size: 20pt; margin: 0px; line-height: 77px; margin-right: 10px;}
+        #leftPro b { float: left; line-height: 77px; margin-left: 10px; font-size: 13pt;}
+
+        #leftDate
+        {
+            margin-top: 10px;
+            height: 25px;
+        }
+        #leftDate b 
+        {
+            font-size: 12pt;
+            float: left;
+            margin-right: 5px;
+        }
+        #leftDate span 
+        {
+            font-size: 12pt;
+            margin: 0px;
+        }
+        .changeMon { float: right; margin-right: 10px;}
+        
+        #leftCalender
+        {
+            height: 250px;
+            margin-top: 10px;
+        }
+        #leftCalender table
+        {
+            width: 100%; height: 250px;
+            text-align: center;
+        }
+        #leftCalender td
+        {
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        /* rightBody */
+        #rightBody
+        {
+            width: 48%; height: 500px;
+            background-color: skyblue;
+            float: right;
+            padding: 5px;
+        }
+        #rightBody span
+        {
+            margin: 0px;
+            font-size: 12pt;
+        }
+        #rightBody > div > div
+        {
+            width: 160px;
+            height: 30px;
+            margin-bottom: 10px;
+            background-color: aliceblue;
+            border-radius: 10px;
+        }
+        #rightBody > div > div > span:nth-child(1)
+        {
+            margin-left: 10px;
+        }
+        #rightBody > div > div > span
+        {
+            margin: 0px;
+            line-height: 30px;
+        }
+        #rightBody > div > div > button
+        {
+            width: 20px; padding: 0px;
+            text-align: center;
+            margin-left: 10px;
+        }
+
+        #rigthLast
+        {
+            height: 30px;
+        }
+        #rigthLast span
+        {
+            padding: 0 8px;
+            height: 30px;
+            border-radius: 10px;
+            line-height: 30px;
+        }
+        #rigthLast span:nth-child(1)
+        {
+            float: left;
+            background-color: rgb(198, 239, 255);
+        }
+        #rigthLast span:nth-child(2)
+        {
+            float: right;
+            background-color: white;
+        }
+
+    </style>
+    <script>
+        
+        window.onload = () => {
+            let val = 1;
+            console.log(val);
+        }
+
+    </script>
+</head>
+<body>
+    <!-- header -->
+    <div id="header">
+        <span class="leftSpan">❤</span>
+        <span class="rightSpan">📆</span>
+        <span class="rightSpan">✉</span>
+        <span class="rightSpan">💬</span>
+    </div>
+    <!-- nav -->
+    <div id="nav">
+        <div>
+            <img id="navProImg" src="/1_front/1_html/sample/images/img02.PNG">
+            <p>me</p>
+        </div>
+        <div>
+            <div id="profileDiv">
+                >
+            </div>
+        </div>
+    </div>
+    <!-- leftBody -->
+    <div id="leftBody">
+        <div id="leftPro">
+            <img id="leftProImg" src="/1_front/1_html/sample/images/img02.PNG">
+            <b>me</b>
+            <p>😉</p>
+        </div>
+        <div id="leftDate">
+            <b>2025년 5월 14일</b>
+            <span>✅</span>
+            <span id="checkVal">0</span>
+            <span class="changeMon"> < </span>
+            <span class="changeMon"> > </span>
+            
+        </div>
+        <div id="leftCalender">
+            <table>
+                <thead>
+                    <tr>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th>토</th>
+                        <th>일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>20</td>
+                        <td>21</td>
+                        <td>22</td>
+                        <td>23</td>
+                        <td>24</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>27</td>
+                        <td>28</td>
+                        <td>29</td>
+                        <td>30</td>
+                        <td>31</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- rightBody -->
+    <div id="rightBody">
+        <div id="section1">
+            <div>
+                <span>🔒</span>
+                <span>카테고리 1</span>
+                <button>+</button>
+            </div>
+        </div>
+        <br>
+        <div id="section2">
+            <div>
+                <span>🔒</span>
+                <span>카테고리 2</span>
+                <button>+</button>
+            </div>
+        </div>
+        <br>
+        <div id="section3">
+            <div>
+                <span>🔒</span>
+                <span>카테고리 3</span>
+                <button>+</button>
+            </div>
+        </div>
+        <hr>
+        <div id="rigthLast">
+            <span>✨AI 할 일 생성 </span>
+            <span>📃리스트 메뉴 </span>
+        </div>
+    </div>
+</body>
+</html>
