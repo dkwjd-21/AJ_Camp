@@ -41,7 +41,7 @@ public class Variable02 {
 		// next() : 공백 미포함 문자열을 받아오는 메서드 
 		String name = sc.nextLine();		// 입력한 값이 name에 대입됨 
 		System.out.println("이름: " + name);
-		
+	
 		// 타입별로 받아올 수 있는 메서드가 존재
 		System.out.println("나이 입력하세요: ");
 		int age = sc.nextInt();
