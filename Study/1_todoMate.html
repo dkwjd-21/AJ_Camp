@@ -172,14 +172,11 @@
 
             let tds = document.getElementsByTagName("td");
 
+            
+
             for(let i=0; i<tds.length; i++)
             {
                 tds[i].onclick = () => clickedTd(tds[i]);
-            }
-
-            document.getElementsByName("button").onclick = () =>
-            {
-                console.log("button click!");                
             }
         }
 
@@ -204,14 +201,18 @@
         {
             console.log("button click!", btn);
             
-            // btn의 parent "div"의 형제로 요소 추가 - div 요소 생성해서 추가
-            let div = document.createElement("div");
+            // btn의 parent "div"의 형제로 요소 추가 - ul 요소 생성해서 추가
+            let ul = document.createElement("ul");
             
             let sectionDiv = btn.parentNode.parentNode;
             console.log(sectionDiv);
-            div.textContent = "내용 추가";
 
-            sectionDiv.append(div);
+            let input = document.createElement("input");
+            input.placeholder = "할 일 추가";
+
+            ul.append(input);
+
+            sectionDiv.append(ul);
 
         }
     </script>
@@ -224,6 +225,7 @@
         <span class="rightSpan">✉</span>
         <span class="rightSpan">💬</span>
     </div>
+    
     <!-- nav -->
     <div id="nav">
         <div>
