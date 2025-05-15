@@ -22,6 +22,7 @@ public class Example {
 		if(kor>=40 && eng>=40 && math>=40 && avg>=60)
 		{
 			System.out.println("평균 : "+ avg + " [합격]");
+		}
 		else
 		{
 			System.out.println("평균 : "+ avg + " [불합격]");
