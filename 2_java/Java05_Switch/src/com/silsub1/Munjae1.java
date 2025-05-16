@@ -153,13 +153,56 @@ public class Munjae1 {
 		
 		if(a>0 && b>0)
 		{
-			System.out.print("첫번째 정수: "+a);
-			System.out.print("두번째 정수: "+b);
-			System.out.print(a + "+" + b + "=" + a+b);
-			System.out.print(a + "-" + b + "=" + (a-b));
-			System.out.print(a + "*" + b + "=" + a*b);
-			System.out.print(a + "/" + b + "=" + a/b);
-			System.out.print(a + "%" + b + "=" + a%b);
+			System.out.println("첫번째 정수: "+a);
+			System.out.println("두번째 정수: "+b);
+			System.out.println(a + "+" + b + "=" + (a+b));
+			System.out.println(a + "-" + b + "=" + (a-b));
+			System.out.println(a + "*" + b + "=" + a*b);
+			System.out.println(a + "/" + b + "=" + a/b);
+			System.out.println(a + "%" + b + "=" + a%b);
 		}
+		else
+		{
+			System.out.println("양수를 입력해 주세요.");
+		}
+	}
+	
+	public void test7()
+	{
+		int score;
+		char grade = ' ';
+		
+		System.out.println("점수를 입력하세요: ");
+		score = sc.nextInt();
+		
+		if(score>0)
+		{
+			if(score>=90)
+			{
+				grade = 'A';
+			}
+			else if(score>=80)
+			{
+				grade = 'B';
+			}
+			else if(score>=70)
+			{
+				grade = 'C';
+			}
+			else if(score>=60)
+			{
+				grade = 'D';
+			}
+			else
+			{
+				grade = 'F';
+			}
+		}
+		else
+		{
+			System.out.println("점수는 0점 이상으로 입력하세요.");
+		}
+		
+		System.out.println("점수: "+score+" 학점: "+ grade);
 	}
 }

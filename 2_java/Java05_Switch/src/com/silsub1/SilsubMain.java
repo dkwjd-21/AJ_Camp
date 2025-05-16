@@ -11,6 +11,13 @@ public class SilsubMain {
 		// mj1.test3();
 		// mj1.test4();
 		// mj1.inputTest();
+		// mj1.test6();
+		// mj1.test7();
+		
+		Munjae2 mj2 = new Munjae2();
+		// mj2.maxOfNum();
+		// mj2.login();
+		mj2.codeCheck();
 	}
 
 }
