@@ -73,9 +73,7 @@
 
 		// 문제 7 - 다 못함 ㅠㅠ 
 		$("button").eq(6).click(function(){
-			// replaceWith()
-			let tr = $("table").eq(0).children();
-			tr.eq(0).replaceWith(tr.eq(1));
+			$("table tr:eq(0)").appendTo("table:eq(0)");
 		});
 
 		// 문제 8

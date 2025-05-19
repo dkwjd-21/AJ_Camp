@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+      $(function(){
+          // 문제 11
+          $("button").eq(0).click(function(){
+            let child = $("fieldset:eq(0)").children(".highlight");
+            console.log(child);
+
+            child.append(" ✔ 완료");            
+          });
+
+          // 문제 12
+          $("button").eq(1).click(function(){
+            let childLi = $("fieldset:eq(1)").children("ul").children("li");
+            console.log(childLi);
+            
+            for(let i=0; i<childLi.length; i++)
+            {
+              let str = childLi[i].textContent;
+              console.log(str);
+
+              if(/\d/.test(str))
+              {
+                console.log("숫자가 포함되어 있습니다.");                  
+                childLi.eq(i).css("background","#FFD700");
+              }
+            }
+          });
+
+          // 문제 13
+          $("#clickCounter").click(function(){
+            console.log("click!");           
+
+            let text = $("#clickCounter").text();
+            console.log(text);
+            text++;
+            $("#clickCounter").text(text);
+          });   
+          
+          // 문제 14 - input 요소에서 값이 바뀔 때마다 발생하는 이벤트
+          $("#liveInput").on("input", function(){
+            let inputText = $("#liveInput").val();
+            $("#liveOutput").text(inputText);
+          });
+          
+          // 문제 15
+          $("button").eq(2).click(function(){
+            let childDiv = $(".sBox");
+            console.log(childDiv);
+            for(let i=1;i<=childDiv.length;i++)
+            {
+              if(i%2 == 1)
+              {
+                childDiv.eq(i).slideUp();
+              }
+            }
+          });
+
+          // 문제 16
+          $("#lengthCheck").on("input", function(){
+            let input = $("#lengthCheck").val();
+            if(input.length >= 5)
+            {
+              $("#lengthCheck").css("background", "green");
+            }
+            else
+            {
+              $("#lengthCheck").css("background", "red");
+            }
+          });
+
+          // 문제 17
+          $("button").eq(3).click(function(){
+            let tr = $("#maxTable").children().children();
+            let max = 0;
+            let maxTd;
+            
+            for(let i=0;i<tr.length;i++)
+            {
+              let td = tr.eq(i).children();
+              for(let j=0;j<td.length;j++)
+              {
+                // console.log(td.eq(j));
+                
+                if(td.eq(j).text() >= max)
+                {
+                  max = td.eq(j).text();
+                  maxTd = td.eq(j)
+                }
+              }
+            }    
+            maxTd.css("background", "orange");
+          });
+          
+          // 문제 18
+          let cnt = 0;
+          $("button").eq(4).click(function(){
+            let div = $("#colorCycle");
+            // cnt++;
+            // if(cnt == 1)
+            // {
+            //   div.css("background", "red");
+            // }
+            // else if(cnt == 2)
+            // {
+            //   div.css("background", "blue");
+            // }
+            // else if(cnt==3)
+            // {
+            //   div.css("background", "green");
+            //   cnt = 0;
+            // }      
+            let colors = ["red", "blue", "green"];
+
+            div.css("background", colors[cnt]);
+
+            cnt++;
+            if (cnt >= colors.length) cnt = 0;      
+          });
+
+          // 문제 19 
+          $("button").eq(5).click(function(){
+            let ul = $("#dynamicList");
+            ul.append("<li>추가됨</li>");
+          });
+
+          // 문제 20
+          $("#addTextBtn").click(function(){
+            let input = $("#createText").val();
+            let div = $("#textOutput");
+            let text = "<p>" + input + "</p>";
+            div.append(text);
+          });
+      });
+    </script>
+</head>
+<body>
+    <!-- 문제 11 -->
+<fieldset>
+  <legend>문제 11</legend>
+  <h3>모든 div 중 class가 'highlight'인 요소 바로 뒤에 "✔ 완료"라는 텍스트를 추가해 주세요.</h3>
+  <div>일반</div>
+  <div class="highlight">하이라이트</div>
+  <div>일반</div>
+  <br/>
+  <button>버튼</button>
+</fieldset>
+<fieldset>
+  <legend>문제 12</legend>
+  <h3>ul 태그 안에서 텍스트에 숫자가 포함된 li 항목만 배경색을 #FFD700으로 바꿔 주세요.</h3>
+  <ul>
+    <li>item one</li>
+    <li>item 2</li>
+    <li>item three</li>
+    <li>item 4</li>
+  </ul>
+  <br/>
+  <button>버튼</button>
+</fieldset>
+
+<!-- 문제 13 -->
+<fieldset>
+  <legend>문제 13</legend>
+  <h3>아래 div를 클릭할 때마다 내부에 숫자가 1씩 증가하도록 해주세요.</h3>
+  <div id="clickCounter" style="width:100px; height:100px; border:1px solid black; text-align:center; line-height:100px;">0</div>
+</fieldset>
+
+<!-- 문제 14 -->
+<fieldset>
+  <legend>문제 14</legend>
+  <h3>아래 input의 값이 변경될 때, 그 값을 div에 자동으로 반영해 주세요.</h3>
+  <input type="text" id="liveInput"/>
+  <div id="liveOutput" style="margin-top:10px; border:1px dashed gray; padding:5px;"></div>
+</fieldset>
+
+<!-- 문제 15 -->
+<fieldset>
+  <legend>문제 15</legend>
+  <h3>아래 div들 중, 홀수 번째 div만 slideUp 해주세요.</h3>
+  <div class="sBox" style="border:1px solid #aaa;">box1</div>
+  <div class="sBox" style="border:1px solid #aaa;">box2</div>
+  <div class="sBox" style="border:1px solid #aaa;">box3</div>
+  <div class="sBox" style="border:1px solid #aaa;">box4</div>
+  <br/>
+  <button>버튼</button>
+</fieldset>
+
+<!-- 문제 16 -->
+<fieldset>
+  <legend>문제 16</legend>
+  <h3>아래 input에 5자 이상 입력하면 배경색을 green으로, 그렇지 않으면 red로 바꿔 주세요.</h3>
+  <input type="text" id="lengthCheck"/>
+</fieldset>
+
+<!-- 문제 17 -->
+<fieldset>
+  <legend>문제 17</legend>
+  <h3>아래 표에서 가장 큰 숫자 셀의 배경색을 오렌지로 바꿔 주세요.</h3>
+  <table border="1" id="maxTable">
+    <tr><td>3</td><td>7</td><td>2</td></tr>
+    <tr><td>9</td><td>1</td><td>4</td></tr>
+    <tr><td>5</td><td>8</td><td>6</td></tr>
+  </table>
+  <br/>
+  <button>버튼</button>
+</fieldset>
+
+<!-- 문제 18 -->
+<fieldset>
+  <legend>문제 18</legend>
+  <h3>버튼을 누를 때마다 아래 div의 배경색이 빨강 → 파랑 → 초록 순으로 바뀌게 해주세요.</h3>
+  <div id="colorCycle" style="width:100px; height:100px; border:1px solid black;"></div>
+  <br/>
+  <button>버튼</button>
+</fieldset>
+
+<!-- 문제 19 -->
+<fieldset>
+  <legend>문제 19</legend>
+  <h3>버튼을 클릭할 때마다 리스트 마지막에 새로운 항목("추가됨")을 추가해 주세요.</h3>
+  <ul id="dynamicList">
+    <li>기존 항목 1</li>
+    <li>기존 항목 2</li>
+  </ul>
+  <br/>
+  <button>버튼</button>
+</fieldset>
+
+<!-- 문제 20 -->
+<fieldset>
+  <legend>문제 20</legend>
+  <h3>input에 입력한 값으로 새로운 p 태그를 생성하여 아래 div에 추가해 주세요.</h3>
+  <input type="text" id="createText"/>
+  <button id="addTextBtn">추가</button>
+  <div id="textOutput" style="margin-top:10px; border:1px solid #ccc; padding:10px;"></div>
+</fieldset>
+
+</body>
+</html>

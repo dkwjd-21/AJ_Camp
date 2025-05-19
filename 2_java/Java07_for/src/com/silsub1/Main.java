@@ -6,7 +6,8 @@ public class Main {
 		example ex = new example();
 		
 		// ex.printStar1();
-		ex.printStar2();
+		// ex.printStar2();
+		ex.countInputCharacter();
 	}
 
 }
