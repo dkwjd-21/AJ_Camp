@@ -10,9 +10,20 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		Scanner sc = new Scanner(System.in);
-
-		int num = sc.nextInt();     // 숫자 입력 (예: 10)
-		String str = sc.nextLine(); // 다음 줄 입력
-		System.out.println("입력된 문자열: " + str);
+	    int n = sc.nextInt();
+	    
+	    for(int i=0;i<n;i++){
+	      for(int j=0;j<n;j++) {
+	    	  if(j>=n)
+	    	  {
+	    		  System.out.print("*");
+	    	  }
+	    	  else
+	    	  {
+	    		  System.out.print(" ");
+	    	  }
+	      }
+	      System.out.println();
+	    }
 	}
 }

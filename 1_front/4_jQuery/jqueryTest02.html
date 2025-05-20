@@ -57,7 +57,7 @@
             {
               if(i%2 == 1)
               {
-                childDiv.eq(i).slideUp();
+                childDiv.eq(i-1).slideUp();
               }
             }
           });
@@ -98,24 +98,24 @@
             maxTd.css("background", "orange");
           });
           
-          // 문제 18
+          // // 문제 18
           let cnt = 0;
           $("button").eq(4).click(function(){
             let div = $("#colorCycle");
-            // cnt++;
-            // if(cnt == 1)
-            // {
-            //   div.css("background", "red");
-            // }
-            // else if(cnt == 2)
-            // {
-            //   div.css("background", "blue");
-            // }
-            // else if(cnt==3)
-            // {
-            //   div.css("background", "green");
-            //   cnt = 0;
-            // }      
+          //   cnt++;
+          //   if(cnt == 1)
+          //   {
+          //     div.css("background", "red");
+          //   }
+          //   else if(cnt == 2)
+          //   {
+          //     div.css("background", "blue");
+          //   }
+          //   else if(cnt==3)
+          //   {
+          //     div.css("background", "green");
+          //     cnt = 0;
+          //   }      
             let colors = ["red", "blue", "green"];
 
             div.css("background", colors[cnt]);
