@@ -1,30 +1,36 @@
 package com.test01;
 
 import java.io.*;
-import java.util.Scanner;
 
 public class Main {	
-	public static void main(String[] args) throws IOException  
-	{
-		
+	public static void main(String[] args) throws IOException  {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		// 정수의 개수 N 
-		int n = Integer.parseInt(br.readLine());
-		// N개의 정수가 공백으로 구분되어 있다. 
-		String[] arr = new String[n];
-		arr = br.readLine().split(" ");
-		// 찾으려고 하는 정수 v 
-		int v = Integer.parseInt(br.readLine());
+		// 첫째 줄에 정수 N과 M이 주어진다.
+		String[] input = br.readLine().split(" ");
+		int N = Integer.parseInt(input[0]);
+		int M = Integer.parseInt(input[1]);
 		
-		// v의 개수
-		int cnt = 0;		
-		// N개의 정수 중에 v가 몇개인지 출력
-		for(int i=0;i<arr.length;i++) {
-			if(Integer.parseInt(arr[i]) == v) {
-				cnt++;
+		// N개의 요소를 가지는 int 배열
+		int[] arr = new int[N];
+		
+		// M번 공을 넣음. = M번 int 배열에 요소를 저장함
+		for(int i=0; i<M; i++) {
+			// i번부터 j번까지 k를 넣음 
+			String[] idx = br.readLine().split(" ");
+			int idxI = Integer.parseInt(idx[0]);
+			int idxJ = Integer.parseInt(idx[1]);
+			int idxK = Integer.parseInt(idx[2]);
+			
+			// 배열의 인덱스는 i-1부터 j-1에 해당한다. 
+			for(int j=idxI-1; j<idxJ; j++) {
+				arr[j] = idxK;
 			}
 		}
-		System.out.println(cnt);
+		
+		// 공의 번호를 공백으로 구분해 출력한다. 들어있지 않은 바구니는 0을 출력
+		for(int i=0; i<arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
 	}
 }
