@@ -38,6 +38,7 @@ public class Run {
 					System.out.println("수학점수: ");
 					int math = sc.nextInt();
 					
+					s[cnt] = new Student();
 					s[cnt].setGrade(grade);
 					s[cnt].setClassroom(classroom);
 					s[cnt].setName(name);
