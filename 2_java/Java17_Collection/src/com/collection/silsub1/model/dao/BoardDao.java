@@ -64,7 +64,64 @@ public class BoardDao {
 	// 게시글 한 개 보기
 	public Board displayOne(int no) {
 		// 매개변수로 넘어온 게시글 번호와 일치하는 게시글 찾기
-		Board b = list.get(no-1);
-		return b;
+		Board board = null;
+		
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getBoardNo() == no) {
+				board = list.get(i);
+				break;
+			}
+		}
+		return board;
+	}
+	
+	// 제목 수정
+	public void updateTitle(int no, String title) {
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getBoardNo() == no) {
+				list.get(i).setBoardTitle(title);
+				System.out.println("성공적으로 수정되었습니다.");
+				System.out.println(list.get(i));
+				break;
+			}				
+		}
+	}
+	
+	// 내용 수정
+	public void updateContent(int no, String content) {
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getBoardNo() == no) {
+				list.get(i).setBoardContent(content);
+				System.out.println("성공적으로 수정되었습니다.");
+				System.out.println(list.get(i));
+				break;
+			}				
+		}
+	}
+	
+	// 게시글 삭제
+	public void deleteBoard(int no) {
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getBoardNo() == no) {
+				list.remove(i);
+				break;
+			}				
+		}	
+		System.out.println("성공적으로 삭제되었습니다.");
+	}
+	
+	// 게시글 검색
+	public ArrayList<Board> search(String title) {
+		// 검색 결과가 다층일 수 있으니 리스트에 담아 리턴 
+		ArrayList<Board> res = new ArrayList<>();
+		
+		// 탐색
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getBoardTitle().contains(title)) {
+				res.add(list.get(i));
+			}
+		}
+		
+		return res;
 	}
 }

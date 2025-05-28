@@ -66,7 +66,7 @@ public class Board implements Serializable{
 
 	@Override
 	public String toString() {
-		return "번호:" + boardNo + "/ 제목:" + boardTitle + "/ 작성자:" + boardWriter
-				+ "/ 작성일:" + boardDate + "/ 내용:" + boardContent + "]";
+		return "[ 번호:" + boardNo + "/ 제목:" + boardTitle + "/ 작성자:" + boardWriter
+				+ "/ 작성일:" + boardDate + "/ 내용:" + boardContent + " ]";
 	}	
 }

@@ -5,7 +5,8 @@ import java.util.Scanner;
 import com.test3.model.vo.Product;
 
 public class ProductController {
-	private Product[] pro = null;	
+//	private Product[] pro = null;	// null로 할당하면 인덱스에 접근이 안됨 	
+	private Product[] pro = new Product[100];	
 	public static int count=0;		// 현재 추가된 객체 수
 	Scanner sc = new Scanner(System.in);
 	
@@ -53,12 +54,17 @@ public class ProductController {
 		double tax = sc.nextDouble();
 		
 		pro[idx] = new Product(pId, pName, price, tax);
+		
 	}
 	
 	public void productPrint() {
 		// 현재까지 기록한 도서 정보 모두 출력
 		for(int i=0; i<pro.length; i++) {
-			System.out.println(pro[i].information());
+			if(pro[i] != null) {
+				System.out.println(pro[i].information());
+			}else {
+				break;
+			}			
 		}
 	}
 	
