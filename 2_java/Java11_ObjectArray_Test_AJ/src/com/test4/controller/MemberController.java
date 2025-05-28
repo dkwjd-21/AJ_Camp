@@ -31,7 +31,7 @@ public class MemberController {
 		
 		// 매개변수로 전달받은 userId와 동일한 아이디를 가지고 있는 회원을 m에 대입
 		for(int i=0; i<memberCount; i++) {
-			if(mem[i].getUserId() == userId) {
+			if(mem[i].getUserId().equals(userId)) {
 				m = mem[i];
 				break;
 			}
@@ -40,7 +40,7 @@ public class MemberController {
 		return m;
 	}
 	
-	public void inserMember(Member m) {
+	public void insertMember(Member m) {
 		// 매개변수로 전달받은 회원정보를 mem 객체에 추가
 		mem[memberCount-1] = m;
 		
@@ -57,15 +57,15 @@ public class MemberController {
 		case 1:
 			// 1인 경우 아이디로 검색 후 결과를 searchMember에 대입
 			for(int i=0; i<memberCount; i++) {
-				if(mem[i].getUserId() == search) {
+				if(mem[i].getUserId().equals(search)) {
 					searchMember = mem[i];
 					break;
 				}
 			}
 		case 2:
 			// 2인 경우 이름으로 검색 후 결과를 searchMember에 대입
-			for(int i=0; i<mem.length; i++) {
-				if(mem[i].getName() == search) {
+			for(int i=0; i<memberCount; i++) {
+				if(mem[i].getName().equals(search)) {
 					searchMember = mem[i];
 					break;
 				}
@@ -73,7 +73,7 @@ public class MemberController {
 		case 3:
 			// 3인 경우 이메일로 검색 후 결과를 searchMember에 대입
 			for(int i=0; i<memberCount; i++) {
-				if(mem[i].getEmail() == search) {
+				if(mem[i].getEmail().equals(search)) {
 					searchMember = mem[i];
 					break;
 				}
@@ -135,6 +135,24 @@ public class MemberController {
 	}
 	
 	public Member[] sortIdDesc() {
+		Member copy[] = mem.clone();
+		
+		return copy;
+	}
+	
+	public Member[] sortAgeAsc() {
+		Member copy[] = mem.clone();
+		
+		return copy;
+	}
+	
+	public Member[] sortAgeDesc() {
+		Member copy[] = mem.clone();
+		
+		return copy;
+	}
+	
+	public Member[] sortGenderDesc() {
 		Member copy[] = mem.clone();
 		
 		return copy;

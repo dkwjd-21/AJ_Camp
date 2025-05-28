@@ -75,9 +75,13 @@ public class Member implements Comparable{
 
 	@Override
 	public int compareTo(Object o) {
-		Member m = (Member)o;
-//		this.getName()-m.getName();
-		return ;
+		Member other = (Member)o;
+		/* "A".compareTo("B") → -1  // A가 B보다 앞에 있으므로 음수
+		   "B".compareTo("A") → 1   // B가 A보다 뒤에 있으므로 양수
+	 	   "A".compareTo("A") → 0   // 같으므로 0
+		 * */
+		// 오름차순 
+	    return this.getUserId().compareTo(other.getUserId());
 	}
 
 	
