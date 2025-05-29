@@ -12,6 +12,7 @@ public class MemberMenu {
 	public void mainMenu() {
 		// 반복문을 이용하여 메인 메뉴를 반복적으로 실행 
 		while(true) {
+			System.out.println(mc.getMemberCount());
 			System.out.println("========== 회원 관리 메뉴 ==========");
 			System.out.println("1. 신규 회원 등록");
 			System.out.println("2. 회원 정보 검색");
@@ -170,7 +171,7 @@ public class MemberMenu {
 		// mc의 getMem() 호출 
 		Member[] mem = mc.getMem();
 		for(int i=0; i<mc.getMemberCount(); i++) {
-			System.out.println(mem[i].information());
+
 		}
 	}
 }

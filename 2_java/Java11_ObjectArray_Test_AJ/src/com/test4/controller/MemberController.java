@@ -45,7 +45,8 @@ public class MemberController {
 		mem[memberCount-1] = m;
 		
 		// memberCount 1 증가
-		memberCount++;
+		memberCount += 1;
+		System.out.println(memberCount);
 	}
 	
 	public Member searchMember(int menu, String search) {
@@ -62,6 +63,7 @@ public class MemberController {
 					break;
 				}
 			}
+			break;
 		case 2:
 			// 2인 경우 이름으로 검색 후 결과를 searchMember에 대입
 			for(int i=0; i<memberCount; i++) {
@@ -69,7 +71,8 @@ public class MemberController {
 					searchMember = mem[i];
 					break;
 				}
-			}			
+			}	
+			break;
 		case 3:
 			// 3인 경우 이메일로 검색 후 결과를 searchMember에 대입
 			for(int i=0; i<memberCount; i++) {
@@ -78,6 +81,7 @@ public class MemberController {
 					break;
 				}
 			}
+			break;
 		}
 		
 		return searchMember;
