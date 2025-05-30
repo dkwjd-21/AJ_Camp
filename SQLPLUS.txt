@@ -1,0 +1,92 @@
+// CMD 에서 진행 
+C:\Users\5-05>sqlplus
+
+사용자명 입력: /as sysdba
+
+// 계정 생성시 'c##'을 붙여야 한다. 그걸 생략하기 위해 설정. 
+SQL > ALTER SESSION SET "_ORACLE_SCRIPT"=TRUE;
+세션이 변경되었습니다. 
+SQL > COMMIT;
+커밋이 완료되었습니다. 
+
+
+// 계정 생성
+SQL > CREATE USER MULTI IDENTIFIED BY MULTI;
+사용자가 생성되었습니다. 
+
+// 권한 부여
+SQL > GRANT CONNECT, RESOURCE TO MULTI;
+권한이 부여되었습니다. 
+
+// 데이터 입력 가능하게 설정
+SQL > GRANT UNLIMITED TABLESPACE TO MULTI;
+권한이 부여되었습니다. 
+
+// 시스템 계정 -> MULTI 계정 접속
+SQL > CONN MULTI/MULTI;
+연결되었습니다. 
+
+SQL > select * from user_tables;
+선택된 레코드가 없습니다. 
+
+SQL > exit 
+분리됨 (접속 종료) 
+
+// 접속방법
+C:\USERS\5-05> SQLPLUS
+사용자명입력 : MULTI
+비밀번호입력 : MULTI
+
+-- 테이블 생성 --
+// 테이블 만들기 ( NO: 컬럼이름 NUMBER: 타입)
+SQL > CREATE TABLE TEST( NO NUMBER, NAME VARCHAR2(20) ) ;
+테이블이 생성되었습니다. 
+
+// 생성한 테이블 조회
+SQL > SELECT * FROM TEST;
+선택된 레코드가 없습니다. (= 데이터가 없다는 뜻) 
+
+// TEST 테이블에 데이터 1줄 추가
+SQL> INSERT INTO TEST VALUES(1, 'AJ');
+1개의 행이 만들어졌습니다. 
+
+// 데이터 추가 후 테이블 조회
+SQL> SELECT * FROM TEST;
+        NO NAME
+---------- ----------------------------------------
+         1 AJ
+
+// 원하는 데이터만 가져옴 
+SQL> SELECT * FROM TEST WHERE NO=1;
+        NO NAME
+---------- ----------------------------------------
+         1 AJ
+
+// 테이블 삭제
+SQL> DROP TABLE TEST;
+테이블이 삭제되었습니다.
+
+// 삭제 후 테이블 조회
+SQL> SELECT * FROM TEST;
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+
+============================================
+
+
+DBEAVER 
+defender exclusion check
+- 둘중 뭐해도 상관xx 
+- exclude dbeaver from 어쩌고 선택
+
+data share
+- do not share data.
+
+새 데이터 연결
+oracle
+- username : MULTI
+- password : MULTI
+- Test Connection : 안될 때, driver settings에서 라이브러리 
+  -> oracle 설치파일에서 jdbc 찾아서 lib 폴더 추가 
+  -> 커넥션 성공 -> 완료 
+
