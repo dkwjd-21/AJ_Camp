@@ -1,37 +1,46 @@
 package com.test01;
 
 import java.io.*;
-import java.util.StringTokenizer;
 
 public class Main{
   public static void main(String[] args) throws IOException{
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-    StringTokenizer st = new StringTokenizer(br.readLine());
-    int N = Integer.parseInt(st.nextToken());
-    int M = Integer.parseInt(st.nextToken());
-    int[] arr = new int[N];
-    //바구니 채우기
-    for(int i=0;i<N;i++){
-      arr[i]=(i+1);
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));    
+    
+    // 첫째 줄에 N이 주어진다
+    int N = Integer.parseInt(br.readLine());
+    
+    // 윗부분 N번 반복
+    for(int i=1; i<=N; i++) {
+    		// 앞부분 공백
+    		for(int k=0; k<N-i; k++) {
+    			System.out.print(" ");
+    		}
+    		// 별 찍기 : i번째 홀수만큼
+    		for(int k=0; k<2*i-1; k++) {
+    			System.out.print("*");
+    		}
+    		// 뒷부분 공백
+    		for(int k=0; k<N-i; k++) {
+    			System.out.print(" ");
+    		}
+    	System.out.println();	// 줄바꿈
     }
-    for(int k=0;k<M;k++){
-      st = new StringTokenizer(br.readLine());
-      int i=Integer.parseInt(st.nextToken());
-      int j=Integer.parseInt(st.nextToken());
-      //역순으로 만들기
-      int ij = i+j;
-      int tmp =0;
-      for(int p=i-1;p<(int)((ij-1)/2);p++){
-        tmp=arr[p];
-        arr[p]=arr[j-1];
-        arr[j-1]=tmp;
-        j--;
-      }
-    }
-    for(int i=0;i<N;i++){
-      System.out.print(arr[i]+" ");
+    
+    // 아랫부분 N-1번 반복
+    for(int i=N-1; i>=1; i--) {
+    		// 앞부분 공백
+    		for(int k=0; k<N-i; k++) {
+    			System.out.print(" ");
+    		}
+    		// 별 찍기 : i번째 홀수만큼
+    		for(int k=0; k<2*i-1; k++) {
+    			System.out.print("*");
+    		}
+    		// 뒷부분 공백
+    		for(int k=0; k<N-i; k++) {
+    			System.out.print(" ");
+    		}
+    	System.out.println();	// 줄바꿈
     }
   }
 }
