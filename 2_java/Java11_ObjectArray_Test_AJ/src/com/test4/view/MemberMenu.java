@@ -171,7 +171,7 @@ public class MemberMenu {
 		// mc의 getMem() 호출 
 		Member[] mem = mc.getMem();
 		for(int i=0; i<mc.getMemberCount(); i++) {
-
+			System.out.println(mem[i].information());
 		}
 	}
 }
