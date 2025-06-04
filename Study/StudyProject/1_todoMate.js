@@ -135,34 +135,66 @@ function button(btn)
 
     sectionDiv.append(newDiv);
 }
+
+let currentTarget = null;
 // 할일 리스트의 eleInp & eleDiv 클릭시 이벤트 
 function editList(){
-    // 임시 삭제 Y/N 
-    let res = confirm("할 일 목록을 삭제하시겠습니까?");    
-    if(res){
-        this.parentNode.remove();
-    }
+    // 제목변경과 삭제를 위해 저장
+    currentTarget = this;
 
-    // 호출한 요소의 부모 div 저장 
-    let parDiv = this.parentNode;
+    let editDiv = document.getElementById("editList");
+    // 타이틀 변경하기 
+    let content = this.parentNode.children[1].value;    // input에 저장된 value 값
+    editDiv.children[0].textContent = content;   
 
-    // 새 엘리먼트 추가 
-    let newDiv = document.createElement("div");
-    newDiv.className = "editDiv";
-
-    // title
-    let eleTitle = document.createElement("div");
-    eleTitle.textContent = this.parentNode.children[1].value;
+    // show 
+    editDiv.classList.add("show");    
+    // overlay on
+    let overlay = document.getElementById("overlay");
+    overlay.classList.add("overlay");
+}
+// 할일 리스트의 제목 변경
+function editTitle(){
+    let editDiv = document.getElementById("editList");
+    let originCon = editDiv.children[0].textContent;
     
-    // 수정 div 
-    let eleEdit = document.createElement("div");
-    eleEdit.textContent = "📝\n수정하기";
-    // eleEdit.onclick
-    
-    // 삭제 div
-    let eleDelete = document.createElement("div");
-    eleDelete.textContent = "🗑\n삭제하기";
-    eleDelete.onclick = function(){
-        parDiv.remove();
+    let content = prompt("수정할 내용을 작성해주세요!", originCon);
+    if(content!=null){
+        // input 태그의 value 값 수정      
+        currentTarget.parentNode.children[1].value = content;        
+        editDiv.classList.remove("show");
+        // overlay off
+        let overlay = document.getElementById("overlay");
+        overlay.classList.remove("overlay");        
     }
 }
+// 할일 리스트 제거 
+function delList(){
+    let editDiv = document.getElementById("editList");
+
+    let isDelete = confirm("정말 삭제하시겠습니까?");    
+    if(isDelete){
+        editDiv.classList.remove("show");
+        // 리스트 삭제
+        currentTarget.parentNode.remove();    
+        // overlay off
+        let overlay = document.getElementById("overlay");
+        overlay.classList.remove("overlay");    
+    }
+}
+
+// 카테고리 팝업
+function categoryPopUp(){
+    let category = document.getElementById("editCategory");
+    category.style.opacity=1;
+    category.style.visibility="visible";
+}
+
+// 카테고리 메뉴 클릭 
+function category(){
+    // 임의로 닫는 메뉴로 사용 
+    let category = document.getElementById("editCategory");
+    category.style.opacity=0;
+    category.style.visibility="hidden";
+}
+

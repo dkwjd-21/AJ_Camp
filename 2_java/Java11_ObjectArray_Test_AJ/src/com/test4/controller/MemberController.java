@@ -106,16 +106,21 @@ public class MemberController {
 	
 	public void deleteMember(String userId) {
 		// 매개변수로 전달받은 userId가 mem에 존재하는 경우 해당 회원 삭제 후 
-		for(int i=0; i<mem.length; i++) {
+		for(int i=0; i<memberCount; i++) {
 			if(mem[i].getUserId().equals(userId)) {
-				mem[i] = null;
-			}
-		}
+//				mem[i] = null;
+				
+				// 다음 인덱스 객체들의 정보를 한 칸씩 앞으로 이동시킴
+				// 실행시 NullPointerException을 발생할 수 있음
+				for(int j=i; j<memberCount-1; j++) {
+					mem[j] = mem[j+1];
+				}
+			}			
+		}		 
 		
+		// 마지막 요소 비워주기
+		mem[memberCount] = null;
 		
-		// 다음 인덱스 객체들의 정보를 한 칸씩 앞으로 이동시킴
-		// 실행시 NullPointerException을 발생할 수 있음 
-					
 		// memberCount 1 감소 
 		memberCount--;
 	}
@@ -126,7 +131,7 @@ public class MemberController {
 		Member copy[] = mem.clone();
 		
 		// copy 배열을 아이디별 오름차순 정렬 진행 *compareTo() 메소드 활용
-		
+		Arrays.sort(copy);
 		
 		return copy;		
 	}

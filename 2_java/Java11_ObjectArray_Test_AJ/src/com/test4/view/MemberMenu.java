@@ -48,6 +48,7 @@ public class MemberMenu {
 				break;
 			case 6:
 				// 회원 정보 정렬
+				sortMember();
 				break;
 			case 9:
 				// 프로그램 종료
@@ -183,6 +184,46 @@ public class MemberMenu {
 		Member[] mem = mc.getMem();
 		for(int i=0; i<mc.getMemberCount(); i++) {
 			System.out.println(mem[i].information());
+		}
+	}
+	
+	public void sortMember() {
+		System.out.println("====== 회원 정보 정렬 ======");
+		System.out.println("1. 아이디 오름차순 정렬");
+		System.out.println("2. 아이디 내림차순 정렬");
+		System.out.println("3. 나이 오름차순 정렬");
+		System.out.println("4. 나이 내림차순 정렬");
+		System.out.println("5. 성별 내림차순 정렬 (남여 순)");
+		System.out.println("9. 이전 메뉴로");
+		System.out.println("메뉴 선택 : ");
+		int menu = Integer.parseInt(sc.nextLine());
+		
+		if(menu == 9) {
+			System.out.println("이전 메뉴로 돌아갑니다.");
+			return;
+		}else {
+			Member[] mem = null;
+			switch(menu) {
+			case 1:
+				mem = mc.sortIdAsc();
+				break;
+			case 2:
+				mem = mc.sortIdDesc();
+				break;
+			case 3:
+				mem = mc.sortAgeAsc();
+				break;
+			case 4:
+				mem = mc.sortAgeDesc();
+				break;
+			case 5: 
+				mem = mc.sortGenderDesc();
+				break;
+			}			
+			for(int i=0; i<mc.getMemberCount(); i++) {
+				System.out.println(mem[i].information());
+			}
+			return;
 		}
 	}
 }

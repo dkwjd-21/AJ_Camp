@@ -1,6 +1,6 @@
 package com.test4.model.vo;
 
-public class Member implements Comparable{
+public class Member implements Comparable<Member>{
 	private String userId;		// 아이디
 	private String userPwd;		// 비밀번호
 	private String name;		// 이름
@@ -74,16 +74,8 @@ public class Member implements Comparable{
 	}
 
 	@Override
-	public int compareTo(Object o) {
-		Member other = (Member)o;
-		/* "A".compareTo("B") → -1  // A가 B보다 앞에 있으므로 음수
-		   "B".compareTo("A") → 1   // B가 A보다 뒤에 있으므로 양수
-	 	   "A".compareTo("A") → 0   // 같으므로 0
-		 * */
-		// 오름차순 
-	    return this.getUserId().compareTo(other.getUserId());
+	public int compareTo(Member o) {
+		return this.getUserId().compareTo(o.getUserId());
 	}
-
-	
 		
 }

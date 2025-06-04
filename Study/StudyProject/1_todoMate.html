@@ -11,9 +11,11 @@
     <!-- header -->
     <div id="header">
         <span class="leftSpan">❤</span>
-        <span class="rightSpan">📆</span>
-        <span class="rightSpan">✉</span>
-        <span class="rightSpan">💬</span>
+        <div class="rightSpan">
+            <span>📆</span>
+            <span>✉</span>
+            <span onclick="categoryPopUp()">💬</span>
+        </div>        
     </div>
     
     <!-- nav -->
@@ -94,5 +96,27 @@
             <span>📃리스트 메뉴 </span>
         </div>
     </div>
+    <!-- button click event : editList -->
+    <div id="editList">
+        <h1>title</h5>
+        <div id="editDiv" onclick="editTitle()">
+            <p class="editImg">📝</p>
+            <p class="editText">수정하기</p>
+        </div>
+        <div id="delDiv" onclick="delList()">
+            <p class="editImg">📮</p>
+            <p class="editText">삭제하기</p>
+        </div>
+    </div>
+    <!-- button click event : edit category -->
+    <div id="editCategory" onclick="category()">
+        <h3>카테고리 등록 +</h3>
+        <h3>카테고리 관리</h3>
+        <h3>루틴 관리</h3>
+        <h3>리마인더 관리</h3>
+    </div>
+
+    <!-- 어두운 배경 오버레이용 -->
+    <div id="overlay"></div>
 </body>
 </html>

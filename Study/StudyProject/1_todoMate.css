@@ -182,3 +182,92 @@ div span
     background-color: white;
     border-radius: 15px;
 }
+
+/* 버튼 클릭시 보이는 리스트 수정 div */
+#editList{
+    /* display: none; */
+    opacity: 0;
+    visibility: hidden;
+    z-index: 15;
+
+    background-color: blanchedalmond;
+    width: 600px; height: 700px;
+    border-radius: 50px;
+    position: absolute;
+    left: 50%; right: 50%; 
+    top: 100%; /* 시작 위치: 아래 */
+    transform: translate(-50%, 0);
+    transition: all 0.5s ease;
+}
+#editList.show{
+    opacity: 1;
+    visibility: visible;
+    top: 50%; /* 올라올 위치 */
+    transform: translate(-50%, 0);
+}
+
+#editList h1 {
+    text-align: center;
+    margin: 40px;
+}
+.editImg{
+    font-size: 30pt;
+}
+.editText{
+    font-size: 15pt;
+}
+#editDiv{
+    float: left;
+    margin-left: 110px;
+    text-align: center;
+    background-color: white;
+    width: 150px; border-radius: 20px;
+    cursor: pointer;
+}
+#delDiv{
+    float: right;
+    margin-right: 110px;
+    text-align: center;
+    background-color: white;
+    width: 150px; border-radius: 20px;
+    cursor: pointer;
+}
+
+/* 오버레이 */
+#overlay{
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+#overlay.overlay{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 버튼 클릭시 보이는 카테고리 수정 div */
+#editCategory{
+    opacity: 0;
+    visibility: hidden;
+    z-index: 15;
+
+    background-color: blanchedalmond;
+    width: 180px; height: 190px;
+    border-radius: 15px;
+    position: fixed;
+    top: 55px; right: 95px;
+    box-shadow: 0 0 10px rgb(100, 100, 100);
+}
+
+#editCategory h3{
+    text-align: center; 
+    padding-top: 5px; padding-bottom: 5px;
+    margin-top: 10px; margin-bottom: 10px;
+}
+#editCategory h3:hover{
+    background-color: white;
+    cursor: pointer;
+}
