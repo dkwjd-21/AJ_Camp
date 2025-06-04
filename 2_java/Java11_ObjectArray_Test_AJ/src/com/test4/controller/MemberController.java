@@ -83,7 +83,6 @@ public class MemberController {
 			}
 			break;
 		}
-		
 		return searchMember;
 	}
 	
@@ -107,22 +106,16 @@ public class MemberController {
 	
 	public void deleteMember(String userId) {
 		// 매개변수로 전달받은 userId가 mem에 존재하는 경우 해당 회원 삭제 후 
-		int idx = -1;	// 해당 회원의 인덱스
-		for(int i=0; i<memberCount; i++) {
-			if(mem[i].getUserId() == userId) {
-				idx = i;
+		for(int i=0; i<mem.length; i++) {
+			if(mem[i].getUserId().equals(userId)) {
+				mem[i] = null;
 			}
 		}
 		
+		
 		// 다음 인덱스 객체들의 정보를 한 칸씩 앞으로 이동시킴
 		// 실행시 NullPointerException을 발생할 수 있음 
-		if(idx>=0) {
-			for(int i=idx; i<memberCount; i++) {
-				Member tmp = mem[i+1];
-				mem[i] = tmp;
-			}
-		}				
-		
+					
 		// memberCount 1 감소 
 		memberCount--;
 	}

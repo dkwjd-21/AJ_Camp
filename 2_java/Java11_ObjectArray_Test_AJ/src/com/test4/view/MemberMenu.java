@@ -12,8 +12,8 @@ public class MemberMenu {
 	public void mainMenu() {
 		// 반복문을 이용하여 메인 메뉴를 반복적으로 실행 
 		while(true) {
-			System.out.println(mc.getMemberCount());
 			System.out.println("========== 회원 관리 메뉴 ==========");
+			System.out.println("전체 회원 수 : "+mc.getMemberCount());
 			System.out.println("1. 신규 회원 등록");
 			System.out.println("2. 회원 정보 검색");
 			System.out.println("3. 회원 정보 수정");
@@ -103,18 +103,23 @@ public class MemberMenu {
 			System.out.println("9. 이전 메뉴로");
 			System.out.println("메뉴 선택 : ");
 			int menu = sc.nextInt(); sc.nextLine();
-			System.out.println("검색 내용 : ");
-			String search = sc.nextLine();
-			
-			Member result = mc.searchMember(menu, search);
-			
-			if(result == null) {
-				System.out.println("검색된 결과가 없습니다.");
+			if(menu==9) {
+				System.out.println("이전 메뉴로 돌아갑니다.");
 				return;
 			}else {
-				System.out.println(result.information());
-				return;
-			}			
+				System.out.println("검색 내용 : ");
+				String search = sc.nextLine();
+				
+				Member result = mc.searchMember(menu, search);
+				
+				if(result == null) {
+					System.out.println("검색된 결과가 없습니다.");
+					return;
+				}else {
+					System.out.println(result.information());
+					return;
+				}
+			}							
 		}
 	}
 	
@@ -128,23 +133,29 @@ public class MemberMenu {
 			System.out.println("9. 이전 메뉴로");
 			System.out.println("메뉴 선택 : ");
 			int menu = sc.nextInt(); sc.nextLine();
-			System.out.println("변경할 회원 아이디 : ");
-			String userId = sc.nextLine();
 			
-			// checkId 
-			Member m = mc.checkId(userId);
-			if(m == null) {
-				System.out.println("변경할 회원이 존재하지 않습니다.");
+			if(menu==9) {
+				System.out.println("이전 메뉴로 돌아갑니다.");
 				return;
 			}else {
-				System.out.println(m.information());
-				System.out.println("변경할 내용을 입력해주세요 : ");
-				String update = sc.nextLine();
+				System.out.println("변경할 회원 아이디 : ");
+				String userId = sc.nextLine();
 				
-				mc.updateMember(m, menu, update);
-				System.out.println("회원 정보가 변경되었습니다.");
-				return;
-			}					
+				// checkId 
+				Member m = mc.checkId(userId);
+				if(m == null) {
+					System.out.println("변경할 회원이 존재하지 않습니다.");
+					return;
+				}else {
+					System.out.println(m.information());
+					System.out.println("변경할 내용을 입력해주세요 : ");
+					String update = sc.nextLine();
+					
+					mc.updateMember(m, menu, update);
+					System.out.println("회원 정보가 변경되었습니다.");
+					return;
+				}		
+			}						
 		}
 	}
 
