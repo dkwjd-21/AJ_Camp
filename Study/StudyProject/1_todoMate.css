@@ -187,7 +187,6 @@ div span
 
 /* 버튼 클릭시 보이는 리스트 수정 div */
 #editList{
-    /* display: none; */
     opacity: 0;
     visibility: hidden;
     z-index: 15;
