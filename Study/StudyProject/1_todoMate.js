@@ -13,7 +13,7 @@ window.onload = () => {
 
 
 }
-// build Calender 
+// build Calendar 
 function buildCalendar(){
     // tr 행
     let row = null;
@@ -65,18 +65,18 @@ function buildCalendar(){
     console.log(defaultTd);
     defaultTd.style.backgroundColor="skyblue";
 }
-// prev Calender (이전 달)
+// prev Calendar (이전 달)
 function prevCalendar(){
     today = new Date(today.getFullYear(), today.getMonth()-1, today.getDate());
     buildCalendar();
 }
-// next Calender (다음 달)
+// next Calendar (다음 달)
 function nextCalendar(){
     today = new Date(today.getFullYear(), today.getMonth()+1, today.getDate());
     buildCalendar();
 }
 // default Month (현재 날짜로 이동)
-function defaultCalender(){
+function defaultCalendar(){
     today = new Date();
     buildCalendar();
 }
@@ -196,5 +196,41 @@ function category(){
     let category = document.getElementById("editCategory");
     category.style.opacity=0;
     category.style.visibility="hidden";
+}
+
+/*
+<div id="section3">
+            <div class="sChildDiv">
+                <span>🔒</span>
+                <span>카테고리 3</span>
+                <button onclick="button(this)" value="cate3">+</button>
+            </div>
+        </div>
+*/
+
+// 카테고리 개수 
+let sectionId = 3;
+// 카테고리 메뉴 - 카테고리 추가 클릭
+function newCate(){
+    let todoList = document.getElementById("todoList");
+    
+    let sectionDiv = document.createElement("div");
+    sectionId++;
+    sectionDiv.id = "section"+sectionId;
+
+    let sChildDiv = document.createElement("div");
+    let br = document.createElement("br");
+
+    sChildDiv.innerHTML = `<div class="sChildDiv">
+                            <span>🔒</span>
+                            <span>카테고리 ${sectionId}</span>
+                            <button onclick="button(this)" value="cate${sectionId}">+</button>
+                           </div>`;
+
+    sectionDiv.append(sChildDiv);
+
+    todoList.append(br);
+    todoList.append(sectionDiv);
+    
 }
 

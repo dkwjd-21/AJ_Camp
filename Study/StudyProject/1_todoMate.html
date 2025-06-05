@@ -11,10 +11,17 @@
     <!-- header -->
     <div id="header">
         <span class="leftSpan">❤</span>
-        <div class="rightSpan">
+        <div class="rightSpan" style="position: relative;">
             <span>📆</span>
             <span>✉</span>
             <span onclick="categoryPopUp()">💬</span>
+            <!-- button click event : edit category -->
+            <div id="editCategory" onclick="category()">
+                <h3 onclick="newCate()">카테고리 등록 +</h3>
+                <h3>카테고리 관리</h3>
+                <h3>루틴 관리</h3>
+                <h3>리마인더 관리</h3>
+            </div>
         </div>        
     </div>
     
@@ -38,7 +45,7 @@
             <p>😉</p>
         </div>
         <div id="leftDate">
-            <b onclick="defaultCalender()" style="cursor: pointer;">2025년 5월</b>
+            <b onclick="defaultCalendar()" style="cursor: pointer;">2025년 5월</b>
             <span>✅</span>
             <span id="checkVal">0</span>
             <span class="changeMon">
@@ -67,29 +74,31 @@
     </div>
     <!-- rightBody -->
     <div id="rightBody">
-        <div id="section1">
+        <div id="todoList">
+            <div id="section1">
             <div class="sChildDiv">
                 <span>🔒</span>
                 <span>카테고리 1</span>
                 <button onclick="button(this)" value="cate1">+</button>
             </div>
-        </div>
-        <br>
-        <div id="section2">
-            <div class="sChildDiv">
-                <span>🔒</span>
-                <span>카테고리 2</span>
-                <button onclick="button(this)" value="cate2">+</button>
             </div>
-        </div>
-        <br>
-        <div id="section3">
-            <div class="sChildDiv">
-                <span>🔒</span>
-                <span>카테고리 3</span>
-                <button onclick="button(this)" value="cate3">+</button>
+            <br>
+            <div id="section2">
+                <div class="sChildDiv">
+                    <span>🔒</span>
+                    <span>카테고리 2</span>
+                    <button onclick="button(this)" value="cate2">+</button>
+                </div>
             </div>
-        </div>
+            <br>
+            <div id="section3">
+                <div class="sChildDiv">
+                    <span>🔒</span>
+                    <span>카테고리 3</span>
+                    <button onclick="button(this)" value="cate3">+</button>
+                </div>
+            </div>
+        </div>        
         <hr>
         <div id="rigthLast">
             <span>✨AI 할 일 생성 </span>
@@ -108,13 +117,7 @@
             <p class="editText">삭제하기</p>
         </div>
     </div>
-    <!-- button click event : edit category -->
-    <div id="editCategory" onclick="category()">
-        <h3>카테고리 등록 +</h3>
-        <h3>카테고리 관리</h3>
-        <h3>루틴 관리</h3>
-        <h3>리마인더 관리</h3>
-    </div>
+    
 
     <!-- 어두운 배경 오버레이용 -->
     <div id="overlay"></div>

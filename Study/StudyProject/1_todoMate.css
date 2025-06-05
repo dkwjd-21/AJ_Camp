@@ -121,16 +121,18 @@ div span
     background-color: aliceblue;
     border-radius: 10px;
 }
-#rightBody > div > div > span:nth-child(1)
+
+
+#rightBody div > div > span:nth-child(1)
 {
     margin-left: 10px;
 }
-#rightBody > div > div > span
+#rightBody div > div > span
 {
     margin: 0px;
     line-height: 30px;
 }
-#rightBody > div > div > button
+#rightBody div > div > button
 {
     width: 20px; padding: 0px;
     text-align: center;
@@ -257,8 +259,8 @@ div span
     background-color: blanchedalmond;
     width: 180px; height: 190px;
     border-radius: 15px;
-    position: fixed;
-    top: 55px; right: 95px;
+    position: absolute;
+    top: 55px; right: 0px;
     box-shadow: 0 0 10px rgb(100, 100, 100);
 }
 
