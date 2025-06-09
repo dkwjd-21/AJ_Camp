@@ -8,25 +8,25 @@ public class Main {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		/*	규칙
-		 * 첫줄의 정사각형의 개수는 2^n
-		 * 첫줄의 점의 개수는 2^n+1
-		 * 전체 점의 개수는 2^n+1의 제곱
-		 * */
+		// 정수 n 입력
+		int n = Integer.parseInt(br.readLine());
 		
-		// N이 주어진다
-		int N = Integer.parseInt(br.readLine());
-		System.out.println(countDot(N));
-		
-		br.close();
-	}
-	
-	public static int countDot(int N) {
-		double cnt = 0.0;
-		
-		cnt = Math.pow(Math.pow(2, N)+1, 2);
-		
-		return (int)cnt;
+		while(n>0) {
+			int sub = 0;
+			// for문을 돌며 1, 11, 111, 1111 ... 을 나눈 값이 0이면 다음 케이스 진행
+			for(int i=0; i<=n; i++) {
+				sub += (int)Math.pow(10, i);
+				
+				if(sub%n == 0) {
+					System.out.println(i+1);
+					break;
+				}
+			}
+			
+			n = Integer.parseInt(br.readLine());
+		}
 	}
 }
+
+9901처럼 큰수의 배수는 처리할 수 없어. 
 

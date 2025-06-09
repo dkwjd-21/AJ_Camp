@@ -550,6 +550,35 @@ SELECT EMP_NAME 직원명,
 		SUBSTR(EMP_NO, 1, 2)||'년 '||
 		SUBSTR(EMP_NO, 3, 2)||'월 '||
 		SUBSTR(EMP_NO, 5, 2)||'일' 생년월일,
-		EMP_NO 나이
+		EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM TO_DATE(SUBSTR(EMP_NO, 1, 6), 'YYMMDD') ) 나이
+FROM EMPLOYEE
+WHERE EMP_ID NOT IN (200, 201, 214);
+
+-- 직원들의 입사일로부터 년도만 가지고, 각 년도별 입사인원수를 구하시오
+-- 아래의 년도에 입사한 인원수를 조회하시오
+-- 		=> to_char, decode, sum 사용
+--
+-- --------------------------------------------------------
+-- 전체직원수		2001년	2002년	2003년	2004년
+-- --------------------------------------------------------
+SELECT COUNT(*) 전체,
+	   COUNT( DECODE( TO_CHAR( EXTRACT(YEAR FROM HIRE_DATE) ), '2001', 1 ) ) "2001년",
+	   COUNT( DECODE( TO_CHAR( EXTRACT(YEAR FROM HIRE_DATE) ), '2002', 1 ) ) "2002년",
+	   COUNT( DECODE( TO_CHAR( EXTRACT(YEAR FROM HIRE_DATE) ), '2003', 1 ) ) "2003년",
+	   COUNT( DECODE( TO_CHAR( EXTRACT(YEAR FROM HIRE_DATE) ), '2004', 1 ) ) "2004년"
 FROM EMPLOYEE;
+
+-- 9. 부서코드가 D5면 총무부, D6이면 기획부, D9면 영업부로 처리하시오
+-- 		단, 부서코드가 D5, D6, D9인 직원의 정보만 조회함
+-- 		=> CASE 사용
+--		부서코드 기준 오름차순 정렬
+SELECT EMP_NAME 사원명, DEPT_CODE 부서코드,
+		CASE
+			WHEN DEPT_CODE='D5' THEN '총무부'
+			WHEN DEPT_CODE='D6' THEN '기획부'
+			WHEN DEPT_CODE='D9' THEN '영업부'
+		END "부서명"
+FROM EMPLOYEE
+WHERE DEPT_CODE IN ('D5', 'D6', 'D9')
+ORDER BY 부서코드;
 		
