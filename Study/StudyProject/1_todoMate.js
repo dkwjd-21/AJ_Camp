@@ -198,16 +198,6 @@ function category(){
     category.style.visibility="hidden";
 }
 
-/*
-<div id="section3">
-            <div class="sChildDiv">
-                <span>🔒</span>
-                <span>카테고리 3</span>
-                <button onclick="button(this)" value="cate3">+</button>
-            </div>
-        </div>
-*/
-
 // 카테고리 개수 
 let sectionId = 3;
 // 카테고리 메뉴 - 카테고리 추가 클릭
