@@ -103,7 +103,7 @@ function clickedTd(td)
 // 카테고리 + 버튼 누르면 할 일 추가
 function button(btn)
 {
-    console.log("button click!", btn);
+    // console.log("button click!", btn);
     
     // btn의 parent "div"의 형제로 요소 추가 - div 요소 생성해서 추가
     let newDiv = document.createElement("div");
