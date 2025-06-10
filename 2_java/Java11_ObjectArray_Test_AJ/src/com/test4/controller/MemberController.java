@@ -129,15 +129,49 @@ public class MemberController {
 		// 기존의 회원 객체 배열을 변경하지 않고 단지 정렬된 결과만을 보여줌
 		// 기존의 배열 복사해서 사용. clone() or System.arraycopy() 둘 중 하나 사용
 		Member copy[] = mem.clone();
+		Member tmp = new Member();
+//		Member tmp[] = new Member[10];
 		
-		// copy 배열을 아이디별 오름차순 정렬 진행 *compareTo() 메소드 활용
-		Arrays.sort(copy);
+		// copy 배열을 아이디 별 오름차순 정렬 진행 --> HINT : compareTo() 메소드 활용
+		// 반복문을 통해 요소 하나씩, ID값 꺼내와서 
+		// 선택 정렬 알고리즘을 구현해야한다. 
+		for(int i=0; i<memberCount-1; i++) {
+			for(int j=i+1; j<memberCount; j++) {
+				int res = copy[i].getUserId().compareTo(copy[j].getUserId());
+				
+				// 1이면 위치를 바꿈 - 오름차순. 
+				if(res==1) {
+					tmp = copy[i];
+					copy[i] = copy[j];
+					copy[j] = tmp;
+				}
+			}			
+		}
 		
+		// copy 주소 값 리턴
 		return copy;		
 	}
 	
 	public Member[] sortIdDesc() {
-		Member copy[] = mem.clone();
+		Member copy[] = mem.clone();		
+		Member tmp = new Member();
+//		Member tmp[] = new Member[10];
+		
+		// copy 배열을 아이디 별 오름차순 정렬 진행 --> HINT : compareTo() 메소드 활용
+		// 반복문을 통해 요소 하나씩, ID값 꺼내와서 
+		// 선택 정렬 알고리즘을 구현해야한다. 
+		for(int i=0; i<memberCount-1; i++) {
+			for(int j=i+1; j<memberCount; j++) {
+				int res = copy[i].getUserId().compareTo(copy[j].getUserId());
+				
+				// 1이면 위치를 바꿈 - 내림차순. 
+				if(res==-1) {
+					tmp = copy[i];
+					copy[i] = copy[j];
+					copy[j] = tmp;
+				}
+			}			
+		}
 		
 		return copy;
 	}
