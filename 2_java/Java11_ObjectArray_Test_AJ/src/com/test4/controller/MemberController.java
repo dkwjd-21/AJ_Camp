@@ -35,8 +35,7 @@ public class MemberController {
 				m = mem[i];
 				break;
 			}
-		}
-		
+		}		
 		return m;
 	}
 	
@@ -165,7 +164,7 @@ public class MemberController {
 				int res = copy[i].getUserId().compareTo(copy[j].getUserId());
 				
 				// 1이면 위치를 바꿈 - 내림차순. 
-				if(res==-1) {
+				if(res!=1) {
 					tmp = copy[i];
 					copy[i] = copy[j];
 					copy[j] = tmp;
@@ -178,18 +177,67 @@ public class MemberController {
 	
 	public Member[] sortAgeAsc() {
 		Member copy[] = mem.clone();
+		Member tmp = new Member();
+		
+		for(int i=0; i<memberCount-1; i++) {
+			for(int j=i+1; j<memberCount; j++) {
+				// 결과가 음수면 copy[j]의 age가 더 크다. 
+				// 결과가 양수면 copy[j]의 age가 더 작다. -> 순서 변경
+				int res = copy[i].getAge()-copy[j].getAge();
+				
+				if(res>0) {
+					tmp = copy[i];
+					copy[i] = copy[j];
+					copy[j] = tmp;
+				}
+			}
+		}	
 		
 		return copy;
 	}
 	
 	public Member[] sortAgeDesc() {
-		Member copy[] = mem.clone();
+		Member copy[] = mem.clone();		
+		Member tmp = new Member();
+		
+		for(int i=0; i<memberCount-1; i++) {
+			for(int j=i+1; j<memberCount; j++) {
+				// 결과가 음수면 copy[j]의 age가 더 크다. -> 순서 변경
+				// 결과가 양수면 copy[j]의 age가 더 작다. 
+				int res = copy[i].getAge()-copy[j].getAge();
+				
+				if(res<0) {
+					tmp = copy[i];
+					copy[i] = copy[j];
+					copy[j] = tmp;
+				}
+			}
+		}	
 		
 		return copy;
 	}
 	
 	public Member[] sortGenderDesc() {
 		Member copy[] = mem.clone();
+		Member tmp = new Member();
+		
+		for(int i=0; i<memberCount-1; i++) {
+			for(int j=i+1; j<memberCount; j++) {
+				String copyi = copy[i].getGender()+"";
+				String copyj = copy[j].getGender()+"";
+				
+				int res = copyi.compareTo(copyj);
+				
+				// 남자(M)가 앞으로 오게 정렬
+				// F & M Compare -> F - M = 음수면 바꾼다!!!!! 
+				if(res<0) {
+					tmp = copy[i];
+					copy[i] = copy[j];
+					copy[j] = tmp;
+				}
+			}
+		}
+		
 		
 		return copy;
 	}

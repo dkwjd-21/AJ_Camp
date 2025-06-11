@@ -223,4 +223,8 @@ function newCate(){
     todoList.append(sectionDiv);
     
 }
-
+// 카테고리 메뉴 - 카테고리 관리 클릭
+function manageCate(){
+    // console.log("manageCate()");
+    
+}
