@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" href="./1_todoMate.css">
     <script type="text/javascript" src="./1_todoMate.js"></script>
 </head>
-<body>
+<body style="position: relative;">
     <!-- header -->
     <div id="header">
         <span class="leftSpan">❤</span>
@@ -81,16 +81,16 @@
                 <span>카테고리 1</span>
                 <button onclick="button(this)" value="cate1">+</button>
                 </div>
+                <br>
             </div>
-            <br>
             <div id="section2">
                 <div class="sChildDiv">
                     <span>🔒</span>
                     <span>카테고리 2</span>
                     <button onclick="button(this)" value="cate2">+</button>
                 </div>
+                <br>
             </div>
-            <br>
             <div id="section3">
                 <div class="sChildDiv">
                     <span>🔒</span>
@@ -120,5 +120,31 @@
 
     <!-- 어두운 배경 오버레이용 -->
     <div id="overlay"></div>
+
+    <!-- 카테고리 관리 팝업 -->
+    <div id="mangeCatePop">
+        <p onclick="closeCatePop()">X</p>
+        <br> <br> <br>
+        <from>
+            <div id="selectCate">
+                <select>
+                    <option value="section1">카테고리 1</option>
+                    <option value="section2">카테고리 2</option>
+                    <option value="section3">카테고리 3</option>
+                </select>
+            </div>
+            <div id="doMangeCate">
+                <div id="editCate">
+                    <input type="text">
+                    <input type="submit" value="수정" onclick="editCate()">
+                </div>
+                <br>
+                <div id="deleteCate">
+                    <input type="submit" value="삭제" onclick="delCate()">
+                </div>
+            </div>
+        </from>
+        
+    </div>
 </body>
 </html>

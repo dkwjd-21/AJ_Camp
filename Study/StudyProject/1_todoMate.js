@@ -209,22 +209,73 @@ function newCate(){
     sectionDiv.id = "section"+sectionId;
 
     let sChildDiv = document.createElement("div");
-    let br = document.createElement("br");
 
-    sChildDiv.innerHTML = `<div class="sChildDiv">
+    sChildDiv.innerHTML = `<br><div class="sChildDiv">
                             <span>🔒</span>
                             <span>카테고리 ${sectionId}</span>
                             <button onclick="button(this)" value="cate${sectionId}">+</button>
                            </div>`;
 
     sectionDiv.append(sChildDiv);
-
-    todoList.append(br);
     todoList.append(sectionDiv);
     
 }
 // 카테고리 메뉴 - 카테고리 관리 클릭
 function manageCate(){
     // console.log("manageCate()");
+    let manaCate = document.getElementById("mangeCatePop");
+
+    manaCate.style.visibility="visible";
+
+    // overlay on
+    let overlay = document.getElementById("overlay");
+    overlay.classList.add("overlay");
+}
+
+function closeCatePop(){
+    let manaCate = document.getElementById("mangeCatePop");
+    manaCate.style.visibility="hidden";
+
+    // overlay off
+    let overlay = document.getElementById("overlay");
+    overlay.classList.remove("overlay");  
+}
+
+function delCate(){
+    let targetID = document.getElementById("selectCate").children[0];
+    console.log(targetID.value);
     
+    let tagetEle = document.getElementById(targetID.value);
+    console.log(tagetEle);
+    
+   
+    if(confirm(targetID.value+" 카테고리를 정말로 삭제하시겠습니까?")){
+        tagetEle.remove();
+
+        closeCatePop();
+
+        // overlay off
+        let overlay = document.getElementById("overlay");
+        overlay.classList.remove("overlay");  
+    }    
+}
+
+function editCate(){
+    let targetID = document.getElementById("selectCate").children[0];
+    // console.log(targetID.value);
+    
+    let tagetEle = document.getElementById(targetID.value);
+    // console.log(tagetEle);
+
+    let content = document.getElementById("editCate").children[0].value;
+    console.log(content);
+    
+    if(confirm(targetID.value+"의 이름을 "+content+"로 변경하시겠습니까?")){
+        tagetEle.children[0].children[1].textContent = content;
+        closeCatePop();
+
+        // overlay off
+        let overlay = document.getElementById("overlay");
+        overlay.classList.remove("overlay"); 
+    }
 }
