@@ -24,6 +24,7 @@ public class JDBCTemplate {
 		
 	try {
 		con = DriverManager.getConnection(url, id, pw);
+		con.setAutoCommit(false); 	// 자동커밋 끄겠다. 
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
