@@ -1,0 +1,22 @@
+eclipse ide
+window > preferences
+
+1. java > installed JREs > add > program files > amazon corretto
+jdk 11.0.27.6 load
+
+2. java > compiler > level 11
+
+3. encoding > General > Workspace > Text file encoding 
+other UTF-8
+
+4. new Java Project
+JRE : Use a project specific JRE 
+Module : "Create module-info.java file" check false
+
+Open the Java perspective -> No 
+
+5. src 폴더 : 소스코드 넣는 폴더 
+- New Java Class 파일 생성 
+  - package : "com.test" 프로젝트 내부에서 패키지로 세분화
+        유사 폴더? 라고 보면 됨
+bin 폴더 : 컴파일 된 .class 파일이 들어있음!!! -> 실행

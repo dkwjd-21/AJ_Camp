@@ -1,2 +1,0 @@
-module JDBC02_Product {
-}

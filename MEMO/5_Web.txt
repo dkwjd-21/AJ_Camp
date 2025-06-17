@@ -1,0 +1,28 @@
+5_Web 
+encoding - CSS, HTML, JSP 다 UTF8 로 변경 하기( 맨위에 있음 )
+
+새프로젝트 > 웹 폴더 > 다이나믹 웹 프로젝트 생성 
+타겟 런타임 > 아파치 톰캣 
+next
+빌드패스 원래 있는거 지우고 src 생성함! 
+next
+Content directory : WebContent
+제너레이트 어저고저쩌고xml : 지금은 일단 무시 
+
+tomcat 다운로드 (구글링) 
+tomcat 9 다운로드 
+Core : zip 
+
+그냥 압축해제하고 C드라이브 넣기 !! 
+bin > setup 
+
+이클립스에 > Servers 창 
+우클릭 new Server > 아파치 > 톰캣 9 > next > 브라우즈 > 아파치폴더 선택 . 피니쉬
+서버 우클릭 start -> Started, Synchronized 로 바뀌면 성공!!!! 
+서버 우클릭 add and remove, 프로젝트 선택 -> add 
+웹컨텐츠 -> HTML 
+ctrl+f11 으로 접속 
+
+프로젝트 프로퍼티 -> project facets -> runtimes > 아파치 체크!! 
+
+

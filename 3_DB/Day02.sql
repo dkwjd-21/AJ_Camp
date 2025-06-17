@@ -57,7 +57,7 @@ WHERE DEPT_CODE = 'D2' OR DEPT_CODE = 'D1';
 
 -- SELECT에 연산이 들어갈 수 있다.
 -- 컬럼값이 NULL이라면 어떤 연산 처리가 되어도
--- 결과 값은 누조건 NULL이다. 
+-- 결과 값은 무조건 NULL이다. 
 SELECT EMP_NAME 사원명,
 	   SALARY 급여,
 	   (SALARY*12) 연봉,
