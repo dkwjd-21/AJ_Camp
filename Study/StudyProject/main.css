@@ -1,0 +1,14 @@
+body{
+    margin: 0 auto;
+    background-color: pink;
+    width: 1024px;
+}
+
+header{
+    background-color: white;
+    height: 130px;
+}
+.Multicampus{
+    width: 190px; height: 56;
+    float: left;
+}
