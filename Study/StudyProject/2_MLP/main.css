@@ -1,0 +1,390 @@
+/* body */
+body{
+    margin: 0 auto;
+    background-color: rgb(255, 223, 228);
+    width: 1024px;
+}
+
+/* header */
+header{
+    margin-top: 20px; margin-bottom: 0;
+    height: 80px;
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/* header 내부 요소 레이아웃 */
+header .Multicampus{
+    /* 로고 */
+    float: left;    
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+header .Search{
+    /* 검색창 */
+    margin: auto; 
+
+    width: 350px; height: 35px;
+    background-color: white;
+    border-radius: 15px;    
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .Search > span{
+    margin: 10px;
+}
+header .Profile{
+    /* 프로필 */
+    float: right;
+    margin-right: 10px;
+
+    display: flex;
+    align-items: center;
+}
+header .Profile span{
+    font-size: 18pt;
+    margin-right: 10px;
+    cursor: pointer;
+}
+header .Profile img{
+    width: 40px;
+    cursor: pointer;
+}
+
+/* nav - 카테고리 */
+nav{
+    margin-top: 0;
+    height: 50px;
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+}
+/* nav 카테고리 내부 요소 레이아웃 */
+nav h3{
+    /* 카테고리 분류 제목 */
+    float: right;
+    margin-left: 10px;
+    cursor: pointer;
+}
+nav ul{
+    /* 카테고리 리스트 */
+    list-style: none;
+    display: flex;
+    gap: 35px;    
+    cursor: pointer;
+}
+nav ul li{
+    /* 카테고리 항목들 */
+    display: inline;    
+}
+nav ul li:hover{
+    font-weight: bold;
+}
+
+/* MainBody 레이아웃 */
+#MainBody {
+  display: flex;
+  height: calc(100vh - 130px); /* header + nav 높이 제외한 영역 */
+  overflow: hidden; /* 전체에서 스크롤 안되게 */
+}
+
+/* LeftBody */
+#LeftBody{
+    float: left;
+    width: 390px; padding: 10px;
+    background-color: rgb(215, 235, 243);   
+    overflow-y: auto;
+}
+
+/* LeftBody 요소들 레이아웃 */
+/* LeftBody Profile */
+#LeftProfile {
+    background-color: white;
+    border-radius: 15px;
+}
+#LeftProfile div:nth-child(1) {
+    display: flex;
+    align-items: flex-start; /* 이미지 위 기준 정렬 */
+    padding: 10px;
+}
+#LeftProfile div:nth-child(1) img {
+    width: 75px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+#LeftProfile div:nth-child(1) > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#LeftProfile div:nth-child(1) h2 {
+    margin: 0;
+    margin-bottom: 5px; /* p와 간격 */
+    font-size: 1.2em;
+}
+#LeftProfile div:nth-child(1) p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+#LeftProfile div:nth-child(2), #LeftProfile div:nth-child(3){
+    margin-left: 10px;
+}
+#LeftProfile div:nth-child(3) p{
+    display: inline-block;
+}
+#LeftProfile div:nth-child(3) p:nth-child(2){
+    float: right;
+    margin-right: 10px;
+    background-color: rgb(243, 243, 243);
+    border: solid rgb(223, 223, 223) 1px;
+    width: 100px;
+    text-align: center; 
+    cursor: pointer;
+}
+#LeftProfile div:nth-child(3) p:nth-child(2):hover{
+    background-color: rgb(207, 207, 207);
+}
+
+/* LeftBody LeftFeed */
+#LeftFeed{
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 15px;
+    padding-top: 15px;
+}
+#LeftFeed > h2 {
+    /* 제목 */
+    margin-top: 10px;
+    margin-left: 10px;
+}
+#LeftFeed ul {
+    /* ul 기본 리셋 */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#LeftFeed ul li {
+    /* li 항목 스타일 */
+    padding: 12px 10px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+#LeftFeed ul li:last-child {
+    /* 마지막 li 항목은 border 제거 */
+    border-bottom: none;
+}
+#LeftFeed ul li:hover {
+    /* hover 시 배경색 변경 */
+    background-color: #f0f8ff; /* 연한 하늘색 */
+}
+
+/* LeftBody LeftFriend */
+#LeftFriend {
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 10px;
+}
+#LeftFriend > p:first-child {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#LeftFriend > p:nth-child(2),
+#LeftFriend > p:nth-child(3) {
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+/* LeftBody LeftFriend - FriendList */
+.FriendList {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+.FriendList img {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.FriendList p {
+    margin: 2px 0;
+}
+
+
+/* RightBody */
+#RightBody{
+    float: right;
+    width: 590px; padding: 10px;
+    background-color: rgb(251, 239, 255);    
+    overflow-y: auto;
+}
+
+/* RightBody 요소들 레이아웃 */
+/* RightBasic */
+#RightBasic {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+#RightBasic h3 {
+    margin: 0;
+    font-size: 20px;
+}
+#RightBasic button {
+    padding: 6px 12px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* RightSearch 검색 영역 */
+#RightSearch {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+#RightSearch input[type="text"] {
+    padding: 6px 10px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    width: 220px;
+}
+#RightSearch select {
+    padding: 6px 10px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+}
+#RightSearch img {
+    height: auto;
+}
+
+/* 피드 전체 박스 */
+.RightFeeds {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 피드 프로필 영역 */
+.FeedProfile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.FeedProfile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.FeedProfile h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.FeedProfile p {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+}
+
+/* 피드 콘텐츠 영역 */
+.FeedContents span {
+    font-size: 13px;
+    color: #888;
+    margin-right: 5px;
+}
+
+.FeedContents h3 {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.feed-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  white-space: pre-line;
+}
+
+
+.FeedContents img {
+    margin-top: 10px;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+/* 태그 및 반응 영역 */
+.FeedTag p {
+    background-color: #eee;
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.FeedContents div span {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* 댓글 작성 영역 */
+.FeedContents form {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.FeedContents form img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.FeedContents form input[type="text"] {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.FeedContents form input[type="submit"] {
+    padding: 6px 10px;
+    border: none;
+    background-color: #6c63ff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.FeedContents > div:last-child {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #444;
+}

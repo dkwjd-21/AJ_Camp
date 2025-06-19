@@ -35,8 +35,8 @@
              	<td><a href="selectone.jsp?myno=<%=list.get(i).getMyno()%>"><%= list.get(i).getMytitle() %></a></td>
 
              	<td><%= list.get(i).getMydate() %></td>
-             	<td><button onclick="">수정</button></td>
-             	<td><button onclick="">삭제</button></td>
+             	<td><button onclick="myupdate.jsp?myno=<%=list.get(i).getMyno()%>">수정</button></td>
+             	<td><button onclick="mydelete.jsp?myno=<%=list.get(i).getMyno()%>">삭제</button></td>
 			</tr>
 <%			
 		}

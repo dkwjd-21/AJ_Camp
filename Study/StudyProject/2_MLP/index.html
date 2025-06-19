@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="/main.css">
+    <link type="text/css" rel="stylesheet" href="main.css">
     <title>MLP Clone Coding</title>
 </head>
 <body>
@@ -11,14 +11,14 @@
         <div class="Multicampus">
             <img src="./source/logo_mlp_b.png">
         </div>
-        <div>
+        <div class="Search">
             <span>관심있는 주제, 키워드로 검색해보세요.</span>
             <span>🔍</span>
         </div>
-        <div>
+        <div class="Profile">
             <span>➕</span>
             <span>💡</span>
-            <span><img src="./source/ProfileImage1.jpg" style="width: 40px;"></span>
+            <img src="./source/ProfileImage1.jpg">
         </div>
     </header>
     <nav>
@@ -30,17 +30,20 @@
             <li>나의학습</li>
         </ul>
     </nav>
-    <div id="LeftBody">
+    <div id="MainBody">
+        <div id="LeftBody">
         <div id="LeftProfile">
             <div>
                 <img src="./source/ProfileImage1.jpg">
-                <h2>강차차</h2>
-                <p>[현대이지웰] Java 풀스택 개발자 아카데미 5회차 · K-디지털</p>
+                <div>
+                    <h2>강차차</h2>
+                    <p>[현대이지웰] Java 풀스택 개발자 아카데미 5회차 · K-디지털</p>
+                </div>                
             </div>
             <div>
-                <span>팔로워</span><span>0</span>
+                <span>팔로워 </span><span>0</span>
                 |
-                <span>팔로잉</span><span>0</span>
+                <span>팔로잉 </span><span>0</span>
             </div>
             <div>
                 <p>🥈🥇</p>
@@ -48,7 +51,7 @@
             </div>
         </div>
         <div id="LeftFeed">
-            <p>전체 피드</p>
+            <h2>전체 피드</h2>
             <ul>
                 <li>📢 알려드립니다!</li>
                 <li>우리회사 피드</li>
@@ -63,21 +66,20 @@
             <p><</p>
             <p>></p>
             <div class="FriendList">
-                <img src="./source/ProfileImage2.png">
+                <img src="./source/ProfileImage2.png" style="width: 100px;">
                 <p>박도도</p>
                 <p>[현대이지웰] Java 풀스택 개발자 아카데미 5회차 · K-디지털</p>
             </div>
             <div class="FriendList">
-                <img src="./source/ProfileImage3.png">
+                <img src="./source/ProfileImage3.png" style="width: 100px;">
                 <p>윤시시</p>
                 <p>[현대이지웰] Java 풀스택 개발자 아카데미 5회차 · K-디지털</p>
             </div>
         </div>
-    </div>
-    <div id="RightBody">
+        </div>
+        <div id="RightBody">
         <div id="RightBasic">
-            <h3>전체 피드</h3>
-            <p>📌</p>
+            <h3>전체 피드 📌</h3>
             <button>+ 피드작성</button>
         </div>
         <div id="RightSearch">
@@ -109,19 +111,19 @@
                 <span>[5차/현대이지웰] Java 풀스택 개발자 > </span>
                 <span>⑤설문 및 기타공지</span>
                 <h3>[교과목 평가안내] 서비스 개발언어 (6/17)</h3>
-                <pre>
-                    안녕하세요 여러분 ~
-                    다음주 6월 17일(화) 오후 5시 <서비스 개발 언어> 교과목 평가가 있습니다.
-                    ＊ 난이도가 높지 않습니다~! 부담 갖지 마세요~!
-
-                    * 일시: 6/17(월), 오후 5시 ~ (60분 제한)
-                    - 시험은 강사님 설문을 먼저 참여하셔야 응시 가능합니다.
-                    - 시험은 '객관식 + O,X'으로 총 20문제 입니다.
-                    - 시험은 필수 과정으로, 미응시 시 해당 교과목 '미이수' 처리 됩니다.
-
-                    과정 수료증에 해당 교과목 '미이수' 표시
-                    60점 미만이신 분들은 추후 새로운 일정을 잡아 교육 종료 이후에 재시험을 보셔야 합니다.
-                </pre>
+                <div class="feed-text">
+                  안녕하세요 여러분 ~<br>
+                  다음주 6월 17일(화) 오후 5시 &lt;서비스 개발 언어&gt; 교과목 평가가 있습니다.<br><br>
+                  ＊ 난이도가 높지 않습니다~! 부담 갖지 마세요~!<br><br>
+                                
+                  * 일시: 6/17(월), 오후 5시 ~ (60분 제한)<br>
+                  - 시험은 강사님 설문을 먼저 참여하셔야 응시 가능합니다.<br>
+                  - 시험은 '객관식 + O,X'으로 총 20문제 입니다.<br>
+                  - 시험은 필수 과정으로, 미응시 시 해당 교과목 '미이수' 처리 됩니다.<br><br>
+                                
+                  과정 수료증에 해당 교과목 '미이수' 표시<br>
+                  60점 미만이신 분들은 추후 새로운 일정을 잡아 교육 종료 이후에 재시험을 보셔야 합니다.
+                </div>
                 <img src="./source/Content1.png">
                 <div class="FeedTag">
                     <p>시험</p>
@@ -145,6 +147,7 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+    </div>    
 </body>
 </html>
