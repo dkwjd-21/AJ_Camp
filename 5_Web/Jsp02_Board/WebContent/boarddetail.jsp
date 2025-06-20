@@ -36,6 +36,7 @@
 	BoardDao dao = new BoardDao();
 	BoardDto dto = dao.selectOne(seq);
 %>	
+<%@ include file="./form/header.jsp" %>
 	<div id="detailform">
 		<h1>Detail</h1>
 		<table>
@@ -104,5 +105,6 @@
 			</table>
 		</form>
 	</div>	
+<%@ include file="./form/footer.jsp" %>
 </body>
 </html>

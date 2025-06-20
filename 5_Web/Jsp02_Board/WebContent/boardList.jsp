@@ -29,6 +29,7 @@
 	List<BoardDto> list = dao.selectAll();
 %>	   	 
 
+<%@ include file="./form/header.jsp" %>
 	<h1>List</h1>
 	<form action="muldel.jsp" method="post" id="muldelform">
 	<table>
@@ -71,5 +72,6 @@
 		</tr>
 	</table>
 	</form>
+<%@ include file="./form/footer.jsp" %>	
 </body>
 </html>
