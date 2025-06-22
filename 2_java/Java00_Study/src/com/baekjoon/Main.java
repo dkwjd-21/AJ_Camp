@@ -3,46 +3,29 @@ package com.baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.util.Arrays;
 
 public class Main {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		// 첫째줄에 X가 주어진다. 
-		int X = Integer.parseInt(br.readLine());
-		
-		int min = 1, max = 1;
-		int idx = 1;
+		// 세 막대의 길이 a, b, c가 주어진다.
+		String input[] = br.readLine().split(" ");
+		int sides[] = {Integer.parseInt(input[0]),
+				       Integer.parseInt(input[1]),
+				       Integer.parseInt(input[2])};
+		Arrays.sort(sides);
 		
 		while(true) {
-			if(X>=min && X<=max) {
+			if(sides[2] < sides[0]+sides[1]) {
 				break;
-			}else {
-				min = max+1;
-				idx++;
-				max += idx;
-			}
-		}
+			} else {
+				sides[2]--;
+			}			
+		}		
 		
-		// X는 대각선에서 X-min+1 번째에 있음! 
-		int offset = X-min+1;
-		// 분자, 분모
-		int numerator, denominator;
-		
-		if(idx%2 == 1) {
-			// idx 홀수번이면 위로 올라감
-			numerator = idx-offset+1;
-			denominator = offset;
-		}else {
-			// 짝수번이면 아래로 내려감
-			numerator = offset;
-			denominator = idx-offset+1;
-		}
-		
-		System.out.println(numerator+"/"+denominator);
-		br.close();		
+		System.out.println(sides[0]+sides[1]+sides[2]);
+		br.close();
 	}
 }
 
