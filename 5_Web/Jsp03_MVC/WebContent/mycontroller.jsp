@@ -112,7 +112,7 @@
 		if(res>0){
 			msg="게시글 삭제 성공";
 			url="command=boardlist";
-		} else {
+		} else {J
 			msg="게시글 삭제 실패";
 			url="command=boarddetail&seq="+seq;
 		}
