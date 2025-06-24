@@ -10,12 +10,42 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function updateRole(no){
+		// location.href="logincontroller.jsp?command=updateroleform&myno="+myno;
+		
+		// form 태그 생성
+		let form = document.createElement('form');
+		form.method = 'POST';
+		form.action = 'logincontroller.jsp';
+		// <form action='logincontroller.jsp' method='POST'></form> 
+		
+		// input 태그 생성
+		let command = document.createElement('input');
+		command.type = 'hidden';
+		command.name = 'command';
+		command.value = 'updateroleform';
+		
+		let myno = document.createElement('input');
+		myno.type = 'hidden';
+		myno.name = 'myno';
+		myno.value = no;
+		
+		form.appendChild(command);
+		form.appendChild(myno);
+		
+		// body에 설정한 form태그 추가 후 submit 실행 
+		document.body.appendChild(form);
+		form.submit();
+	}
+</script>
 </head>
 <body>
 <%
 	List<MyMemberDto> list = (List<MyMemberDto>)request.getAttribute("list");
 %>
 	<h1>회원정보조회(All)</h1>
+	<button onclick="location.href='adminmain.jsp'">돌아가기</button>
 	<table>
 		<col width="50"><col width="100"><col width="100"><col width="100">
 		<col width="500"><col width="200"><col width="200"><col width="100"><col width="100">
@@ -29,6 +59,7 @@
 			<th>이메일</th>
 			<th>가입여부</th>
 			<th>등급</th>
+			<th>등급변경</th>
 		</tr>
 <%
 			for(MyMemberDto dto : list){
@@ -43,7 +74,7 @@
 					<td><%=dto.getMyemail() %></td>
 					<td><%=dto.getMyenabled().equals("Y")? "가입":"탈퇴" %></td>
 					<td><%=dto.getMyrole() %></td>
-					<td></td>
+					<td><button onclick="updateRole(<%=dto.getMyno()%>);">변경</button></td>
 				</tr>
 <%				
 			}
