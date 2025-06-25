@@ -92,8 +92,8 @@ nav ul li:hover{
 /* MainBody 레이아웃 */
 #MainBody {
   display: flex;
-  height: calc(100vh - 130px); /* header + nav 높이 제외한 영역 */
-  overflow: hidden; /* 전체에서 스크롤 안되게 */
+  /* height: calc(100vh - 130px); header + nav 높이 제외한 영역 */
+  /* overflow: hidden; 전체에서 스크롤 안되게 */
 }
 
 /* LeftBody */
@@ -228,7 +228,7 @@ nav ul li:hover{
     float: right;
     width: 590px; padding: 10px;
     background-color: rgb(251, 239, 255);    
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 /* RightBody 요소들 레이아웃 */
@@ -249,6 +249,9 @@ nav ul li:hover{
     border: 1px solid #ccc;
     border-radius: 8px;
     cursor: pointer;
+}
+#RightBasic button:hover{
+    background-color: #b8b8b8;
 }
 
 /* RightSearch 검색 영역 */
@@ -387,4 +390,24 @@ nav ul li:hover{
     margin-top: 10px;
     font-size: 14px;
     color: #444;
+}
+
+
+/* float button */
+#floatButton{
+    z-index: 5;
+    text-align: center;
+    position: fixed;
+    bottom: 30px;
+    right: 120px;
+}
+.floatbtns{
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+    border-radius: 30px;
+    border: solid 1px rgb(131, 131, 131);
+}
+.floatbtns:hover{
+    background-color: #949494;
 }
