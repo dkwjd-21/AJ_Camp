@@ -10,8 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>글 목록</h1>
-	
+	<h1 style="display: inline-block">글 목록</h1>
+	<button onclick="location.href='controller.do?command=writeform'">새 글 작성</button>
 	<table>
 		<col width="50"><col width="100"><col width="200"><col width="100">
 		<tr>

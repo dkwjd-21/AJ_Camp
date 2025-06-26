@@ -6,11 +6,11 @@ import java.util.List;
 import com.mvc.dto.MyMVCDto;
 
 public interface MyMVCDao {
-	String selectAllSql = " SELECT * FROM MYMVCBOARD ORDER BY SEQ DESC ";
+	String selectAllSql = " SELECT * FROM MYMVCBOARD ORDER BY SEQ ";
 	String selectOneSql = " SELECT * FROM MYMVCBOARD WHERE SEQ=? ";
-	String insertSql = "";
-	String updateSql = "";
-	String deleteSql = "";
+	String insertSql = " INSERT INTO MYMVCBOARD VALUES(SEQ_MYMVCBOARD.NEXTVAL, ?, ?, ?, SYSDATE) ";
+	String updateSql = " UPDATE MYMVCBOARD SET TITLE=?, CONTENT=? WHERE SEQ=? ";
+	String deleteSql = " DELETE FROM MYMVCBOARD WHERE SEQ=? ";
 	
 	public List<MyMVCDto> selectAll(Connection con);
 	public MyMVCDto selectOne(Connection con, int seq);
