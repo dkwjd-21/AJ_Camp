@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function getParam(){
+		let name = "name="+document.getElementById("name").value;
+		let kor = "kor="+document.getElementById("kor").value;
+		let eng = "eng="+document.getElementById("eng").value;
+		let math = "math="+document.getElementById("math").value;
+		
+		return "?"+name+"&"+kor+"&"+eng+"&"+math;
+	}
+	
+	window.onload=()=>{
+		document.getElementById("process").addEventListener("click", async ()=>{
+			// console.log(getParam());
+			try {
+				
+				const response = await fetch("calc"+getParam());	
+				console.log(response);
+				
+				const msg = await response.json();
+				console.log(msg);
+				
+				document.getElementById("result").innerHTML =
+					msg.name+"의 총점은 "+msg.sum+"점이고, 평균은 "+msg.avg+"점 입니다.";
+			} catch(error){
+				alert("실패 ㅠㅠ");
+			}
+		});
+			
+	}	
+</script>
+</head>
+<body>
+	<h1>성적 입력</h1>
+	이름 : <input type="text" id="name"><br>
+	국어 : <input type="text" id="kor"><br>
+	영어 : <input type="text" id="eng"><br>
+	수학 : <input type="text" id="math"><br>
+	<input type="button" id="process" value="성적 처리"><br>
+	<hr>
+	<div id="result"></div>
+</body>
+</html>

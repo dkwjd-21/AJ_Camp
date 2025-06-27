@@ -20,7 +20,7 @@ public class JDBCTemplate {
 		
 		// 집에서는 XE 학원에서는 orcl
 		// 2. db 연결 
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 		String id = "MULTI";
 		String pw = "MULTI";
 		Connection con = null;

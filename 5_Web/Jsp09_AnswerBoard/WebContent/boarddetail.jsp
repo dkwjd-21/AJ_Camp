@@ -30,7 +30,15 @@
 			<th>내용</th>
 			<td><textarea rows="10" cols="40" readonly="readonly">${dto.content }</textarea></td>
 		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" value="수정"
+					onclick="location.href='answer?command=updateform&boardno=${dto.boardno}'">
+				<input type="button" value="답글"
+					onclick="location.href='answer?command=answerform&boardno=${dto.boardno}'">
+				<button onclick="location.href='answer?command=list'">뒤로가기</button>
+		</tr>
 	</table>
-	<button onclick="location.href='answer?command=list'">뒤로가기</button>
+	
 </body>
 </html>
