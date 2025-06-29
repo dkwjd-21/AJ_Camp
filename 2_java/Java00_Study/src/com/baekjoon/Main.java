@@ -1,40 +1,36 @@
 package com.baekjoon;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
 
 public class Main {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		// 자연수 N이 주어진다.
+		// 수의 개수  N <= 1,000,000  
 		int N = Integer.parseInt(br.readLine());
+		int list[] = new int[N];
 		
-		// f(A) : A의 모든 약수를 더한 값
-		// g(N) : N보다 작거나 같은 모든 자연수의 y의 f(y)를 더한 값
-		//		  => N보다 작거나 같은 모든 자연수의 약수의 합 
-		int sumG = 0;
-		for(int i=1; i<=N; i++) {
-			sumG += sumMea(i);			
+		// O(n)
+		for(int i=0; i<N; i++) {
+			list[i] = Integer.parseInt(br.readLine());
 		}
 		
-		System.out.println(sumG);
+		// TimSort 방식. O(NlogN)
+		Arrays.sort(list);
 		
+		// O(n) 
+		for(int i : list) {
+			bw.write(i+"\n");
+		}
+		
+		bw.close();
 		br.close();
-	}
-	
-	// f(A) : A의 모든 약수를 더하는 함수
-	public static int sumMea(int A) {
-		int sum = 0;
-		
-		for(int i=1; i<=A; i++) {
-			if(A%i == 0) {
-				sum += i;				
-			}
-		}
-		
-		return sum;
 	}
 }
 
