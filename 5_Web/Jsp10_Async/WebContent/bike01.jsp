@@ -9,9 +9,14 @@
 <script type="text/javascript" src="./js/bike01.js"></script>
 </head>
 <body>
+	<form action="bike.do" method="post">
+	<input type="hidden" name="command" value="first_db">
+	<input type="submit" value="db 저장">
+	<hr>
 	<table>
 		<thead></thead>
 		<tbody></tbody>
 	</table>
+	</form>
 </body>
 </html>

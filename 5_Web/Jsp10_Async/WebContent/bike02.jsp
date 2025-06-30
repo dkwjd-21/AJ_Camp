@@ -9,6 +9,14 @@
 <script type="text/javascript" src="./js/bike02.js"></script>
 </head>
 <body>
-
+	<table>
+		<thead>
+		
+		</thead>
+		
+		<tbody>
+		
+		</tbody>
+	</table>
 </body>
 </html>
