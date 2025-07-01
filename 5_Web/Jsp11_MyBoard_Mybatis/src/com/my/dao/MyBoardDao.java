@@ -58,4 +58,39 @@ public class MyBoardDao extends SqlMapConfig{
 		return res;
 	}
 	
+	// 글 수정
+	public int update(MyBoardDto dto) {
+		SqlSession session = null;
+		int res = 0;
+		
+		try {
+			session = getSqlSessionFactory().openSession(true);
+			res = session.update(namespace+".myupdate", dto);
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		
+		
+		return res;		
+	}
+	
+	// 글 삭제
+	public int delete(int myno) {
+		SqlSession session = null;
+		int res = 0;
+		
+		try {
+			session = getSqlSessionFactory().openSession(true);
+			res = session.delete(namespace+".mydelte", myno);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		
+		return res;
+	}
+	
 }

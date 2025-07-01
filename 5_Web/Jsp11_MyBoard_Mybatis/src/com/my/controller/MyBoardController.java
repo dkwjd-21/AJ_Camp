@@ -74,6 +74,47 @@ public class MyBoardController extends HttpServlet {
 				response.sendRedirect("index.html");
 			}
 			
+		} else if (command.equals("updateform")) {
+			int myno = Integer.parseInt(request.getParameter("myno"));
+			
+			MyBoardDto dto = dao.selectOne(myno);
+			
+			request.setAttribute("dto", dto);
+			RequestDispatcher dis = request.getRequestDispatcher("myupdate.jsp");
+			dis.forward(request, response);
+			
+		} else if (command.equals("update")) {
+			String mytitle = request.getParameter("mytitle");
+			String mycontent = request.getParameter("mycontent");
+			int myno = Integer.parseInt(request.getParameter("myno")); 
+			
+			MyBoardDto dto = new MyBoardDto();
+			dto.setMytitle(mytitle);
+			dto.setMycontent(mycontent);
+			dto.setMyno(myno);			
+			
+			int res = dao.update(dto);
+			
+			if(res>0) {
+				System.out.println("update 성공!");
+				response.sendRedirect("index.html");
+			} else {
+				System.out.println("update 실패ㅠㅠ...");
+				response.sendRedirect("index.html");
+			}
+			
+		} else if(command.equals("delete")) {
+			int myno = Integer.parseInt(request.getParameter("myno"));
+			
+			int res = dao.delete(myno);
+			
+			if(res>0) {
+				System.out.println("delete 성공!");
+				response.sendRedirect("index.html");
+			} else {
+				System.out.println("delete 실패ㅠㅠ..");
+				response.sendRedirect("index.html");
+			}
 		}
 	}
 
