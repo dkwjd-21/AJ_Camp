@@ -1,13 +1,14 @@
 package com.silsub1;
 
-public class Transactioin {
+// 거래 - 거래자, 연도, 금액
+public class Transaction {
 	private Trader trader;
 	private int year;
 	private int value;
 	
-	public Transactioin() {}
+	public Transaction() {}
 
-	public Transactioin(Trader trader, int year, int value) {
+	public Transaction(Trader trader, int year, int value) {
 		super();
 		this.trader = trader;
 		this.year = year;
@@ -40,7 +41,7 @@ public class Transactioin {
 
 	@Override
 	public String toString() {
-		return "Transactioin [trader=" + trader + ", year=" + year + ", value=" + value + "]";
+		return "[Transactioin] " + trader + ", " + year + ", " + value;
 	}	
 	
 }

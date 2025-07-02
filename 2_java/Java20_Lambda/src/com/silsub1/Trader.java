@@ -1,5 +1,6 @@
 package com.silsub1;
 
+// 거래자 - 이름, 도시
 public class Trader {
 	private String name;
 	private String city;
@@ -26,7 +27,7 @@ public class Trader {
 	
 	@Override
 	public String toString() {
-		return "Trader [name=" + name + ", city=" + city + "]";
+		return "(Trader) " + name + ", " + city;
 	}
 	
 	
