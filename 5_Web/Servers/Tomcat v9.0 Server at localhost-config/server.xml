@@ -163,7 +163,7 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
       	
       	
-      <Context docBase="Jsp12_Board_Mybatis" path="/Jsp12_Board_Mybatis" reloadable="true" source="org.eclipse.jst.jee.server:Jsp12_Board_Mybatis"/><Context docBase="Jsp13_COMMUNITYBOARD" path="/Jsp13_COMMUNITYBOARD" reloadable="true" source="org.eclipse.jst.jee.server:Jsp13_COMMUNITYBOARD"/></Host>
+      <Context docBase="Jsp12_Board_Mybatis" path="/Jsp12_Board_Mybatis" reloadable="true" source="org.eclipse.jst.jee.server:Jsp12_Board_Mybatis"/><Context docBase="Jsp13_COMMUNITYBOARD" path="/Jsp13_COMMUNITYBOARD" reloadable="true" source="org.eclipse.jst.jee.server:Jsp13_COMMUNITYBOARD"/><Context docBase="Study_MLP" path="/Study_MLP" reloadable="true" source="org.eclipse.jst.jee.server:Study_MLP"/></Host>
     </Engine>
   </Service>
 </Server>
