@@ -31,5 +31,8 @@ window 창 중에 servers 원래 있는거 delete
 maven repository > spring-context 서치 
  spring context 5.3.39
 
+C:\Users\5-05\.m2\repository
+
+프로젝트 우클릭 maven > update project (프로젝트 다시 빌드) 
 
 

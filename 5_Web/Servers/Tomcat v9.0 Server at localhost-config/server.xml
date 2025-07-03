@@ -165,7 +165,7 @@
       	
       
       <Context docBase="Study_MLP" path="/Study_MLP" reloadable="true" source="org.eclipse.jst.jee.server:Study_MLP"/>
-      </Host>
+      <Context docBase="Jsp13_COMMUNITYBOARD" path="/Jsp13_COMMUNITYBOARD" reloadable="true" source="org.eclipse.jst.jee.server:Jsp13_COMMUNITYBOARD"/></Host>
     </Engine>
   </Service>
 </Server>
