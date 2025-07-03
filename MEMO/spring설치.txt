@@ -1,0 +1,35 @@
+구글링 sts3 다운로드 
+spring 3 버전이 레거시 사용도 ㄱㄴ (4버전 막아둠.. ) 
+
+Download STS3: 
+https://github.com/spring-projects/toolsuite-distribution/wiki/Spring-Tool-Suite-3
+
+3.9.13
+Setting the JDK
+STS 3.9.13 requires a JDK8+ to run on top of.
+(자바 버전을 많이 탐) 
+
+3.9.15 다운로드 ㄱㄱ 
+full distribution on Eclipse 4.18
+https://download.springsource.com/release/STS/3.9.15.RELEASE/dist/e4.18/spring-tool-suite-3.9.15.RELEASE-e4.18.0-win32-x86_64.zip
+
+STS.exe 실행
+
+설정 
+Java > Installed JREs (설치한 jdk 되어있는지 확인) 
+[encoding 서치]
+general > workspace > text file encoding UTF-8
+web > css, html, jsp file UTF-8
+server > runtime environment > 원래 있는거 delete (안해도 상관없음) 
+
+새로 생긴거~ 
+boot Dashboard / Spring Explorer / Open Perspective > "Spring"
+window 창 중에 servers 원래 있는거 delete 
+
+프로젝트 우클릭 configure > convert to maven project > finish 
+
+maven repository > spring-context 서치 
+ spring context 5.3.39
+
+
+
