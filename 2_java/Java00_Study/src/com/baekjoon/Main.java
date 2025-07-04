@@ -9,54 +9,41 @@ public class Main {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		// a~f 
-		String[] input = br.readLine().split(" ");
-		int a = Integer.parseInt(input[0]);
-		int b = Integer.parseInt(input[1]);
-		int c = Integer.parseInt(input[2]);
-		int d = Integer.parseInt(input[3]);
-		int e = Integer.parseInt(input[4]);
-		int f = Integer.parseInt(input[5]);
+		int N = br.read();
+		int M = br.read();
 		
-		// [방정식1] a*x + b*y = c
-		// [방정식2] d*x + e*y = f
+		String board[] = new String[N];
 		
-		int x=1000, y=1000;
-		
-		for(int i=-999; i<=999; i++) {
-			if(a!=0) {
-				// y == i
-				
-				// 방정식1
-				if((c-b*i)%a == 0) {		// x가 정수일 때만 계산
-					x = (c-b*i)/a;
-				}
-				
-				// 방정식2
-				if(x>=-999 && x<=999 && d*x+e*i==f) {
-					y = i;
-				}
-			} else if(b!=0) {	// a==0, b!=0
-				// x == i
-				
-				// 방정식1
-				if(c%b ==0) {	// y가 정수일 때만 계산 
-					y = c/b;
-				}
-				
-				// 방정식2
-				if(y>=-999 && y<=999 && (d*i+e*y)==f) {
-					x = i;
-				}
-			}
-			
-			if(x>=-999 && x<=999 && y>=-999 && y<=999) {
-				break;
-			}
+		// M*N 보드를 입력받음 
+		for(int i=0; i<N; i++) {
+			board[i] = br.readLine();
 		}
 		
-		System.out.println(x + " " + y);
-			
+		// 바꿔야 하는 최소값 
+		int min = Integer.MAX_VALUE;
+		
+		for(int i=0; i<=N-8; i++) {
+			for(int j=0; j<=M-8; j++) {
+				// 보드의 시작점 i번째 줄의 j번째 정사각형
+				
+				// 시작점이 B일때 다시 칠해야 하는 사각형의 개수 
+				int repaintB = 0;		
+				// 시작점이 W일때 다시 칠해야 하는 사각형의 개수
+				int repaintW = 0;
+				
+				// 잘라낸 8*8 보드판에서 다시 칠해야 하는 사각형의 개수 계산 
+				for(int x=0; x<8; x++) {
+					for(int y=0; y<8; y++) {
+						// 잘라낸 보드판의 x번째줄 y번째칸의 색상 
+						char square = board[i+x].charAt(j+y);
+						
+						
+					}					
+				}
+				
+			}			
+		}
+		
 		br.close();
 	}
 }
