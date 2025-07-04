@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="hong" class="com.test03.Score">
+		<constructor-arg name="name" value="홍길동"/>
+		<constructor-arg name="kor" value="90"/>
+		<constructor-arg name="eng" value="70"/>
+		<constructor-arg name="math" value="50"/>
+	</bean>
+	
+	<bean id="kim" class="com.test03.Score">
+		<constructor-arg name="name" value="김길동"/>
+		<constructor-arg name="kor" value="80"/>
+		<constructor-arg name="eng" value="50"/>
+		<constructor-arg name="math" value="20"/>
+	</bean>
+	
+	<bean id="choi" class="com.test03.Score">
+		<constructor-arg name="name" value="최길동"/>
+		<constructor-arg name="kor" value="60"/>
+	</bean>
+	
+	<bean id="park" class="com.test03.Score">
+		<constructor-arg value="박길동"/>
+	</bean>
+</beans>

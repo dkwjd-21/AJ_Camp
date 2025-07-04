@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="lee" class="com.test04.Address">
+		<property name="name" value="이창진"></property>
+		<property name="addr" value="서울시 서초구"></property>
+		<property name="phone" value="010-1111-1111"></property>
+	</bean>
+	
+	<!-- 김창진, 경기도 하남시, 010-2222-2222 -->
+	<bean id="kim" class="com.test04.Address">
+		<property name="name" value="김창진"></property>
+		<property name="addr" value="경기도 하남시"></property>
+		<property name="phone" value="010-2222-2222"></property>
+	</bean>
+	
+
+	<!-- user01, pass01, 이창진, 010-1111-2222 -->
+	<!-- 생성자를 이용하여 id, pw, name, phone 값 초기화하며 빈 생성 -->
+	<bean id="user1" class="com.test04.Member">
+		<constructor-arg name="id" value="user01"/>
+		<constructor-arg name="pw" value="pass01"/>
+		<constructor-arg name="name" value="이창진"/>
+		<constructor-arg name="phone" value="010-1111-2222"/>
+	</bean>
+	
+	<!-- user02, pass02, 김창진, 010-2222-3333 -->
+	<!-- setter를 이용하여 id, pw, name, phone 값 초기화하며 빈 생성 -->
+	<bean id="user2" class="com.test04.Member">
+		<property name="id" value="user02"></property>
+		<property name="pw" value="pass02"></property>
+		<property name="name" value="김창진"></property>
+		<property name="phone" value="010-2222-3333"></property>
+	</bean>
+	
+	<!-- user03, pass03, 박창진, 010-3333-4444 -->
+	<!-- 만들고 싶은 방법으로 빈 생성 -->
+	<bean id="user3" class="com.test04.Member">
+		<property name="id" value="user03"></property>
+		<property name="pw" value="pass03"></property>
+		<property name="name" value="박창진"></property>
+		<property name="phone" value="010-3333-4444"></property>
+	</bean>
+</beans>
